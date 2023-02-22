@@ -1,6 +1,6 @@
 ﻿namespace BillingApp
 {
-    partial class MainPage
+    partial class mainPage_form
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@
             this.main_Pnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_Pnl.Location = new System.Drawing.Point(0, 24);
             this.main_Pnl.Name = "main_Pnl";
-            this.main_Pnl.Size = new System.Drawing.Size(1174, 407);
+            this.main_Pnl.Size = new System.Drawing.Size(1174, 563);
             this.main_Pnl.TabIndex = 2;
             // 
             // mainBg_pB
@@ -101,7 +101,7 @@
             this.mainBg_pB.Image = global::BillingApp.Properties.Resources.krishna;
             this.mainBg_pB.Location = new System.Drawing.Point(0, 0);
             this.mainBg_pB.Name = "mainBg_pB";
-            this.mainBg_pB.Size = new System.Drawing.Size(1174, 407);
+            this.mainBg_pB.Size = new System.Drawing.Size(1174, 563);
             this.mainBg_pB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.mainBg_pB.TabIndex = 4;
             this.mainBg_pB.TabStop = false;
@@ -109,21 +109,21 @@
             // footer_Pnl
             // 
             this.footer_Pnl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.footer_Pnl.Location = new System.Drawing.Point(0, 431);
+            this.footer_Pnl.Location = new System.Drawing.Point(0, 587);
             this.footer_Pnl.Name = "footer_Pnl";
             this.footer_Pnl.Size = new System.Drawing.Size(1174, 29);
             this.footer_Pnl.TabIndex = 1;
             // 
-            // MainPage
+            // mainPage_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1174, 460);
+            this.ClientSize = new System.Drawing.Size(1174, 616);
             this.Controls.Add(this.main_Pnl);
             this.Controls.Add(this.footer_Pnl);
             this.Controls.Add(this.nav_menu_list);
             this.MainMenuStrip = this.nav_menu_list;
-            this.Name = "MainPage";
+            this.Name = "mainPage_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Billing Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
