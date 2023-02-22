@@ -14,12 +14,19 @@ namespace BillingApp
         Int32 company_id;
         Int32 subcategory_id;
         Int32 fkproduct_id;
+        Double rate;
+        Double length;
+        Double width;
+
+
+
         string product_name = "";
         string side_service = "";
         string customer_name = "";
         string subcategory_name = "";
-        string priceper_unit = "";
+        string quantity = "";
         string hsn_no = "";
+        string priceper_unit = "";
         string site_name = "";
         string contact_person = "";
         string contact_no = "";
@@ -121,7 +128,7 @@ namespace BillingApp
                         else
                         {
                             a = Convert.ToInt32(dr[0].ToString());
-                            a = a + 1;
+                            a++;
                             invoiceNo_tB.Text = a.ToString();
                         }
                     }
@@ -134,6 +141,43 @@ namespace BillingApp
                 }
         }
 
+        #region Top Bar
+
+        private void addProduct_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addproduct_form addproduct = new addproduct_form();
+            addproduct.Show();
+        }
+
+        private void addCompany_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addcompany_form addcompany = new addcompany_form();
+            addcompany.Show();
+        }
+
+        private void addInvoice_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addInvoice_form addInvoice = new addInvoice_form();
+            addInvoice.Show();
+        }
+
+        private void salesList_TSMI_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void homePage_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainPage_form addInvoice = new mainPage_form();
+            addInvoice.Show();
+        }
+
+
+
+        #endregion
 
         #region Company Details
 
@@ -253,8 +297,43 @@ namespace BillingApp
 
         #endregion
 
-
         #region Product Details
+
+        private void searchProduct_pB_btn_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                if (!string.IsNullOrEmpty(searchProductName_tB.Text))
+                {
+                    conn.Open();
+                    //SqlCommand command = new SqlCommand("SELECT subCategory_Id, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' + @searchWord +  '%' OR hsn_No LIKE '%' + @searchWord + '%' OR tbl_Product.product_Name LIKE '%' + @searchWord + '%'", conn);
+
+                    SqlCommand command = new SqlCommand("SELECT tbl_Product.product_Name, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id, subCategory_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' + @searchWord + '%' OR hsn_No LIKE '%' + @searchWord + '%' OR tbl_Product.product_Name LIKE '%' + @searchWord + '%'", conn);
+                    command.Parameters.AddWithValue("@searchWord", searchProductName_tB.Text);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                    DataTable ProductCategorydataTable = new DataTable();
+                    adapter.Fill(ProductCategorydataTable);
+
+                    selectProduct_dGV.DataSource = ProductCategorydataTable;
+                    searchProductName_tB.Text = "";
+
+                }
+                else
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("SELECT tbl_Product.product_Name, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id, subCategory_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' OR hsn_No LIKE '%' OR tbl_Product.product_Name LIKE '%'", conn);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+
+                    DataTable ProductCategorydataTable = new DataTable();
+                    adapter.Fill(ProductCategorydataTable);
+
+                    selectProduct_dGV.DataSource = ProductCategorydataTable;
+                    searchProductName_tB.Text = "";
+                }
+            }
+        }
 
         private void selectProduct_Table()
         {
@@ -308,7 +387,7 @@ namespace BillingApp
                     conn.Close();
                 }
 
-                subCatogeryProduct_tB.Text = @product_name;
+                catogeryProduct_tB.Text = @product_name;
 
             }
             else
@@ -318,78 +397,99 @@ namespace BillingApp
             }
         }
 
-        private void searchProduct_pB_btn_Click(object sender, EventArgs e)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                if (!string.IsNullOrEmpty(searchProductName_tB.Text))
-                {
-                    conn.Open();
-                    //SqlCommand command = new SqlCommand("SELECT subCategory_Id, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' + @searchWord +  '%' OR hsn_No LIKE '%' + @searchWord + '%' OR tbl_Product.product_Name LIKE '%' + @searchWord + '%'", conn);
-
-                    SqlCommand command = new SqlCommand("SELECT tbl_Product.product_Name, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id, subCategory_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' + @searchWord + '%' OR hsn_No LIKE '%' + @searchWord + '%' OR tbl_Product.product_Name LIKE '%' + @searchWord + '%'", conn);
-                    command.Parameters.AddWithValue("@searchWord", searchProductName_tB.Text);
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                    DataTable ProductCategorydataTable = new DataTable();
-                    adapter.Fill(ProductCategorydataTable);
-
-                    selectProduct_dGV.DataSource = ProductCategorydataTable;
-                    searchProductName_tB.Text = "";
-
-                }
-                else
-                {
-                    conn.Open();
-                    SqlCommand command = new SqlCommand("SELECT tbl_Product.product_Name, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id, subCategory_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' OR hsn_No LIKE '%' OR tbl_Product.product_Name LIKE '%'", conn);
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-
-                    DataTable ProductCategorydataTable = new DataTable();
-                    adapter.Fill(ProductCategorydataTable);
-
-                    selectProduct_dGV.DataSource = ProductCategorydataTable;
-                    searchProductName_tB.Text = "";
-                }
-            }
-        }
+        //private void selectProduct_btn_Click(object sender, EventArgs e)
+        //{           
+        //    subcategory_name = resultProduct_tB.Text;
+        //    product_name = catogeryProduct_tB.Text;
+        //    hsn_no = hsnNo_tB.Text;
+        //    priceper_unit = rateProduct_tB.Text;
+        //    quantity = quantity_tB.Text;
+        //    rate = Convert.ToDouble(rateProduct_tB.Text);
+        //    length = Convert.ToDouble(lengthProduct_tB.Text);
+        //    width = Convert.ToDouble(widthProduct_tB.Text);
+        //
+        //    DataTable selectedProductList_dt = new DataTable();
+        //    selectedProductList_dt.Columns.Add("SubcategoryName");
+        //    selectedProductList_dt.Columns.Add("ProductName");
+        //    selectedProductList_dt.Columns.Add("HSNNo");
+        //    selectedProductList_dt.Columns.Add("ProductPrice", typeof(decimal));
+        //    selectedProductList_dt.Columns.Add("MoldingPrice", typeof(decimal));
+        //    selectedProductList_dt.Columns.Add("Length", typeof(decimal));
+        //    selectedProductList_dt.Columns.Add("Width", typeof(decimal));
+        //
+        //    DataRow selectedProductList_row = selectedProductList_dt.NewRow();
+        //
+        //    selectedProductList_row["SubcategoryName"] = subcategory_name;
+        //    selectedProductList_row["Product Name"] = product_name;
+        //    selectedProductList_row["HSNNo"] = hsn_no;
+        //    selectedProductList_row["ProductPrice"] = Convert.ToDecimal(priceper_unit);
+        //    selectedProductList_row["MoldingPrice"] = Convert.ToDecimal(rate); 
+        //    selectedProductList_row["Length"] = Convert.ToDecimal(length);
+        //    selectedProductList_row["Width"] = Convert.ToDecimal(width);
+        //
+        //    selectedProductList_dt.Rows.Add(selectedProductList_row);
+        //}
 
         private void selectProduct_btn_Click(object sender, EventArgs e)
         {
+            subcategory_name = resultProduct_tB.Text;
+            product_name = catogeryProduct_tB.Text;
+            hsn_no = hsnNo_tB.Text;
+            priceper_unit = rateProduct_tB.Text;
+            quantity = quantity_tB.Text;
+            rate = Convert.ToDouble(rateProduct_tB.Text);
+            length = Convert.ToDouble(lengthProduct_tB.Text);
+            width = Convert.ToDouble(widthProduct_tB.Text);
 
+            DataTable selectedProductList_dt = new DataTable();
+            selectedProductList_dt.Columns.Add("SubcategoryName");
+            selectedProductList_dt.Columns.Add("ProductName");
+            selectedProductList_dt.Columns.Add("HSNNo");
+            selectedProductList_dt.Columns.Add("ProductPrice", typeof(decimal));
+            selectedProductList_dt.Columns.Add("MoldingPrice", typeof(decimal));
+            selectedProductList_dt.Columns.Add("Length", typeof(decimal));
+            selectedProductList_dt.Columns.Add("Width", typeof(decimal));
+
+            DataRow selectedProductList_row = selectedProductList_dt.NewRow();
+
+            selectedProductList_row["SubcategoryName"] = subcategory_name;
+            selectedProductList_row["ProductName"] = product_name;
+            selectedProductList_row["HSNNo"] = hsn_no;
+            selectedProductList_row["ProductPrice"] = Convert.ToDecimal(priceper_unit);
+            selectedProductList_row["MoldingPrice"] = Convert.ToDecimal(rate);
+            selectedProductList_row["Length"] = Convert.ToDecimal(length);
+            selectedProductList_row["Width"] = Convert.ToDecimal(width);
+
+            selectedProductList_dt.Rows.Add(selectedProductList_row);
+
+            selectedProductList_dGV.DataSource = selectedProductList_dt;
         }
+
 
         private void ClearProduct_btn_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void EditProduct_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteProduct_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
-        private void addSidesService_btn_Click(object sender, EventArgs e)
-        {
-            selectSide_Service();
-        }
-
-        private void sidesServicePnlClose_btn_Click(object sender, EventArgs e)
-        {
-            this.sides_ServiceScrollPnl.Visible = false;
-            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(10, 10);
-            this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(0, 0);
-        }
+        #region List Services
 
         ///Global Variable For Running Feet///
         Double CALCULATED = 0;
         /// <variable end>   /// 
 
 
-
-        private void selectService_btn_Click(object sender, EventArgs e)
-        {
-            this.sides_ServiceScrollPnl.Visible = true;
-            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(696, 291);
-            this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(8, 295);
-        }
 
         private void L1FR_CheckedChanged(object sender, EventArgs e)
         {
@@ -400,12 +500,12 @@ namespace BillingApp
             if (L1FR.Checked == true)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L1FR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -420,12 +520,12 @@ namespace BillingApp
             if (L1KM.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L1KM.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -439,12 +539,12 @@ namespace BillingApp
             if (L1HR.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L1HR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -458,12 +558,12 @@ namespace BillingApp
             if (L1CH.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L1CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -477,12 +577,12 @@ namespace BillingApp
             if (L12CH.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L12CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -496,12 +596,12 @@ namespace BillingApp
             if (L1EP.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L1EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -515,12 +615,12 @@ namespace BillingApp
             if (L12EP.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L12EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -535,13 +635,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L1GROOVE.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -559,12 +659,12 @@ namespace BillingApp
             if (L2FR.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L2FR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -582,12 +682,12 @@ namespace BillingApp
             if (L2HR.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L2HR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -606,13 +706,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L2CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -631,13 +731,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L22CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -656,13 +756,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L2EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -681,13 +781,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L22EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -706,13 +806,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (L2KM.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -729,12 +829,12 @@ namespace BillingApp
             if (L2GROOVE.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (L2GROOVE.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -752,12 +852,12 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W1FR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -776,13 +876,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1HR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -801,13 +901,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -823,13 +923,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W12CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -848,13 +948,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -873,13 +973,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W12EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -898,13 +998,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1KM.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -919,13 +1019,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + txt_2epval;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (HALFDP.Checked == false)
             {
                 CALCULATED = CALCULATED - txt_2epval;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -940,13 +1040,13 @@ namespace BillingApp
             if (FULLDP.Checked)
             {
                 CALCULATED = CALCULATED + txt_fulldpval;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (FULLDP.Checked == false)
             {
                 CALCULATED = CALCULATED - txt_fulldpval;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -1015,13 +1115,13 @@ namespace BillingApp
             {
 
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W2FR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
             {
@@ -1039,12 +1139,12 @@ namespace BillingApp
             if (W2HR.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2HR.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -1059,12 +1159,12 @@ namespace BillingApp
             if (W2CH.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -1078,12 +1178,12 @@ namespace BillingApp
             if (W22CH.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W22CH.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -1097,12 +1197,12 @@ namespace BillingApp
             if (W2EP.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -1116,12 +1216,12 @@ namespace BillingApp
             if (W22EP.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W22EP.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
@@ -1135,16 +1235,43 @@ namespace BillingApp
             if (W2KM.Checked)
             {
                 CALCULATED = CALCULATED + val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2KM.Checked == false)
             {
                 CALCULATED = CALCULATED - val3;
-                totalServiceSides_tB.Text = CALCULATED.ToString();
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
 
+        #endregion
+
+        #region Sides Service
+        private void addSidesService_btn_Click(object sender, EventArgs e)
+        {
+            selectSide_Service();
+        }
+
+        private void sidesServicePnlClose_btn_Click(object sender, EventArgs e)
+        {
+            this.selectedProductList_dGV.Location = new System.Drawing.Point(7, 14);
+            this.selectedProductList_dGV.Size = new System.Drawing.Size(700, 380);
+            this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(7, 7);
+            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(10, 10);
+        }
+
+        private void selectService_btn_Click(object sender, EventArgs e)
+        {
+            this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(7, 14);
+            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(700, 380);
+            this.selectedProductList_dGV.Location = new System.Drawing.Point(695, 7);
+            this.selectedProductList_dGV.Size = new System.Drawing.Size(10, 10);
+        }
+
+        #endregion
+
+        #region Product Details
         private void widthProduct_tB_TextChanged(object sender, EventArgs e)
         {
 
@@ -1155,6 +1282,12 @@ namespace BillingApp
 
         }
 
+
+
+
+        #endregion
+
+      
     }
 }
 

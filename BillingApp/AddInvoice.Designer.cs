@@ -32,14 +32,14 @@
             this.invoice_MainPnl = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.totalServiceCharges_lbl = new System.Windows.Forms.Label();
+            this.totalServiceCharge_lbl = new System.Windows.Forms.Label();
             this.totalServiceCharges_tB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.totalServiceSides_tB = new System.Windows.Forms.TextBox();
+            this.totalServiceSidesCharges_tB = new System.Windows.Forms.TextBox();
             this.selectService_btn = new System.Windows.Forms.Button();
             this.sideServiceSides_tB = new System.Windows.Forms.TextBox();
             this.sideService_lbl = new System.Windows.Forms.Label();
-            this.subCatogeryProduct_tB = new System.Windows.Forms.TextBox();
+            this.catogeryProduct_tB = new System.Windows.Forms.TextBox();
             this.hsnNo_lbl = new System.Windows.Forms.Label();
             this.hsnNo_tB = new System.Windows.Forms.TextBox();
             this.subCategory_lbl = new System.Windows.Forms.Label();
@@ -68,7 +68,6 @@
             this.siteName_lbl = new System.Windows.Forms.Label();
             this.siteAddress_lbl = new System.Windows.Forms.Label();
             this.product_DetailsPnl = new System.Windows.Forms.Panel();
-            this.selectedProductList_dGV = new System.Windows.Forms.DataGridView();
             this.sides_ServiceScrollPnl = new System.Windows.Forms.Panel();
             this.sides_ServicePnl = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -133,6 +132,7 @@
             this.selectServiceTitle_lbl = new System.Windows.Forms.Label();
             this.sidesServicePnlClose_btn = new System.Windows.Forms.Button();
             this.addSidesService_btn = new System.Windows.Forms.Button();
+            this.selectedProductList_dGV = new System.Windows.Forms.DataGridView();
             this.customer_DetailsPnl = new System.Windows.Forms.Panel();
             this.contactNo_tb = new System.Windows.Forms.TextBox();
             this.contactPerson_tB = new System.Windows.Forms.TextBox();
@@ -169,6 +169,14 @@
             this.clearCustomer_btn = new System.Windows.Forms.Button();
             this.selectCustomerTitle_lbl = new System.Windows.Forms.Label();
             this.searchCustomerName_lbl = new System.Windows.Forms.Label();
+            this.nav_menu_list = new System.Windows.Forms.MenuStrip();
+            this.addProduct_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCompany_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInvoice_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesList_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.homePage_TSMI = new System.Windows.Forms.ToolStripMenuItem();
+            this.quantity_lbl = new System.Windows.Forms.Label();
+            this.quantity_tB = new System.Windows.Forms.TextBox();
             this.invoice_MainPnl.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -177,10 +185,10 @@
             this.invoice_Pnl.SuspendLayout();
             this.customerAddress_DetailsPnl.SuspendLayout();
             this.product_DetailsPnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.selectedProductList_dGV)).BeginInit();
             this.sides_ServiceScrollPnl.SuspendLayout();
             this.sides_ServicePnl.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedProductList_dGV)).BeginInit();
             this.customer_DetailsPnl.SuspendLayout();
             this.invoiceIssue_TitlePnl.SuspendLayout();
             this.companyDetaills_HeaderPnl.SuspendLayout();
@@ -190,6 +198,7 @@
             this.select_CustomerPnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectCompany_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomer_pB_btn)).BeginInit();
+            this.nav_menu_list.SuspendLayout();
             this.SuspendLayout();
             // 
             // invoice_MainPnl
@@ -198,8 +207,7 @@
             this.invoice_MainPnl.Controls.Add(this.panel5);
             this.invoice_MainPnl.Controls.Add(this.invoice_Pnl);
             this.invoice_MainPnl.Controls.Add(this.company_sidePnl);
-            this.invoice_MainPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.invoice_MainPnl.Location = new System.Drawing.Point(0, 0);
+            this.invoice_MainPnl.Location = new System.Drawing.Point(0, 26);
             this.invoice_MainPnl.Name = "invoice_MainPnl";
             this.invoice_MainPnl.Size = new System.Drawing.Size(1163, 665);
             this.invoice_MainPnl.TabIndex = 0;
@@ -209,24 +217,26 @@
             this.panel5.AutoScroll = true;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(2, 335);
+            this.panel5.Location = new System.Drawing.Point(0, 335);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(408, 328);
+            this.panel5.Size = new System.Drawing.Size(416, 328);
             this.panel5.TabIndex = 141;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.totalServiceCharges_lbl);
+            this.panel6.Controls.Add(this.quantity_lbl);
+            this.panel6.Controls.Add(this.quantity_tB);
+            this.panel6.Controls.Add(this.totalServiceCharge_lbl);
             this.panel6.Controls.Add(this.totalServiceCharges_tB);
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.totalServiceSides_tB);
+            this.panel6.Controls.Add(this.totalServiceSidesCharges_tB);
             this.panel6.Controls.Add(this.selectService_btn);
             this.panel6.Controls.Add(this.sideServiceSides_tB);
             this.panel6.Controls.Add(this.sideService_lbl);
-            this.panel6.Controls.Add(this.subCatogeryProduct_tB);
+            this.panel6.Controls.Add(this.catogeryProduct_tB);
             this.panel6.Controls.Add(this.hsnNo_lbl);
             this.panel6.Controls.Add(this.hsnNo_tB);
             this.panel6.Controls.Add(this.subCategory_lbl);
@@ -248,31 +258,30 @@
             this.panel6.Controls.Add(this.ClearProduct_btn);
             this.panel6.Controls.Add(this.EditProduct_btn);
             this.panel6.Controls.Add(this.DeleteProduct_btn);
-            this.panel6.Location = new System.Drawing.Point(-1, 0);
+            this.panel6.Location = new System.Drawing.Point(0, -199);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(390, 1065);
+            this.panel6.Size = new System.Drawing.Size(396, 1123);
             this.panel6.TabIndex = 137;
             // 
-            // totalServiceCharges_lbl
+            // totalServiceCharge_lbl
             // 
-            this.totalServiceCharges_lbl.AutoSize = true;
-            this.totalServiceCharges_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalServiceCharges_lbl.Location = new System.Drawing.Point(17, 894);
-            this.totalServiceCharges_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.totalServiceCharges_lbl.Name = "totalServiceCharges_lbl";
-            this.totalServiceCharges_lbl.Size = new System.Drawing.Size(104, 20);
-            this.totalServiceCharges_lbl.TabIndex = 47;
-            this.totalServiceCharges_lbl.Text = "Total Amount";
+            this.totalServiceCharge_lbl.AutoSize = true;
+            this.totalServiceCharge_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalServiceCharge_lbl.Location = new System.Drawing.Point(17, 930);
+            this.totalServiceCharge_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.totalServiceCharge_lbl.Name = "totalServiceCharge_lbl";
+            this.totalServiceCharge_lbl.Size = new System.Drawing.Size(104, 20);
+            this.totalServiceCharge_lbl.TabIndex = 47;
+            this.totalServiceCharge_lbl.Text = "Total Amount";
             // 
             // totalServiceCharges_tB
             // 
             this.totalServiceCharges_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalServiceCharges_tB.Location = new System.Drawing.Point(175, 889);
+            this.totalServiceCharges_tB.Location = new System.Drawing.Point(201, 925);
             this.totalServiceCharges_tB.Margin = new System.Windows.Forms.Padding(2);
             this.totalServiceCharges_tB.Multiline = true;
             this.totalServiceCharges_tB.Name = "totalServiceCharges_tB";
-            this.totalServiceCharges_tB.ReadOnly = true;
             this.totalServiceCharges_tB.Size = new System.Drawing.Size(175, 30);
             this.totalServiceCharges_tB.TabIndex = 46;
             // 
@@ -280,30 +289,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 841);
+            this.label1.Location = new System.Drawing.Point(17, 877);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.Size = new System.Drawing.Size(161, 20);
             this.label1.TabIndex = 45;
-            this.label1.Text = "Side Service";
+            this.label1.Text = "Side Service Charges";
             // 
-            // totalServiceSides_tB
+            // totalServiceSidesCharges_tB
             // 
-            this.totalServiceSides_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalServiceSides_tB.Location = new System.Drawing.Point(175, 836);
-            this.totalServiceSides_tB.Margin = new System.Windows.Forms.Padding(2);
-            this.totalServiceSides_tB.Multiline = true;
-            this.totalServiceSides_tB.Name = "totalServiceSides_tB";
-            this.totalServiceSides_tB.ReadOnly = true;
-            this.totalServiceSides_tB.Size = new System.Drawing.Size(175, 30);
-            this.totalServiceSides_tB.TabIndex = 44;
+            this.totalServiceSidesCharges_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalServiceSidesCharges_tB.Location = new System.Drawing.Point(201, 872);
+            this.totalServiceSidesCharges_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.totalServiceSidesCharges_tB.Multiline = true;
+            this.totalServiceSidesCharges_tB.Name = "totalServiceSidesCharges_tB";
+            this.totalServiceSidesCharges_tB.ReadOnly = true;
+            this.totalServiceSidesCharges_tB.Size = new System.Drawing.Size(175, 30);
+            this.totalServiceSidesCharges_tB.TabIndex = 44;
             // 
             // selectService_btn
             // 
             this.selectService_btn.BackColor = System.Drawing.Color.DimGray;
             this.selectService_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectService_btn.ForeColor = System.Drawing.Color.White;
-            this.selectService_btn.Location = new System.Drawing.Point(192, 747);
+            this.selectService_btn.Location = new System.Drawing.Point(218, 718);
             this.selectService_btn.Margin = new System.Windows.Forms.Padding(2);
             this.selectService_btn.Name = "selectService_btn";
             this.selectService_btn.Size = new System.Drawing.Size(158, 36);
@@ -315,41 +324,41 @@
             // sideServiceSides_tB
             // 
             this.sideServiceSides_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sideServiceSides_tB.Location = new System.Drawing.Point(16, 796);
+            this.sideServiceSides_tB.Location = new System.Drawing.Point(16, 769);
             this.sideServiceSides_tB.Margin = new System.Windows.Forms.Padding(2);
             this.sideServiceSides_tB.Multiline = true;
             this.sideServiceSides_tB.Name = "sideServiceSides_tB";
             this.sideServiceSides_tB.ReadOnly = true;
-            this.sideServiceSides_tB.Size = new System.Drawing.Size(334, 30);
+            this.sideServiceSides_tB.Size = new System.Drawing.Size(360, 30);
             this.sideServiceSides_tB.TabIndex = 42;
             // 
             // sideService_lbl
             // 
             this.sideService_lbl.AutoSize = true;
             this.sideService_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sideService_lbl.Location = new System.Drawing.Point(17, 756);
+            this.sideService_lbl.Location = new System.Drawing.Point(17, 729);
             this.sideService_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sideService_lbl.Name = "sideService_lbl";
             this.sideService_lbl.Size = new System.Drawing.Size(97, 20);
             this.sideService_lbl.TabIndex = 41;
             this.sideService_lbl.Text = "Side Service";
             // 
-            // subCatogeryProduct_tB
+            // catogeryProduct_tB
             // 
-            this.subCatogeryProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subCatogeryProduct_tB.Location = new System.Drawing.Point(16, 528);
-            this.subCatogeryProduct_tB.Margin = new System.Windows.Forms.Padding(2);
-            this.subCatogeryProduct_tB.Multiline = true;
-            this.subCatogeryProduct_tB.Name = "subCatogeryProduct_tB";
-            this.subCatogeryProduct_tB.ReadOnly = true;
-            this.subCatogeryProduct_tB.Size = new System.Drawing.Size(334, 30);
-            this.subCatogeryProduct_tB.TabIndex = 39;
+            this.catogeryProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.catogeryProduct_tB.Location = new System.Drawing.Point(45, 405);
+            this.catogeryProduct_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.catogeryProduct_tB.Multiline = true;
+            this.catogeryProduct_tB.Name = "catogeryProduct_tB";
+            this.catogeryProduct_tB.ReadOnly = true;
+            this.catogeryProduct_tB.Size = new System.Drawing.Size(334, 30);
+            this.catogeryProduct_tB.TabIndex = 39;
             // 
             // hsnNo_lbl
             // 
             this.hsnNo_lbl.AutoSize = true;
             this.hsnNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsnNo_lbl.Location = new System.Drawing.Point(20, 582);
+            this.hsnNo_lbl.Location = new System.Drawing.Point(20, 526);
             this.hsnNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hsnNo_lbl.Name = "hsnNo_lbl";
             this.hsnNo_lbl.Size = new System.Drawing.Size(62, 20);
@@ -359,7 +368,7 @@
             // hsnNo_tB
             // 
             this.hsnNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsnNo_tB.Location = new System.Drawing.Point(151, 577);
+            this.hsnNo_tB.Location = new System.Drawing.Point(178, 521);
             this.hsnNo_tB.Margin = new System.Windows.Forms.Padding(2);
             this.hsnNo_tB.Multiline = true;
             this.hsnNo_tB.Name = "hsnNo_tB";
@@ -371,7 +380,7 @@
             // 
             this.subCategory_lbl.AutoSize = true;
             this.subCategory_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subCategory_lbl.Location = new System.Drawing.Point(20, 498);
+            this.subCategory_lbl.Location = new System.Drawing.Point(20, 442);
             this.subCategory_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.subCategory_lbl.Name = "subCategory_lbl";
             this.subCategory_lbl.Size = new System.Drawing.Size(102, 20);
@@ -381,7 +390,7 @@
             // rateProduct_tB
             // 
             this.rateProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateProduct_tB.Location = new System.Drawing.Point(152, 625);
+            this.rateProduct_tB.Location = new System.Drawing.Point(178, 569);
             this.rateProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.rateProduct_tB.Multiline = true;
             this.rateProduct_tB.Name = "rateProduct_tB";
@@ -392,7 +401,7 @@
             // 
             this.rateProduct_lbl.AutoSize = true;
             this.rateProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateProduct_lbl.Location = new System.Drawing.Point(19, 630);
+            this.rateProduct_lbl.Location = new System.Drawing.Point(19, 574);
             this.rateProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.rateProduct_lbl.Name = "rateProduct_lbl";
             this.rateProduct_lbl.Size = new System.Drawing.Size(105, 20);
@@ -402,7 +411,7 @@
             // widthProduct_tB
             // 
             this.widthProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.widthProduct_tB.Location = new System.Drawing.Point(194, 697);
+            this.widthProduct_tB.Location = new System.Drawing.Point(220, 641);
             this.widthProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.widthProduct_tB.Multiline = true;
             this.widthProduct_tB.Name = "widthProduct_tB";
@@ -414,7 +423,7 @@
             // 
             this.widthProduct_lbl.AutoSize = true;
             this.widthProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.widthProduct_lbl.Location = new System.Drawing.Point(197, 675);
+            this.widthProduct_lbl.Location = new System.Drawing.Point(326, 619);
             this.widthProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.widthProduct_lbl.Name = "widthProduct_lbl";
             this.widthProduct_lbl.Size = new System.Drawing.Size(50, 20);
@@ -424,7 +433,7 @@
             // lengthProduct_tB
             // 
             this.lengthProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lengthProduct_tB.Location = new System.Drawing.Point(16, 697);
+            this.lengthProduct_tB.Location = new System.Drawing.Point(16, 641);
             this.lengthProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.lengthProduct_tB.Multiline = true;
             this.lengthProduct_tB.Name = "lengthProduct_tB";
@@ -436,7 +445,7 @@
             // 
             this.lengthProduct_lbl.AutoSize = true;
             this.lengthProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lengthProduct_lbl.Location = new System.Drawing.Point(19, 672);
+            this.lengthProduct_lbl.Location = new System.Drawing.Point(19, 616);
             this.lengthProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lengthProduct_lbl.Name = "lengthProduct_lbl";
             this.lengthProduct_lbl.Size = new System.Drawing.Size(59, 20);
@@ -446,7 +455,7 @@
             // resultProduct_tB
             // 
             this.resultProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProduct_tB.Location = new System.Drawing.Point(16, 457);
+            this.resultProduct_tB.Location = new System.Drawing.Point(42, 472);
             this.resultProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultProduct_tB.Multiline = true;
             this.resultProduct_tB.Name = "resultProduct_tB";
@@ -466,22 +475,24 @@
             // 
             // selectProduct_dGV
             // 
+            this.selectProduct_dGV.BackgroundColor = System.Drawing.Color.White;
             this.selectProduct_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectProduct_dGV.Location = new System.Drawing.Point(16, 142);
+            this.selectProduct_dGV.Location = new System.Drawing.Point(16, 143);
             this.selectProduct_dGV.Name = "selectProduct_dGV";
-            this.selectProduct_dGV.Size = new System.Drawing.Size(335, 266);
+            this.selectProduct_dGV.Size = new System.Drawing.Size(360, 200);
             this.selectProduct_dGV.TabIndex = 27;
             this.selectProduct_dGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectProduct_dGV_CellContentClick);
             // 
             // searchProduct_pB_btn
             // 
             this.searchProduct_pB_btn.Image = ((System.Drawing.Image)(resources.GetObject("searchProduct_pB_btn.Image")));
-            this.searchProduct_pB_btn.Location = new System.Drawing.Point(327, 84);
+            this.searchProduct_pB_btn.Location = new System.Drawing.Point(352, 84);
             this.searchProduct_pB_btn.Name = "searchProduct_pB_btn";
             this.searchProduct_pB_btn.Size = new System.Drawing.Size(24, 24);
             this.searchProduct_pB_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.searchProduct_pB_btn.TabIndex = 25;
             this.searchProduct_pB_btn.TabStop = false;
+            this.searchProduct_pB_btn.Click += new System.EventHandler(this.searchProduct_pB_btn_Click);
             // 
             // selectProductTitle_lbl
             // 
@@ -508,7 +519,7 @@
             // resultProductId_tB
             // 
             this.resultProductId_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProductId_tB.Location = new System.Drawing.Point(175, 416);
+            this.resultProductId_tB.Location = new System.Drawing.Point(204, 360);
             this.resultProductId_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultProductId_tB.Multiline = true;
             this.resultProductId_tB.Name = "resultProductId_tB";
@@ -520,7 +531,7 @@
             // 
             this.resultProduct_lbl.AutoSize = true;
             this.resultProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProduct_lbl.Location = new System.Drawing.Point(19, 421);
+            this.resultProduct_lbl.Location = new System.Drawing.Point(20, 365);
             this.resultProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.resultProduct_lbl.Name = "resultProduct_lbl";
             this.resultProduct_lbl.Size = new System.Drawing.Size(110, 20);
@@ -532,46 +543,49 @@
             this.selectProduct_btn.BackColor = System.Drawing.Color.SteelBlue;
             this.selectProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.selectProduct_btn.Location = new System.Drawing.Point(17, 946);
+            this.selectProduct_btn.Location = new System.Drawing.Point(17, 982);
             this.selectProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.selectProduct_btn.Name = "selectProduct_btn";
             this.selectProduct_btn.Size = new System.Drawing.Size(158, 36);
             this.selectProduct_btn.TabIndex = 7;
             this.selectProduct_btn.Text = "Select Product";
             this.selectProduct_btn.UseVisualStyleBackColor = false;
+            this.selectProduct_btn.Click += new System.EventHandler(this.selectProduct_btn_Click);
             // 
             // ClearProduct_btn
             // 
             this.ClearProduct_btn.BackColor = System.Drawing.Color.CadetBlue;
             this.ClearProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.ClearProduct_btn.Location = new System.Drawing.Point(193, 946);
+            this.ClearProduct_btn.Location = new System.Drawing.Point(218, 982);
             this.ClearProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearProduct_btn.Name = "ClearProduct_btn";
             this.ClearProduct_btn.Size = new System.Drawing.Size(158, 36);
             this.ClearProduct_btn.TabIndex = 15;
             this.ClearProduct_btn.Text = "Clear Product";
             this.ClearProduct_btn.UseVisualStyleBackColor = false;
+            this.ClearProduct_btn.Click += new System.EventHandler(this.ClearProduct_btn_Click);
             // 
             // EditProduct_btn
             // 
             this.EditProduct_btn.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.EditProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.EditProduct_btn.Location = new System.Drawing.Point(17, 1000);
+            this.EditProduct_btn.Location = new System.Drawing.Point(17, 1036);
             this.EditProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.EditProduct_btn.Name = "EditProduct_btn";
             this.EditProduct_btn.Size = new System.Drawing.Size(158, 36);
             this.EditProduct_btn.TabIndex = 11;
             this.EditProduct_btn.Text = "Edit Details";
             this.EditProduct_btn.UseVisualStyleBackColor = false;
+            this.EditProduct_btn.Click += new System.EventHandler(this.EditProduct_btn_Click);
             // 
             // DeleteProduct_btn
             // 
             this.DeleteProduct_btn.BackColor = System.Drawing.Color.Red;
             this.DeleteProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.DeleteProduct_btn.Location = new System.Drawing.Point(192, 1000);
+            this.DeleteProduct_btn.Location = new System.Drawing.Point(218, 1036);
             this.DeleteProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteProduct_btn.Name = "DeleteProduct_btn";
             this.DeleteProduct_btn.Size = new System.Drawing.Size(158, 36);
@@ -579,6 +593,7 @@
             this.DeleteProduct_btn.Text = "Delete";
             this.DeleteProduct_btn.UseVisualStyleBackColor = false;
             this.DeleteProduct_btn.Visible = false;
+            this.DeleteProduct_btn.Click += new System.EventHandler(this.DeleteProduct_btn_Click);
             // 
             // invoice_Pnl
             // 
@@ -589,7 +604,7 @@
             this.invoice_Pnl.Controls.Add(this.customer_DetailsPnl);
             this.invoice_Pnl.Controls.Add(this.invoiceIssue_TitlePnl);
             this.invoice_Pnl.Controls.Add(this.companyDetaills_HeaderPnl);
-            this.invoice_Pnl.Location = new System.Drawing.Point(410, 0);
+            this.invoice_Pnl.Location = new System.Drawing.Point(415, 0);
             this.invoice_Pnl.Name = "invoice_Pnl";
             this.invoice_Pnl.Size = new System.Drawing.Size(747, 669);
             this.invoice_Pnl.TabIndex = 140;
@@ -656,22 +671,13 @@
             // product_DetailsPnl
             // 
             this.product_DetailsPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.product_DetailsPnl.Controls.Add(this.selectedProductList_dGV);
             this.product_DetailsPnl.Controls.Add(this.sides_ServiceScrollPnl);
+            this.product_DetailsPnl.Controls.Add(this.selectedProductList_dGV);
             this.product_DetailsPnl.Location = new System.Drawing.Point(8, 294);
             this.product_DetailsPnl.Margin = new System.Windows.Forms.Padding(2);
             this.product_DetailsPnl.Name = "product_DetailsPnl";
             this.product_DetailsPnl.Size = new System.Drawing.Size(714, 516);
             this.product_DetailsPnl.TabIndex = 141;
-            // 
-            // selectedProductList_dGV
-            // 
-            this.selectedProductList_dGV.BackgroundColor = System.Drawing.Color.White;
-            this.selectedProductList_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectedProductList_dGV.Location = new System.Drawing.Point(6, 304);
-            this.selectedProductList_dGV.Name = "selectedProductList_dGV";
-            this.selectedProductList_dGV.Size = new System.Drawing.Size(696, 387);
-            this.selectedProductList_dGV.TabIndex = 30;
             // 
             // sides_ServiceScrollPnl
             // 
@@ -680,9 +686,8 @@
             this.sides_ServiceScrollPnl.Controls.Add(this.sides_ServicePnl);
             this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(7, 7);
             this.sides_ServiceScrollPnl.Name = "sides_ServiceScrollPnl";
-            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(696, 291);
-            this.sides_ServiceScrollPnl.TabIndex = 29;
-            this.sides_ServiceScrollPnl.Visible = false;
+            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(10, 10);
+            this.sides_ServiceScrollPnl.TabIndex = 30;
             // 
             // sides_ServicePnl
             // 
@@ -744,7 +749,7 @@
             this.sides_ServicePnl.Controls.Add(this.selectServiceTitle_lbl);
             this.sides_ServicePnl.Controls.Add(this.sidesServicePnlClose_btn);
             this.sides_ServicePnl.Controls.Add(this.addSidesService_btn);
-            this.sides_ServicePnl.Location = new System.Drawing.Point(8, 3);
+            this.sides_ServicePnl.Location = new System.Drawing.Point(7, 3);
             this.sides_ServicePnl.Name = "sides_ServicePnl";
             this.sides_ServicePnl.Size = new System.Drawing.Size(663, 545);
             this.sides_ServicePnl.TabIndex = 239;
@@ -1439,6 +1444,15 @@
             this.addSidesService_btn.UseVisualStyleBackColor = false;
             this.addSidesService_btn.Click += new System.EventHandler(this.addSidesService_btn_Click);
             // 
+            // selectedProductList_dGV
+            // 
+            this.selectedProductList_dGV.BackgroundColor = System.Drawing.Color.White;
+            this.selectedProductList_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectedProductList_dGV.Location = new System.Drawing.Point(6, 14);
+            this.selectedProductList_dGV.Name = "selectedProductList_dGV";
+            this.selectedProductList_dGV.Size = new System.Drawing.Size(700, 350);
+            this.selectedProductList_dGV.TabIndex = 30;
+            // 
             // customer_DetailsPnl
             // 
             this.customer_DetailsPnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1717,7 +1731,7 @@
             this.company_sidePnl.Location = new System.Drawing.Point(1, 0);
             this.company_sidePnl.Margin = new System.Windows.Forms.Padding(2);
             this.company_sidePnl.Name = "company_sidePnl";
-            this.company_sidePnl.Size = new System.Drawing.Size(409, 338);
+            this.company_sidePnl.Size = new System.Drawing.Size(415, 338);
             this.company_sidePnl.TabIndex = 139;
             // 
             // logobig_pB
@@ -1727,7 +1741,7 @@
             this.logobig_pB.Location = new System.Drawing.Point(0, 0);
             this.logobig_pB.Margin = new System.Windows.Forms.Padding(2);
             this.logobig_pB.Name = "logobig_pB";
-            this.logobig_pB.Size = new System.Drawing.Size(390, 111);
+            this.logobig_pB.Size = new System.Drawing.Size(396, 112);
             this.logobig_pB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logobig_pB.TabIndex = 0;
             this.logobig_pB.TabStop = false;
@@ -1746,10 +1760,10 @@
             this.select_CustomerPnl.Controls.Add(this.clearCustomer_btn);
             this.select_CustomerPnl.Controls.Add(this.selectCustomerTitle_lbl);
             this.select_CustomerPnl.Controls.Add(this.searchCustomerName_lbl);
-            this.select_CustomerPnl.Location = new System.Drawing.Point(0, 111);
+            this.select_CustomerPnl.Location = new System.Drawing.Point(-1, 112);
             this.select_CustomerPnl.Margin = new System.Windows.Forms.Padding(2);
             this.select_CustomerPnl.Name = "select_CustomerPnl";
-            this.select_CustomerPnl.Size = new System.Drawing.Size(390, 492);
+            this.select_CustomerPnl.Size = new System.Drawing.Size(396, 486);
             this.select_CustomerPnl.TabIndex = 136;
             // 
             // resultCustomer_tB
@@ -1787,17 +1801,18 @@
             // 
             // selectCompany_dGV
             // 
+            this.selectCompany_dGV.BackgroundColor = System.Drawing.Color.White;
             this.selectCompany_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.selectCompany_dGV.Location = new System.Drawing.Point(16, 107);
             this.selectCompany_dGV.Name = "selectCompany_dGV";
-            this.selectCompany_dGV.Size = new System.Drawing.Size(335, 196);
+            this.selectCompany_dGV.Size = new System.Drawing.Size(360, 200);
             this.selectCompany_dGV.TabIndex = 26;
             this.selectCompany_dGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectCompany_dGV_CellContentClick);
             // 
             // searchCustomer_pB_btn
             // 
             this.searchCustomer_pB_btn.Image = ((System.Drawing.Image)(resources.GetObject("searchCustomer_pB_btn.Image")));
-            this.searchCustomer_pB_btn.Location = new System.Drawing.Point(327, 67);
+            this.searchCustomer_pB_btn.Location = new System.Drawing.Point(348, 64);
             this.searchCustomer_pB_btn.Name = "searchCustomer_pB_btn";
             this.searchCustomer_pB_btn.Size = new System.Drawing.Size(24, 24);
             this.searchCustomer_pB_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -1808,7 +1823,7 @@
             // searchCustomer_tB
             // 
             this.searchCustomer_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchCustomer_tB.Location = new System.Drawing.Point(16, 64);
+            this.searchCustomer_tB.Location = new System.Drawing.Point(16, 61);
             this.searchCustomer_tB.Margin = new System.Windows.Forms.Padding(2);
             this.searchCustomer_tB.Multiline = true;
             this.searchCustomer_tB.Name = "searchCustomer_tB";
@@ -1865,17 +1880,91 @@
             this.searchCustomerName_lbl.TabIndex = 4;
             this.searchCustomerName_lbl.Text = "Find Customer Name";
             // 
+            // nav_menu_list
+            // 
+            this.nav_menu_list.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addProduct_TSMI,
+            this.addCompany_TSMI,
+            this.addInvoice_TSMI,
+            this.salesList_TSMI,
+            this.homePage_TSMI});
+            this.nav_menu_list.Location = new System.Drawing.Point(0, 0);
+            this.nav_menu_list.Name = "nav_menu_list";
+            this.nav_menu_list.Size = new System.Drawing.Size(1163, 24);
+            this.nav_menu_list.TabIndex = 1;
+            this.nav_menu_list.Text = "menuStrip";
+            // 
+            // addProduct_TSMI
+            // 
+            this.addProduct_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addProduct_TSMI.Name = "addProduct_TSMI";
+            this.addProduct_TSMI.Size = new System.Drawing.Size(86, 20);
+            this.addProduct_TSMI.Text = "Add Product";
+            this.addProduct_TSMI.Click += new System.EventHandler(this.addProduct_TSMI_Click);
+            // 
+            // addCompany_TSMI
+            // 
+            this.addCompany_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCompany_TSMI.Name = "addCompany_TSMI";
+            this.addCompany_TSMI.Size = new System.Drawing.Size(95, 20);
+            this.addCompany_TSMI.Text = "Add Company";
+            this.addCompany_TSMI.Click += new System.EventHandler(this.addCompany_TSMI_Click);
+            // 
+            // addInvoice_TSMI
+            // 
+            this.addInvoice_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addInvoice_TSMI.Name = "addInvoice_TSMI";
+            this.addInvoice_TSMI.Size = new System.Drawing.Size(83, 20);
+            this.addInvoice_TSMI.Text = "Add Invoice";
+            this.addInvoice_TSMI.Click += new System.EventHandler(this.addInvoice_TSMI_Click);
+            // 
+            // salesList_TSMI
+            // 
+            this.salesList_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesList_TSMI.Name = "salesList_TSMI";
+            this.salesList_TSMI.Size = new System.Drawing.Size(67, 20);
+            this.salesList_TSMI.Text = "Sales List";
+            this.salesList_TSMI.Click += new System.EventHandler(this.salesList_TSMI_Click);
+            // 
+            // homePage_TSMI
+            // 
+            this.homePage_TSMI.Name = "homePage_TSMI";
+            this.homePage_TSMI.Size = new System.Drawing.Size(52, 20);
+            this.homePage_TSMI.Text = "Home";
+            this.homePage_TSMI.Click += new System.EventHandler(this.homePage_TSMI_Click);
+            // 
+            // quantity_lbl
+            // 
+            this.quantity_lbl.AutoSize = true;
+            this.quantity_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantity_lbl.Location = new System.Drawing.Point(18, 823);
+            this.quantity_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.quantity_lbl.Name = "quantity_lbl";
+            this.quantity_lbl.Size = new System.Drawing.Size(68, 20);
+            this.quantity_lbl.TabIndex = 49;
+            this.quantity_lbl.Text = "Quantity";
+            // 
+            // quantity_tB
+            // 
+            this.quantity_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantity_tB.Location = new System.Drawing.Point(202, 818);
+            this.quantity_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.quantity_tB.Multiline = true;
+            this.quantity_tB.Name = "quantity_tB";
+            this.quantity_tB.Size = new System.Drawing.Size(175, 30);
+            this.quantity_tB.TabIndex = 48;
+            // 
             // addInvoice_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 665);
+            this.Controls.Add(this.nav_menu_list);
             this.Controls.Add(this.invoice_MainPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "addInvoice_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Invoice";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.invoice_MainPnl.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -1886,12 +1975,12 @@
             this.customerAddress_DetailsPnl.ResumeLayout(false);
             this.customerAddress_DetailsPnl.PerformLayout();
             this.product_DetailsPnl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.selectedProductList_dGV)).EndInit();
             this.sides_ServiceScrollPnl.ResumeLayout(false);
             this.sides_ServicePnl.ResumeLayout(false);
             this.sides_ServicePnl.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedProductList_dGV)).EndInit();
             this.customer_DetailsPnl.ResumeLayout(false);
             this.customer_DetailsPnl.PerformLayout();
             this.invoiceIssue_TitlePnl.ResumeLayout(false);
@@ -1905,7 +1994,10 @@
             this.select_CustomerPnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectCompany_dGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomer_pB_btn)).EndInit();
+            this.nav_menu_list.ResumeLayout(false);
+            this.nav_menu_list.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1955,19 +2047,16 @@
         public System.Windows.Forms.TextBox siteAddress_tb;
         private System.Windows.Forms.Label siteName_lbl;
         private System.Windows.Forms.Label siteAddress_lbl;
-        private System.Windows.Forms.Panel sides_ServiceScrollPnl;
-        private System.Windows.Forms.Panel sides_ServicePnl;
-        private System.Windows.Forms.Label selectServiceTitle_lbl;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label totalServiceCharges_lbl;
+        private System.Windows.Forms.Label totalServiceCharge_lbl;
         private System.Windows.Forms.TextBox totalServiceCharges_tB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox totalServiceSides_tB;
+        private System.Windows.Forms.TextBox totalServiceSidesCharges_tB;
         private System.Windows.Forms.Button selectService_btn;
         private System.Windows.Forms.TextBox sideServiceSides_tB;
         private System.Windows.Forms.Label sideService_lbl;
-        private System.Windows.Forms.TextBox subCatogeryProduct_tB;
+        private System.Windows.Forms.TextBox catogeryProduct_tB;
         private System.Windows.Forms.Label hsnNo_lbl;
         private System.Windows.Forms.TextBox hsnNo_tB;
         private System.Windows.Forms.Label subCategory_lbl;
@@ -1989,8 +2078,9 @@
         private System.Windows.Forms.Button ClearProduct_btn;
         private System.Windows.Forms.Button EditProduct_btn;
         private System.Windows.Forms.Button DeleteProduct_btn;
-        private System.Windows.Forms.Button sidesServicePnlClose_btn;
-        private System.Windows.Forms.Button addSidesService_btn;
+        private System.Windows.Forms.DataGridView selectedProductList_dGV;
+        private System.Windows.Forms.Panel sides_ServiceScrollPnl;
+        private System.Windows.Forms.Panel sides_ServicePnl;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txt_halfdp;
@@ -2050,6 +2140,16 @@
         private System.Windows.Forms.CheckBox L1EP;
         private System.Windows.Forms.CheckBox L1KM;
         private System.Windows.Forms.CheckBox W1FR;
-        private System.Windows.Forms.DataGridView selectedProductList_dGV;
+        private System.Windows.Forms.Label selectServiceTitle_lbl;
+        private System.Windows.Forms.Button sidesServicePnlClose_btn;
+        private System.Windows.Forms.Button addSidesService_btn;
+        private System.Windows.Forms.MenuStrip nav_menu_list;
+        private System.Windows.Forms.ToolStripMenuItem addProduct_TSMI;
+        private System.Windows.Forms.ToolStripMenuItem addCompany_TSMI;
+        private System.Windows.Forms.ToolStripMenuItem addInvoice_TSMI;
+        private System.Windows.Forms.ToolStripMenuItem salesList_TSMI;
+        private System.Windows.Forms.ToolStripMenuItem homePage_TSMI;
+        private System.Windows.Forms.Label quantity_lbl;
+        private System.Windows.Forms.TextBox quantity_tB;
     }
 }
