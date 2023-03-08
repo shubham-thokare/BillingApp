@@ -17,9 +17,7 @@ namespace BillingApp
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             loadCompany_Table();
             Clear();
-        }
-
-       
+        }       
 
         private void loadCompany_Table()
         {
@@ -92,7 +90,7 @@ namespace BillingApp
                !string.IsNullOrEmpty(gstNo_tB.Text) &&
                !string.IsNullOrEmpty(panNo_tB.Text) &&
                !string.IsNullOrEmpty(siteAddress_tB.Text) 
-                )
+               )
             {
                 try
                 {
@@ -149,13 +147,13 @@ namespace BillingApp
                     }
 
                    SqlCommand cmd = new SqlCommand(" UPDATE tbl_CompanyDetails SET customer_Name = @customerName, site_Name = @siteName, contact_Person = @contactPerson, contact_No = @contactNo, gst_No = @gstNo, pan_No = @panNo, site_Address = @siteAddress WHERE  company_Id = @company_Id", conn);
-                    cmd.Parameters.AddWithValue("@customerName", customerName_tB.Text);
-                    cmd.Parameters.AddWithValue("@siteName", siteName_tB.Text);
-                    cmd.Parameters.AddWithValue("@contactPerson", contactPerson_tB.Text);
-                    cmd.Parameters.AddWithValue("@contactNo", contactNo_tB.Text);
-                    cmd.Parameters.AddWithValue("@gstNo", gstNo_tB.Text);
-                    cmd.Parameters.AddWithValue("@panNo", panNo_tB.Text);
-                    cmd.Parameters.AddWithValue("@siteAddress", siteAddress_tB.Text);
+                   cmd.Parameters.AddWithValue("@customerName", customerName_tB.Text);
+                   cmd.Parameters.AddWithValue("@siteName", siteName_tB.Text);
+                   cmd.Parameters.AddWithValue("@contactPerson", contactPerson_tB.Text);
+                   cmd.Parameters.AddWithValue("@contactNo", contactNo_tB.Text);
+                   cmd.Parameters.AddWithValue("@gstNo", gstNo_tB.Text);
+                   cmd.Parameters.AddWithValue("@panNo", panNo_tB.Text);
+                   cmd.Parameters.AddWithValue("@siteAddress", siteAddress_tB.Text);
 
                     // set the value of company_Id variable
                     if (conn.State != ConnectionState.Open)

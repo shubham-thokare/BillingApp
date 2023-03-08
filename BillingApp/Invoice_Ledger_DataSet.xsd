@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Invoice_Ledger_DataSet" targetNamespace="http://tempuri.org/Invoice_Ledger_DataSet.xsd" xmlns:mstns="http://tempuri.org/Invoice_Ledger_DataSet.xsd" xmlns="http://tempuri.org/Invoice_Ledger_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BillingAppConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BillingAppConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BillingApp.Properties.Settings.GlobalReference.Default.BillingAppConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Invoice_LedgerTableAdapter" GeneratorDataComponentClassName="Invoice_LedgerTableAdapter" Name="Invoice_Ledger" UserDataComponentName="Invoice_LedgerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BillingAppConnectionString (Settings)" DbObjectName="BillingApp.dbo.Invoice_Ledger" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Invoice_No, Invoice_Date, Company_Name, Site_Address, Mob_No, Contact_Person, Grand_Total, Paid_Amount, Paid_Status, Balance_Amount FROM dbo.Invoice_Ledger</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Invoice_No" DataSetColumn="Invoice_No" />
+              <Mapping SourceColumn="Invoice_Date" DataSetColumn="Invoice_Date" />
+              <Mapping SourceColumn="Company_Name" DataSetColumn="Company_Name" />
+              <Mapping SourceColumn="Site_Address" DataSetColumn="Site_Address" />
+              <Mapping SourceColumn="Mob_No" DataSetColumn="Mob_No" />
+              <Mapping SourceColumn="Contact_Person" DataSetColumn="Contact_Person" />
+              <Mapping SourceColumn="Grand_Total" DataSetColumn="Grand_Total" />
+              <Mapping SourceColumn="Paid_Amount" DataSetColumn="Paid_Amount" />
+              <Mapping SourceColumn="Paid_Status" DataSetColumn="Paid_Status" />
+              <Mapping SourceColumn="Balance_Amount" DataSetColumn="Balance_Amount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Invoice_Ledger_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="Invoice_Ledger_DataSet" msprop:Generator_DataSetName="Invoice_Ledger_DataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Invoice_Ledger" msprop:Generator_RowEvHandlerName="Invoice_LedgerRowChangeEventHandler" msprop:Generator_RowDeletedName="Invoice_LedgerRowDeleted" msprop:Generator_RowDeletingName="Invoice_LedgerRowDeleting" msprop:Generator_RowEvArgName="Invoice_LedgerRowChangeEvent" msprop:Generator_TablePropName="Invoice_Ledger" msprop:Generator_RowChangedName="Invoice_LedgerRowChanged" msprop:Generator_RowChangingName="Invoice_LedgerRowChanging" msprop:Generator_TableClassName="Invoice_LedgerDataTable" msprop:Generator_RowClassName="Invoice_LedgerRow" msprop:Generator_TableVarName="tableInvoice_Ledger" msprop:Generator_UserTableName="Invoice_Ledger">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Invoice_No" msprop:Generator_ColumnPropNameInRow="Invoice_No" msprop:Generator_ColumnPropNameInTable="Invoice_NoColumn" msprop:Generator_ColumnVarNameInTable="columnInvoice_No" msprop:Generator_UserColumnName="Invoice_No" type="xs:int" />
+              <xs:element name="Invoice_Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_UserColumnName="Invoice_Date" type="xs:dateTime" />
+              <xs:element name="Company_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_UserColumnName="Company_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Site_Address" msprop:Generator_ColumnPropNameInRow="Site_Address" msprop:Generator_ColumnPropNameInTable="Site_AddressColumn" msprop:Generator_ColumnVarNameInTable="columnSite_Address" msprop:Generator_UserColumnName="Site_Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mob_No" msprop:Generator_ColumnPropNameInRow="Mob_No" msprop:Generator_ColumnPropNameInTable="Mob_NoColumn" msprop:Generator_ColumnVarNameInTable="columnMob_No" msprop:Generator_UserColumnName="Mob_No">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contact_Person" msprop:Generator_ColumnPropNameInRow="Contact_Person" msprop:Generator_ColumnPropNameInTable="Contact_PersonColumn" msprop:Generator_ColumnVarNameInTable="columnContact_Person" msprop:Generator_UserColumnName="Contact_Person">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Grand_Total" msprop:Generator_ColumnPropNameInRow="Grand_Total" msprop:Generator_ColumnPropNameInTable="Grand_TotalColumn" msprop:Generator_ColumnVarNameInTable="columnGrand_Total" msprop:Generator_UserColumnName="Grand_Total" type="xs:decimal" />
+              <xs:element name="Paid_Amount" msprop:Generator_ColumnPropNameInRow="Paid_Amount" msprop:Generator_ColumnPropNameInTable="Paid_AmountColumn" msprop:Generator_ColumnVarNameInTable="columnPaid_Amount" msprop:Generator_UserColumnName="Paid_Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Paid_Status" msprop:Generator_ColumnPropNameInRow="Paid_Status" msprop:Generator_ColumnPropNameInTable="Paid_StatusColumn" msprop:Generator_ColumnVarNameInTable="columnPaid_Status" msprop:Generator_UserColumnName="Paid_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance_Amount" msprop:Generator_ColumnPropNameInRow="Balance_Amount" msprop:Generator_ColumnPropNameInTable="Balance_AmountColumn" msprop:Generator_ColumnVarNameInTable="columnBalance_Amount" msprop:Generator_UserColumnName="Balance_Amount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Invoice_Ledger" />
+      <xs:field xpath="mstns:Invoice_No" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

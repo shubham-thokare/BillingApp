@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BillingApp.Properties;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -274,6 +275,58 @@ namespace BillingApp
           hsnNo_tB.Text = "";
           pricePerUnit_tB.Text = "";
           hsnNo_tB.Text = "";
-      }    
+      }
+
+        private void Addproduct_form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        #region Top Bar
+
+        private void AddProduct_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addproduct_form addproduct = new addproduct_form();
+            addproduct.Show();
+        }
+
+        private void AddCompany_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addcompany_form addcompany = new addcompany_form();
+            addcompany.Show();
+        }
+
+        private void AddInvoice_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addInvoice_form addInvoice = new addInvoice_form();
+            addInvoice.Show();
+        }
+
+        private void SalesList_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Properties.addSalesList_form addSalesList = new Properties.addSalesList_form();
+            addSalesList.Show();
+        }
+        private void HomePage_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mainPage_form addInvoice = new mainPage_form();
+            addInvoice.Show();
+        }
+
+        private void AddQuotationTSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addQuotation_form addQuotation = new addQuotation_form();
+            addQuotation.Show();
+        }
+
+        #endregion
+
     }
 }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using BillingApp.Properties;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace BillingApp
 {
@@ -11,22 +13,16 @@ namespace BillingApp
     {
         private string connectionString;
 
-        Int32 company_id;
-        Int32 subcategory_id;
-        Int32 fkproduct_id;
-        Double rate;
-        Double length;
-        Double width;
+        Int32 Subid, invoiceNo_id, p_quantity, company_id, subcategory_id, fkproduct_id;
 
-
+        decimal totalAmount, lenghtValue, totalSqFt, widthValue, p_rate, p_Total, pLength, pWidth, servicePrice, grand_Total, paidAmount, balanceAmount, priceper_unit;
+        Double length, width;
 
         string product_name = "";
         string side_service = "";
         string customer_name = "";
         string subcategory_name = "";
-        string quantity = "";
         string hsn_no = "";
-        string priceper_unit = "";
         string site_name = "";
         string contact_person = "";
         string contact_no = "";
@@ -38,12 +34,12 @@ namespace BillingApp
         {
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            selectCompany_Table();
-            selectProduct_Table();
-            invoicenumber();
+            SelectCompany_Table();
+            SelectProduct_Table();
+            Invoicenumber();
         }
 
-        private void selectSide_Service()
+        private void SelectSide_Service()
         {
             List<string> designations = new List<string>();
 
@@ -85,29 +81,11 @@ namespace BillingApp
 
             string sides = string.Join(", ", designations);
 
-            if (invoiceNo_tB.Text != "" && companyName_tB.Text != "" && invoiceDate_dtP.Text != "")
-            {
-                //  cmd.Parameters.AddWithValue("@state", txt_State.Text);
-                //  cmd.ExecuteNonQuery(); 
-                //  MessageBox.Show("Record Updated Successfully");
-                //  conn.Close();
+            sideService_tB.Text = sides;
 
-                if (!string.IsNullOrEmpty(sides))
-                {
-                    sideServiceSides_tB.Text = sides;//sideServiceString;
-                }
-                else
-                {
-                    MessageBox.Show("Select services!!!!!!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select Company Name!!!!!!");
-            }
         }
 
-        public void invoicenumber()
+        public void Invoicenumber()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
                 try
@@ -139,55 +117,67 @@ namespace BillingApp
                 {
                     // MessageBox.Show(ex.Message);
                 }
+                finally
+                {
+                    invoiceNo_id = Convert.ToInt32(invoiceNo_tB.Text);
+                }
         }
 
         #region Top Bar
 
-        private void addProduct_TSMI_Click(object sender, EventArgs e)
+        private void AddProduct_TSMI_Click(object sender, EventArgs e)
         {
             this.Hide();
             addproduct_form addproduct = new addproduct_form();
             addproduct.Show();
         }
 
-        private void addCompany_TSMI_Click(object sender, EventArgs e)
+        private void AddCompany_TSMI_Click(object sender, EventArgs e)
         {
             this.Hide();
             addcompany_form addcompany = new addcompany_form();
             addcompany.Show();
         }
 
-        private void addInvoice_TSMI_Click(object sender, EventArgs e)
+        private void AddInvoice_TSMI_Click(object sender, EventArgs e)
         {
             this.Hide();
             addInvoice_form addInvoice = new addInvoice_form();
             addInvoice.Show();
         }
 
-        private void salesList_TSMI_Click(object sender, EventArgs e)
+        private void SalesList_TSMI_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            addSalesList_form addSalesList = new addSalesList_form();
+            addSalesList.Show();
         }
-        private void homePage_TSMI_Click(object sender, EventArgs e)
+
+        private void HomePage_TSMI_Click(object sender, EventArgs e)
         {
             this.Hide();
             mainPage_form addInvoice = new mainPage_form();
             addInvoice.Show();
         }
-
+        //AddQuotation_TSMI_Click
+        private void AddQuotation_TSMI_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            addQuotation_form addQuotation = new addQuotation_form();
+            addQuotation.Show();
+        }
 
 
         #endregion
 
         #region Company Details
 
-        private void selectCompany_Table()
+        private void SelectCompany_Table()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // SqlCommand command = new SqlCommand("Select tbl_Product.product_Name AS Product_Name, tbl_SubCategory.subCategory_Name AS SubCategory_Name, tbl_SubCategory.pricePer_Unit AS PricePer_Unit, tbl_SubCategory.hsn_No AS HSN_No FROM tbl_SubCategory INNER JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.Product_Id", conn);
                 SqlCommand command = new SqlCommand("SELECT company_Id,customer_Name  FROM tbl_CompanyDetails", conn);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -198,15 +188,14 @@ namespace BillingApp
                 selectCompany_dGV.DataSource = dataTable;
             }
         }
+        //ListProduct_dGV
 
-        private void selectCompany_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SelectCompany_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             // Get the row index of the clicked cell
             int rowIndex = e.RowIndex;
             if (rowIndex >= 0 && rowIndex < selectCompany_dGV.Rows.Count)
             {
-
                 // Retrieve the data from the selected row
                 DataGridViewRow row = selectCompany_dGV.Rows[rowIndex];
                 company_id = Convert.ToInt32(row.Cells["company_Id"].Value);
@@ -214,10 +203,13 @@ namespace BillingApp
 
                 resultCustomerId_tB.Text = Convert.ToString(@company_id);
                 resultCustomer_tB.Text = @customer_name;
+
+                MessageBox.Show("Customer Selected Successfully.");
+
             }
         }
 
-        private void searchCustomer_pB_Click(object sender, EventArgs e)
+        private void SearchCustomer_pB_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -252,54 +244,74 @@ namespace BillingApp
             }
         }
 
-        private void clearCustomer_btn_Click(object sender, EventArgs e)
+        private void ClearCustomer_btn_Click(object sender, EventArgs e)
         {
             resultCustomer_tB.Text = "";
             resultCustomerId_tB.Text = "";
+            companyName_tB.Text = "";
+            siteName_tB.Text = "";
+            contactPerson_tB.Text = "";
+            contactNo_tb.Text = "";
+            gstNo_tB.Text = "";
+            panNo_tB.Text = "";
+            siteAddress_tb.Text = "";
         }
 
         private void SelectCustomer_btn_Click(object sender, EventArgs e)
         {
-            company_id = int.Parse(resultCustomerId_tB.Text);
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (!string.IsNullOrEmpty(resultCustomerId_tB.Text))
             {
-                SqlCommand cmd = new SqlCommand("SELECT customer_Name, site_Name, contact_Person, contact_No, gst_No, pan_No, site_Address FROM tbl_CompanyDetails WHERE company_Id = @company_id", conn);
-                cmd.Parameters.AddWithValue("@company_id", company_id);
-                if (conn.State != ConnectionState.Open)
-                {
-                    conn.Open();
-                }
-                SqlDataReader sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    customer_name = sdr.GetString(0);
-                    site_name = sdr.GetString(1);
-                    contact_person = sdr.GetString(2);
-                    contact_no = sdr.GetString(3);
-                    gst_no = sdr.GetString(4);
-                    pan_no = sdr.GetString(5);
-                    site_address = sdr.GetString(6);
+                company_id = int.Parse(resultCustomerId_tB.Text);
 
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT customer_Name, site_Name, contact_Person, contact_No, gst_No, pan_No, site_Address FROM tbl_CompanyDetails WHERE company_Id = @company_id", conn);
+                    cmd.Parameters.AddWithValue("@company_id", company_id);
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        customer_name = sdr.GetString(0);
+                        site_name = sdr.GetString(1);
+                        contact_person = sdr.GetString(2);
+                        contact_no = sdr.GetString(3);
+                        gst_no = sdr.GetString(4);
+                        pan_no = sdr.GetString(5);
+                        site_address = sdr.GetString(6);
+
+                    }
+                    conn.Close();
                 }
-                conn.Close();
+
+                companyName_tB.Text = @customer_name;
+                siteName_tB.Text = @site_name;
+                contactPerson_tB.Text = @contact_person;
+                contactNo_tb.Text = @contact_no;
+                gstNo_tB.Text = @gst_no;
+                panNo_tB.Text = @pan_no;
+                siteAddress_tb.Text = @site_address;
+
             }
-
-            companyName_tB.Text = @customer_name;
-            siteName_tB.Text = @site_name;
-            contactPerson_tB.Text = @contact_person;
-            contactNo_tb.Text = @contact_no;
-            gstNo_tB.Text = @gst_no;
-            panNo_tB.Text = @pan_no;
-            siteAddress_tb.Text = @site_address;
+            else
+            {
+                companyName_tB.Text = "";
+                siteName_tB.Text = "";
+                contactPerson_tB.Text = "";
+                contactNo_tb.Text = "";
+                gstNo_tB.Text = "";
+                panNo_tB.Text = "";
+                siteAddress_tb.Text = "";
+            }
         }
-
 
         #endregion
 
         #region Product Details
 
-        private void searchProduct_pB_btn_Click(object sender, EventArgs e)
+        private void SearchProduct_pB_btn_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -318,8 +330,8 @@ namespace BillingApp
 
                     selectProduct_dGV.DataSource = ProductCategorydataTable;
                     searchProductName_tB.Text = "";
-
                 }
+
                 else
                 {
                     conn.Open();
@@ -335,13 +347,12 @@ namespace BillingApp
             }
         }
 
-        private void selectProduct_Table()
+        private void SelectProduct_Table()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                //  SqlCommand command = new SqlCommand("SELECT subCategory_Id, subCategory_Name  FROM tbl_SubCategory", conn);
                 SqlCommand command = new SqlCommand("SELECT tbl_Product.product_Name, subCategory_Name, pricePer_Unit, hsn_No, fk_Product_Id, subCategory_Id FROM tbl_SubCategory LEFT JOIN tbl_Product ON tbl_SubCategory.fk_Product_Id = tbl_Product.product_Id WHERE subCategory_Name LIKE '%' OR hsn_No LIKE '%' OR tbl_Product.product_Name LIKE '%'", conn);
 
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
@@ -353,7 +364,107 @@ namespace BillingApp
             }
         }
 
-        private void selectProduct_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CatogeryProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+            if (catogeryProduct_tB.Text == "Goods")
+            {
+                lengthProduct_tB.ReadOnly = true;
+                widthProduct_tB.ReadOnly = true;
+                selectService_btn.Visible = false;
+                lengthProduct_tB.Text = Convert.ToString("");
+                widthProduct_tB.Text = Convert.ToString("");
+                sideService_tB.Text = Convert.ToString("");
+            }
+        }
+
+        private void LengthProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+            if (catogeryProduct_tB.Text == "Marble" || catogeryProduct_tB.Text == "Granite") 
+            {
+                if (!string.IsNullOrEmpty(lengthProduct_tB.Text))
+                {
+                    Decimal lenghtValue = Convert.ToDecimal(lengthProduct_tB.Text);
+                    for (int i = 1; i < 10000; i++)
+                    {
+                        int j = 3;
+                        int k = i * j;
+                        if (lenghtValue <= k)
+                        {
+                            length = k;
+                            //i = 10000;
+                            break;
+                        }
+                    }
+                    pLength = (decimal)length;
+                    MessageBox.Show("Length = " + pLength);
+                }
+            }
+
+            else if (catogeryProduct_tB.Text == "Stone" || catogeryProduct_tB.Text == "Kadappa")
+            {
+                if (decimal.TryParse(lengthProduct_tB.Text, out lenghtValue))
+                {
+                    decimal result = lengthRoundToMultipleOf6(lenghtValue);
+                    pLength = result;
+                    MessageBox.Show("Length= " + pLength);
+                }
+                else
+                {
+                    MessageBox.Show("enter valid length");
+                }
+            }
+
+            else if (catogeryProduct_tB.Text == "Uncut")
+            {
+                if (decimal.TryParse(lengthProduct_tB.Text, out lenghtValue))
+                {
+                    // decimal result = lengthRoundToMultipleOf6(lenghtValue);
+                    pLength = lenghtValue;
+                    MessageBox.Show("Length= " + pLength);
+                }
+                else
+                {
+                    MessageBox.Show("enter valid length");
+                }
+            }
+
+
+            if (!string.IsNullOrEmpty(widthProduct_tB.Text))
+            {
+                totalSqFt = (pLength / 12) * (pWidth / 12);
+                totalSqFtProduct_tB.Text = Convert.ToString(totalSqFt);
+            }
+        }
+
+        private decimal lengthRoundToMultipleOf6(decimal n)
+        {
+            double rou = (double)(n / 12);
+            int integerPart = (int)Math.Floor(rou);
+            double fractionalPart = rou - integerPart;
+
+            if (fractionalPart <= 0.42)
+            {
+                fractionalPart = 0.41 + 0.09;
+            }
+            else if (fractionalPart <= 0.92)
+            {
+                fractionalPart = 0.91 + 0.09;
+            }
+            else if (fractionalPart > 0.92)
+            {
+                fractionalPart = 1.5;
+            }
+
+            decimal lenval = (decimal)((integerPart + fractionalPart) * 12);
+            return lenval;
+        }
+
+        private void resultProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SelectProduct_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Get the row index of the clicked cell
             int rowIndex = e.RowIndex;
@@ -388,475 +499,49 @@ namespace BillingApp
                 }
 
                 catogeryProduct_tB.Text = @product_name;
-
+                MessageBox.Show("Product Selected Successfully.");
             }
             else
             {
                 // handle the error here, e.g. display an error message
-                MessageBox.Show(" handle the error here ");
+                MessageBox.Show(" handle the error here line:506 ");
             }
         }
-
-        //private void selectProduct_btn_Click(object sender, EventArgs e)
-        //{           
-        //    subcategory_name = resultProduct_tB.Text;
-        //    product_name = catogeryProduct_tB.Text;
-        //    hsn_no = hsnNo_tB.Text;
-        //    priceper_unit = rateProduct_tB.Text;
-        //    quantity = quantity_tB.Text;
-        //    rate = Convert.ToDouble(rateProduct_tB.Text);
-        //    length = Convert.ToDouble(lengthProduct_tB.Text);
-        //    width = Convert.ToDouble(widthProduct_tB.Text);
-        //
-        //    DataTable selectedProductList_dt = new DataTable();
-        //    selectedProductList_dt.Columns.Add("SubcategoryName");
-        //    selectedProductList_dt.Columns.Add("ProductName");
-        //    selectedProductList_dt.Columns.Add("HSNNo");
-        //    selectedProductList_dt.Columns.Add("ProductPrice", typeof(decimal));
-        //    selectedProductList_dt.Columns.Add("MoldingPrice", typeof(decimal));
-        //    selectedProductList_dt.Columns.Add("Length", typeof(decimal));
-        //    selectedProductList_dt.Columns.Add("Width", typeof(decimal));
-        //
-        //    DataRow selectedProductList_row = selectedProductList_dt.NewRow();
-        //
-        //    selectedProductList_row["SubcategoryName"] = subcategory_name;
-        //    selectedProductList_row["Product Name"] = product_name;
-        //    selectedProductList_row["HSNNo"] = hsn_no;
-        //    selectedProductList_row["ProductPrice"] = Convert.ToDecimal(priceper_unit);
-        //    selectedProductList_row["MoldingPrice"] = Convert.ToDecimal(rate); 
-        //    selectedProductList_row["Length"] = Convert.ToDecimal(length);
-        //    selectedProductList_row["Width"] = Convert.ToDecimal(width);
-        //
-        //    selectedProductList_dt.Rows.Add(selectedProductList_row);
-        //}
-
-        private void selectProduct_btn_Click(object sender, EventArgs e)
-        {
-            subcategory_name = resultProduct_tB.Text;
-            product_name = catogeryProduct_tB.Text;
-            hsn_no = hsnNo_tB.Text;
-            priceper_unit = rateProduct_tB.Text;
-            quantity = quantity_tB.Text;
-            rate = Convert.ToDouble(rateProduct_tB.Text);
-            length = Convert.ToDouble(lengthProduct_tB.Text);
-            width = Convert.ToDouble(widthProduct_tB.Text);
-
-            DataTable selectedProductList_dt = new DataTable();
-            selectedProductList_dt.Columns.Add("SubcategoryName");
-            selectedProductList_dt.Columns.Add("ProductName");
-            selectedProductList_dt.Columns.Add("HSNNo");
-            selectedProductList_dt.Columns.Add("ProductPrice", typeof(decimal));
-            selectedProductList_dt.Columns.Add("MoldingPrice", typeof(decimal));
-            selectedProductList_dt.Columns.Add("Length", typeof(decimal));
-            selectedProductList_dt.Columns.Add("Width", typeof(decimal));
-
-            DataRow selectedProductList_row = selectedProductList_dt.NewRow();
-
-            selectedProductList_row["SubcategoryName"] = subcategory_name;
-            selectedProductList_row["ProductName"] = product_name;
-            selectedProductList_row["HSNNo"] = hsn_no;
-            selectedProductList_row["ProductPrice"] = Convert.ToDecimal(priceper_unit);
-            selectedProductList_row["MoldingPrice"] = Convert.ToDecimal(rate);
-            selectedProductList_row["Length"] = Convert.ToDecimal(length);
-            selectedProductList_row["Width"] = Convert.ToDecimal(width);
-
-            selectedProductList_dt.Rows.Add(selectedProductList_row);
-
-            selectedProductList_dGV.DataSource = selectedProductList_dt;
-        }
-
-
         private void ClearProduct_btn_Click(object sender, EventArgs e)
         {
 
         }
-
         private void EditProduct_btn_Click(object sender, EventArgs e)
         {
 
         }
-
         private void DeleteProduct_btn_Click(object sender, EventArgs e)
         {
 
         }
-
         #endregion
-
-        #region List Services
+        #region List Services 
 
         ///Global Variable For Running Feet///
-        Double CALCULATED = 0;
+        Decimal CALCULATED = 0;
         /// <variable end>   /// 
 
 
-
-        private void L1FR_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_fr.Text);
-            Double val2 = Convert.ToDouble(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L1FR.Checked == true)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L1FR.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L1KM_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_km.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L1KM.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L1KM.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L1HR_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_hr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L1HR.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L1HR.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L1CH_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L1CH.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L1CH.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L12CH_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_2ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L12CH.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L12CH.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L1EP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L1EP.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L1EP.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L12EP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_2ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L12EP.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L12EP.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else { }
-        }
-
-        private void L1GROOVE_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_groove.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L1GROOVE.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L1GROOVE.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2FR_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_fr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L2FR.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L2FR.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2HR_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_hr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L2HR.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L2HR.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2CH_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L2CH.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L2CH.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L22CH_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_2ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L22CH.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L22CH.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2EP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L2EP.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L2EP.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L22EP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_2ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L22EP.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L22EP.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2KM_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_km.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-
-            if (L2KM.Checked)
-            {
-
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (L2KM.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void L2GROOVE_CheckedChanged(object sender, EventArgs e)
-        {
-            Double val1 = Convert.ToDouble(txt_groove.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
-
-            if (L2GROOVE.Checked)
-            {
-                CALCULATED = CALCULATED + val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else if (L2GROOVE.Checked == false)
-            {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
         private void W1FR_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_fr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_fr.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
             if (W1FR.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W1FR.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -867,21 +552,19 @@ namespace BillingApp
 
         private void W1HR_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_hr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_hr.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W1HR.Checked)
             {
-
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
             }
             else if (W1HR.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -892,21 +575,21 @@ namespace BillingApp
 
         private void W1CH_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_ch.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W1CH.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1CH.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -914,21 +597,21 @@ namespace BillingApp
 
         private void W12CH_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_2ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_2ch.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W12CH.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W12CH.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -939,21 +622,21 @@ namespace BillingApp
 
         private void W1EP_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_ep.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W1EP.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1EP.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -964,21 +647,21 @@ namespace BillingApp
 
         private void W12EP_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_2ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_2ep.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W12EP.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W12EP.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -989,63 +672,21 @@ namespace BillingApp
 
         private void W1KM_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_km.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_km.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W1KM.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W1KM.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void HALFDP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double txt_2epval = Convert.ToDouble(txt_2ep.Text);
-            if (HALFDP.Checked)
-            {
-
-                CALCULATED = CALCULATED + txt_2epval;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (HALFDP.Checked == false)
-            {
-                CALCULATED = CALCULATED - txt_2epval;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-            }
-            else
-            {
-
-            }
-        }
-
-        private void FULLDP_CheckedChanged(object sender, EventArgs e)
-        {
-            Double txt_fulldpval = Convert.ToDouble(txt_fulldp.Text);
-
-            if (FULLDP.Checked)
-            {
-                CALCULATED = CALCULATED + txt_fulldpval;
-                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
-
-            }
-            else if (FULLDP.Checked == false)
-            {
-                CALCULATED = CALCULATED - txt_fulldpval;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -1056,15 +697,15 @@ namespace BillingApp
 
         private void W1RDP_CheckedChanged(object sender, EventArgs e)
         {
-            //  Double val1 = Convert.ToDouble(txt_rvertical.Text);
-            //  Double val2 =  Convert.ToInt32(lengthProduct_tB.Text);
-            //  Double val3 = val1 * (val2 / 12);
+            //  Decimal val1 = Convert.ToDecimal(txt_rvertical.Text);
+            //  Decimal val2 =  Convert.ToDecimal(Width);
+            //  Decimal val3 = val1 * (val2 / 12);
             //
             //
             //  if (W1RDP.Checked)
             //  {
             //
-            //      CALCULATED = CALCULATED + val3;
+            //      CALCULATED += val3;
             //      totalServiceSides_tB.Text = CALCULATED.ToString();
             //
             //  }
@@ -1081,15 +722,15 @@ namespace BillingApp
 
         private void W1LDP_CheckedChanged(object sender, EventArgs e)
         {
-            //Double val1 = Convert.ToDouble(txt_lvertical.Text);
-            //Double val2 =  Convert.ToInt32(lengthProduct_tB.Text);
-            //Double val3 = val1 * (val2 / 12);
+            //Decimal val1 = Convert.ToDecimal(txt_lvertical.Text);
+            //Double val2 =  Convert.ToInt32(Width);
+            //Decimal val3 = val1 * (val2 / 12);
             //
             //
             //if (W1LDP.Checked)
             //{
             //
-            //    CALCULATED = CALCULATED + val3;
+            //    CALCULATED += val3;
             //    totalServiceSides_tB.Text = CALCULATED.ToString();
             //
             //}
@@ -1106,21 +747,21 @@ namespace BillingApp
 
         private void W2FR_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_fr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_fr.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W2FR.Checked)
             {
 
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
 
             }
             else if (W2FR.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else
@@ -1131,19 +772,19 @@ namespace BillingApp
 
         private void W2HR_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_hr.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_hr.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W2HR.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2HR.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -1151,19 +792,19 @@ namespace BillingApp
 
         private void W2CH_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_ch.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
 
             if (W2CH.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2CH.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -1171,18 +812,18 @@ namespace BillingApp
 
         private void W22CH_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_2ch.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_2ch.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
             if (W22CH.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W22CH.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -1190,18 +831,18 @@ namespace BillingApp
 
         private void W2EP_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_ep.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
             if (W2EP.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2EP.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -1209,18 +850,18 @@ namespace BillingApp
 
         private void W22EP_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_2ep.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_2ep.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
             if (W22EP.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W22EP.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
@@ -1228,66 +869,781 @@ namespace BillingApp
 
         private void W2KM_CheckedChanged(object sender, EventArgs e)
         {
-            Double val1 = Convert.ToDouble(txt_km.Text);
-            Double val2 = Convert.ToInt32(lengthProduct_tB.Text);
-            Double val3 = val1 * (val2 / 12);
+            Decimal val1 = Convert.ToDecimal(txt_km.Text);
+            Decimal val2 = Convert.ToDecimal(pWidth);
+            Decimal val3 = val1 * (val2 / 12);
 
             if (W2KM.Checked)
             {
-                CALCULATED = CALCULATED + val3;
+                CALCULATED += val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else if (W2KM.Checked == false)
             {
-                CALCULATED = CALCULATED - val3;
+                CALCULATED -= val3;
                 totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
             }
             else { }
         }
 
-        #endregion
-
-        #region Sides Service
-        private void addSidesService_btn_Click(object sender, EventArgs e)
+        private void FULLDP_CheckedChanged(object sender, EventArgs e)
         {
-            selectSide_Service();
+            Decimal txt_fulldpval = Convert.ToDecimal(txt_fulldp.Text);
+
+            if (FULLDP.Checked)
+            {
+                CALCULATED += txt_fulldpval;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+
+            }
+            else if (FULLDP.Checked == false)
+            {
+                CALCULATED -= txt_fulldpval;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
         }
 
-        private void sidesServicePnlClose_btn_Click(object sender, EventArgs e)
+        private void HALFDP_CheckedChanged(object sender, EventArgs e)
         {
-            this.selectedProductList_dGV.Location = new System.Drawing.Point(7, 14);
-            this.selectedProductList_dGV.Size = new System.Drawing.Size(700, 380);
+            Decimal txt_2epval = Convert.ToDecimal(txt_2ep.Text);
+            if (HALFDP.Checked)
+            {
+
+                CALCULATED += txt_2epval;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+
+            }
+            else if (HALFDP.Checked == false)
+            {
+                CALCULATED -= txt_2epval;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+
+        private void L1FR_CheckedChanged(object sender, EventArgs e)
+        {
+
+            Decimal val1 = Convert.ToDecimal(txt_fr.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L1FR.Checked == true)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L1FR.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L1KM_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_km.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L1KM.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L1KM.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L1HR_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_hr.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L1HR.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L1HR.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L1CH_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_ch.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L1CH.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L1CH.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L12CH_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_2ch.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L12CH.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L12CH.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L1EP_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_ep.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L1EP.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L1EP.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L12EP_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_2ep.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L12EP.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L12EP.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else { }
+        }
+
+        private void L1GROOVE_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_groove.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L1GROOVE.Checked)
+            {
+
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+
+            }
+            else if (L1GROOVE.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2FR_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_fr.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L2FR.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L2FR.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2HR_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_hr.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L2HR.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L2HR.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2CH_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_ch.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L2CH.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L2CH.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void totalSqFtProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rateProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddQuotation_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void widthProduct_tB_TextChanged(object sender, EventArgs e)
+        {
+            if (catogeryProduct_tB.Text == "Marble" || catogeryProduct_tB.Text == "Granite")
+            {
+                if (!string.IsNullOrEmpty(widthProduct_tB.Text))
+                {
+                    widthValue = Convert.ToDecimal(widthProduct_tB.Text);
+                    for (int i = 1; i < 10000; i++)
+                    {
+                        int j = 3;
+                        int k = i * j;
+                        if (widthValue <= k)
+                        {
+                            width = k;
+                            break;
+                        }
+                    }
+                    pWidth = (decimal)width;
+                    MessageBox.Show("Width= " + pWidth);
+                }
+            }
+
+            else if (catogeryProduct_tB.Text == "Stone" || catogeryProduct_tB.Text == "Kadappa")
+            {
+
+                if (decimal.TryParse(widthProduct_tB.Text, out widthValue))
+                {
+                    decimal result = widthRoundToMultipleOf6(widthValue);
+                    pWidth = result;
+                    MessageBox.Show("Width= " + pWidth);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid number between 0.01 and 5.0.");
+                }
+            }
+
+            else if (catogeryProduct_tB.Text == "Uncut")
+            {
+
+                if (decimal.TryParse(widthProduct_tB.Text, out widthValue))
+                {
+                    // decimal result = widthRoundToMultipleOf6(widthValue);
+                    pWidth = widthValue;
+                    MessageBox.Show("Width= " + pWidth);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid number between 0.01 and 5.0.");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(lengthProduct_tB.Text))
+            {
+                totalSqFt = (pLength / 12) * (pWidth / 12);
+                totalSqFtProduct_tB.Text = Convert.ToString(totalSqFt);
+            }
+        }
+
+        private decimal widthRoundToMultipleOf6(decimal n)
+        {
+            double rou = (double)(n / 12);
+            int integerPart = (int)Math.Floor(rou);
+            double fractionalPart = rou - integerPart;
+
+            if (fractionalPart <= 0.42)
+            {
+                fractionalPart = 0.41 + 0.09;
+            }
+            else if (fractionalPart <= 0.92)
+            {
+                fractionalPart = 0.91 + 0.09;
+            }
+            else if (fractionalPart > 0.92)
+            {
+                fractionalPart = 1.5;
+            }
+            decimal widval = (decimal)((integerPart + fractionalPart) * 12);
+            return widval;
+        }
+
+        private void paymentStatus_cB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (paymentStatus_cB.Text == "Paid")
+            {
+                paidAmount_tB.Text = Convert.ToString(grand_Total);
+            }
+           else if (paymentStatus_cB.Text == "Unpaid")
+           {
+                paidAmount_tB.Text = Convert.ToString(0);
+           }
+
+        }
+
+        private void sideService_tB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalAmount_tB_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void L22CH_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_2ch.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L22CH.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L22CH.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2EP_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_ep.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L2EP.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L2EP.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L22EP_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_2ep.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L22EP.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L22EP.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2KM_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_km.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+
+            if (L2KM.Checked)
+            {
+
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+
+            }
+            else if (L2KM.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void L2GROOVE_CheckedChanged(object sender, EventArgs e)
+        {
+            Decimal val1 = Convert.ToDecimal(txt_groove.Text);
+            Decimal val2 = Convert.ToDecimal(pLength);
+            Decimal val3 = val1 * (val2 / 12);
+
+            if (L2GROOVE.Checked)
+            {
+                CALCULATED += val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else if (L2GROOVE.Checked == false)
+            {
+                CALCULATED -= val3;
+                totalServiceSidesCharges_tB.Text = CALCULATED.ToString();
+            }
+            else
+            {
+
+            }
+        }
+
+
+        #endregion 
+        #region Sides Service
+
+        private void AddSidesService_btn_Click(object sender, EventArgs e)
+        {
+            SelectSide_Service();
+        }
+
+        private void SidesServicePnlClose_btn_Click(object sender, EventArgs e)
+        {
+            this.selectedProductList_Pnl.Location = new System.Drawing.Point(7, 14);
+            this.selectedProductList_Pnl.Size = new System.Drawing.Size(700, 280);
             this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(7, 7);
             this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(10, 10);
         }
-
-        private void selectService_btn_Click(object sender, EventArgs e)
+        //selectedProductList_Pnl
+        private void SelectService_btn_Click(object sender, EventArgs e)
         {
             this.sides_ServiceScrollPnl.Location = new System.Drawing.Point(7, 14);
-            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(700, 380);
-            this.selectedProductList_dGV.Location = new System.Drawing.Point(695, 7);
-            this.selectedProductList_dGV.Size = new System.Drawing.Size(10, 10);
+            this.sides_ServiceScrollPnl.Size = new System.Drawing.Size(700, 280);
+            this.selectedProductList_Pnl.Location = new System.Drawing.Point(695, 7);
+            this.selectedProductList_Pnl.Size = new System.Drawing.Size(10, 10);
         }
 
         #endregion
 
-        #region Product Details
-        private void widthProduct_tB_TextChanged(object sender, EventArgs e)
+        private void SelectProduct_btn_Click(object sender, EventArgs e)
+        {
+            // Parse the product details from the textboxes
+            product_name = catogeryProduct_tB.Text;
+            subcategory_name = resultProduct_tB.Text;
+            hsn_no = hsnNo_tB.Text;
+           
+            //decimal productTotal;
+
+            if (!decimal.TryParse(rateProduct_tB.Text, out p_rate)
+                || !decimal.TryParse(lengthProduct_tB.Text, out pLength) 
+                || !decimal.TryParse(widthProduct_tB.Text, out pWidth) 
+                || !int.TryParse(quantity_tB.Text, out p_quantity)
+                )
+            {
+                MessageBox.Show("Invalid input in one or more fields.");
+                return;
+            }
+
+
+            // Add product to gridview
+            DataGridViewRow newRow = new DataGridViewRow();
+            newRow.CreateCells(selectedProductList_dGV);
+
+            newRow.Cells[0].Value = subcategory_name;
+            newRow.Cells[1].Value = product_name;
+            newRow.Cells[2].Value = hsn_no;
+            newRow.Cells[3].Value = pWidth;
+            newRow.Cells[4].Value = pLength;
+            newRow.Cells[5].Value = totalSqFt;
+            newRow.Cells[6].Value = p_quantity;
+            newRow.Cells[7].Value = p_rate;
+            newRow.Cells[8].Value = side_service;
+            newRow.Cells[9].Value = servicePrice;
+            newRow.Cells[10].Value = p_Total;
+
+            selectedProductList_dGV.Rows.Add(newRow);
+
+            // Calculate invoice total and display it
+            decimal invoiceTotal = 0;
+            foreach (DataGridViewRow invoiceRow in selectedProductList_dGV.Rows)
+            {
+                decimal productTotalAmount = Convert.ToDecimal(invoiceRow.Cells[10].Value);
+                invoiceTotal += productTotalAmount;
+            }
+            grandTotal_tB.Text = Convert.ToString(invoiceTotal);
+
+            // Clear the product details textboxes.
+            resultCustomerId_tB.Clear();
+            catogeryProduct_tB.Clear();
+            resultProduct_tB.Clear();
+            rateProduct_tB.Clear();
+            quantity_tB.Clear();
+            widthProduct_tB.Clear();
+            lengthProduct_tB.Clear();
+            totalServiceSidesCharges_tB.Clear();
+            hsnNo_tB.Clear();
+            totalSqFtProduct_tB.Clear();
+            totalAmount_tB.Clear();
+            CALCULATED = 0;
+
+            sideService_tB.Clear();
+        }
+
+        private void SelectedProductList_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void lengthProduct_tB_TextChanged(object sender, EventArgs e)
+        private void quantity_tB_TextChanged(object sender, EventArgs e)
+        {
+            if (!decimal.TryParse(rateProduct_tB.Text, out p_rate) ||
+                !decimal.TryParse(lengthProduct_tB.Text, out pLength) ||
+                !decimal.TryParse(widthProduct_tB.Text, out pWidth) ||
+                !int.TryParse(quantity_tB.Text, out p_quantity)
+                )
+            {
+                MessageBox.Show("Invalid input in one or more fields.");
+                return;
+            }
+            if (!string.IsNullOrEmpty(quantity_tB.Text))
+            {
+                p_quantity = Convert.ToInt32(quantity_tB.Text);
+            }
+            if (catogeryProduct_tB.Text == "Goods")
+            {
+                p_Total = p_rate * p_quantity;
+                totalAmount_tB.Text = Convert.ToString(p_Total);
+            }
+            else if (catogeryProduct_tB.Text == "Uncut")
+            {
+                p_Total = p_rate * p_quantity * totalSqFt;
+                totalAmount_tB.Text = Convert.ToString(p_Total);
+            }
+            else if (catogeryProduct_tB.Text == "Marble" || catogeryProduct_tB.Text == "Granite" || catogeryProduct_tB.Text == "Stone" || catogeryProduct_tB.Text == "Kadappa")
+            {
+                if (!string.IsNullOrEmpty(totalServiceSidesCharges_tB.Text))
+                {
+                servicePrice = Convert.ToDecimal(totalServiceSidesCharges_tB.Text);
+
+                }
+                else
+                {
+                    MessageBox.Show("Molding Not Selected");
+                    servicePrice = 0;
+                }
+                p_Total = (p_rate * p_quantity * totalSqFt) + (p_quantity * servicePrice);
+                totalAmount_tB.Text = Convert.ToString(p_Total);
+            }
+        }
+
+        private void paidAmount_tB_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(paidAmount_tB.Text))
+            {
+                paidAmount = Convert.ToDecimal(paidAmount_tB.Text);
+                balanceAmount = grand_Total - paidAmount;
+                balanceAmount_tB.Text = Convert.ToString(balanceAmount);
+            }
+        }
+
+        private void invoiceNo_tB_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+        private void grandTotal_tB_TextChanged(object sender, EventArgs e)
+        {
+            grand_Total = Convert.ToDecimal(grandTotal_tB.Text);
+        }
 
+        private void balanceAmount_tB_TextChanged(object sender, EventArgs e)
+        {
+            balanceAmount = Convert.ToDecimal(balanceAmount_tB.Text);
+        }
 
+        private void Addinvoice_btn_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
 
-        #endregion
+                try
+                {
+                    if (!string.IsNullOrEmpty(paymentStatus_cB.Text)) {
+                        string invoiceSql = "INSERT INTO tbl_InvoiceDetails (fk_Company_Id, invoiceDate, dueDate, grandTotal, paymentStatus, paidAmount, balanceAmount) VALUES" +
+                        " (@companyId, @invoiceDate, @dueDate, @grandTotal, '@paymentStatus', @paidAmount, @balanceAmount); SELECT SCOPE_IDENTITY() AS invoiceNoId";
+                        SqlCommand invoiceCommand = new SqlCommand(invoiceSql, connection, transaction);
+                        invoiceCommand.Parameters.AddWithValue("@companyId", company_id);
+                        invoiceCommand.Parameters.AddWithValue("@invoiceDate", invoiceDate_dtP.Value.Date);
+                        invoiceCommand.Parameters.AddWithValue("@dueDate", invoiceDate_dtP.Value.Date.AddDays(30));
+                        invoiceCommand.Parameters.AddWithValue("@grandTotal", grand_Total);
+                        invoiceCommand.Parameters.AddWithValue("@paymentStatus", paymentStatus_cB.Text);
+                        invoiceCommand.Parameters.AddWithValue("@paidAmount", paidAmount);
+                        invoiceCommand.Parameters.AddWithValue("@balanceAmount", balanceAmount);
 
-      
+                        object invoiceResult = invoiceCommand.ExecuteScalar();
+                        int invno = Convert.ToInt32(invoiceResult); // Convert object to int output
+                        foreach (DataGridViewRow row in selectedProductList_dGV.Rows)
+                        {
+                            if (row.Index != selectedProductList_dGV.Rows.Count - 1) // Check if the row is not the last row
+                            {
+                                string productSql = "INSERT INTO dbo.tbl_InvoiceProductDetails (fk_InvoiceNo_Id, fk_Company_Id, fk_SubCategory_Id, quantity_Product, hsnNo, length_Product, width_Product, total_SqFt, side_Service, molding_Amount, total_Amount) VALUES (@invoiceNoId, @companyId, @subcategoryId, @quantityProduct, @hsnNo, @lengthProduct, @widthProduct, @totalSqFt, @sideService, @moldingAmount, @totalAmount)";
+                                SqlCommand productCommand = new SqlCommand(productSql, connection, transaction);
+                                subcategory_name = row.Cells["subcategoryName"].Value.ToString();
+                                p_quantity = Convert.ToInt32(row.Cells["productQuantity"].Value);
+
+                                subcategory_id = int.Parse(GETSC_id(subcategory_name));
+                                productCommand.Parameters.AddWithValue("@invoiceNoId", invno);
+                                productCommand.Parameters.AddWithValue("@companyId", company_id);
+                                productCommand.Parameters.AddWithValue("@subcategoryId", subcategory_id);
+                                productCommand.Parameters.AddWithValue("@hsnNo", row.Cells["hsnNo"].Value);
+                                productCommand.Parameters.AddWithValue("@quantityProduct", p_quantity);
+                                productCommand.Parameters.AddWithValue("@totalSqFt", totalSqFt);
+                                productCommand.Parameters.AddWithValue("@lengthProduct", row.Cells["productLength"].Value);
+                                productCommand.Parameters.AddWithValue("@widthProduct", row.Cells["productWidth"].Value);
+                                productCommand.Parameters.AddWithValue("@sideService", row.Cells["serviceSides"].Value);
+                                productCommand.Parameters.AddWithValue("@moldingAmount", row.Cells["moldingPrice"].Value);
+                                productCommand.Parameters.AddWithValue("@totalAmount", row.Cells["productTotal"].Value);
+
+                                productCommand.ExecuteNonQuery();
+                            }
+
+                        }
+
+                        transaction.Commit();
+                        MessageBox.Show("Data saved successfully");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fill Payment Details");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private string GETSC_id(string subcategory_name)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT subcategory_id FROM tbl_SubCategory WHERE subCategory_Name = '"+ subcategory_name + "'";
+                SqlCommand command = new SqlCommand(query, connection);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Subid = reader.GetInt32(0);
+                }
+
+                reader.Close();
+            }
+
+            return Convert.ToString(Subid);
+        }
+
     }
 }
-

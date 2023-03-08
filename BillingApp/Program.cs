@@ -17,5 +17,7 @@ namespace BillingApp
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainPage_form());
         }
+
+
     }
 }
