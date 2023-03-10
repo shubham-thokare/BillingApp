@@ -20,17 +20,17 @@ namespace BillingApp {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("BillingAppDataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("selectProductListDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class BillingAppDataSet1 : global::System.Data.DataSet {
+    public partial class selectProductListDataSet : global::System.Data.DataSet {
         
-        private tbl_InvoiceProductDetailsDataTable tabletbl_InvoiceProductDetails;
+        private InvoiceViewDataTable tableInvoiceView;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public BillingAppDataSet1() {
+        public selectProductListDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace BillingApp {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected BillingAppDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected selectProductListDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace BillingApp {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tbl_InvoiceProductDetails"] != null)) {
-                    base.Tables.Add(new tbl_InvoiceProductDetailsDataTable(ds.Tables["tbl_InvoiceProductDetails"]));
+                if ((ds.Tables["InvoiceView"] != null)) {
+                    base.Tables.Add(new InvoiceViewDataTable(ds.Tables["InvoiceView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace BillingApp {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tbl_InvoiceProductDetailsDataTable tbl_InvoiceProductDetails {
+        public InvoiceViewDataTable InvoiceView {
             get {
-                return this.tabletbl_InvoiceProductDetails;
+                return this.tableInvoiceView;
             }
         }
         
@@ -127,7 +127,7 @@ namespace BillingApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            BillingAppDataSet1 cln = ((BillingAppDataSet1)(base.Clone()));
+            selectProductListDataSet cln = ((selectProductListDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace BillingApp {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tbl_InvoiceProductDetails"] != null)) {
-                    base.Tables.Add(new tbl_InvoiceProductDetailsDataTable(ds.Tables["tbl_InvoiceProductDetails"]));
+                if ((ds.Tables["InvoiceView"] != null)) {
+                    base.Tables.Add(new InvoiceViewDataTable(ds.Tables["InvoiceView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace BillingApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletbl_InvoiceProductDetails = ((tbl_InvoiceProductDetailsDataTable)(base.Tables["tbl_InvoiceProductDetails"]));
+            this.tableInvoiceView = ((InvoiceViewDataTable)(base.Tables["InvoiceView"]));
             if ((initTable == true)) {
-                if ((this.tabletbl_InvoiceProductDetails != null)) {
-                    this.tabletbl_InvoiceProductDetails.InitVars();
+                if ((this.tableInvoiceView != null)) {
+                    this.tableInvoiceView.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace BillingApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "BillingAppDataSet1";
+            this.DataSetName = "selectProductListDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/BillingAppDataSet1.xsd";
+            this.Namespace = "http://tempuri.org/selectProductListDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletbl_InvoiceProductDetails = new tbl_InvoiceProductDetailsDataTable();
-            base.Tables.Add(this.tabletbl_InvoiceProductDetails);
+            this.tableInvoiceView = new InvoiceViewDataTable();
+            base.Tables.Add(this.tableInvoiceView);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializetbl_InvoiceProductDetails() {
+        private bool ShouldSerializeInvoiceView() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace BillingApp {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            BillingAppDataSet1 ds = new BillingAppDataSet1();
+            selectProductListDataSet ds = new selectProductListDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,37 +270,33 @@ namespace BillingApp {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void tbl_InvoiceProductDetailsRowChangeEventHandler(object sender, tbl_InvoiceProductDetailsRowChangeEvent e);
+        public delegate void InvoiceViewRowChangeEventHandler(object sender, InvoiceViewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tbl_InvoiceProductDetailsDataTable : global::System.Data.TypedTableBase<tbl_InvoiceProductDetailsRow> {
+        public partial class InvoiceViewDataTable : global::System.Data.TypedTableBase<InvoiceViewRow> {
             
-            private global::System.Data.DataColumn columnfk_InvoiceNo_Id;
+            private global::System.Data.DataColumn columninvoiceNo_Id;
             
-            private global::System.Data.DataColumn columnfk_SubCategory_Id;
+            private global::System.Data.DataColumn columninvoiceDate;
             
-            private global::System.Data.DataColumn columnfk_Company_Id;
+            private global::System.Data.DataColumn columncustomer_Name;
+            
+            private global::System.Data.DataColumn columnsite_Address;
+            
+            private global::System.Data.DataColumn columnsubCategory_Name;
             
             private global::System.Data.DataColumn columnquantity_Product;
             
-            private global::System.Data.DataColumn columnlength_Product;
-            
-            private global::System.Data.DataColumn columnwidth_Product;
-            
-            private global::System.Data.DataColumn columnside_Service;
-            
-            private global::System.Data.DataColumn columnmolding_Amount;
-            
-            private global::System.Data.DataColumn columntotal_Amount;
+            private global::System.Data.DataColumn columnpricePer_Unit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsDataTable() {
-                this.TableName = "tbl_InvoiceProductDetails";
+            public InvoiceViewDataTable() {
+                this.TableName = "InvoiceView";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +304,7 @@ namespace BillingApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal tbl_InvoiceProductDetailsDataTable(global::System.Data.DataTable table) {
+            internal InvoiceViewDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,32 +321,48 @@ namespace BillingApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected tbl_InvoiceProductDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected InvoiceViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fk_InvoiceNo_IdColumn {
+            public global::System.Data.DataColumn invoiceNo_IdColumn {
                 get {
-                    return this.columnfk_InvoiceNo_Id;
+                    return this.columninvoiceNo_Id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fk_SubCategory_IdColumn {
+            public global::System.Data.DataColumn invoiceDateColumn {
                 get {
-                    return this.columnfk_SubCategory_Id;
+                    return this.columninvoiceDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fk_Company_IdColumn {
+            public global::System.Data.DataColumn customer_NameColumn {
                 get {
-                    return this.columnfk_Company_Id;
+                    return this.columncustomer_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn site_AddressColumn {
+                get {
+                    return this.columnsite_Address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn subCategory_NameColumn {
+                get {
+                    return this.columnsubCategory_Name;
                 }
             }
             
@@ -364,41 +376,9 @@ namespace BillingApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn length_ProductColumn {
+            public global::System.Data.DataColumn pricePer_UnitColumn {
                 get {
-                    return this.columnlength_Product;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn width_ProductColumn {
-                get {
-                    return this.columnwidth_Product;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn side_ServiceColumn {
-                get {
-                    return this.columnside_Service;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn molding_AmountColumn {
-                get {
-                    return this.columnmolding_Amount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn total_AmountColumn {
-                get {
-                    return this.columntotal_Amount;
+                    return this.columnpricePer_Unit;
                 }
             }
             
@@ -413,53 +393,58 @@ namespace BillingApp {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsRow this[int index] {
+            public InvoiceViewRow this[int index] {
                 get {
-                    return ((tbl_InvoiceProductDetailsRow)(this.Rows[index]));
+                    return ((InvoiceViewRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event tbl_InvoiceProductDetailsRowChangeEventHandler tbl_InvoiceProductDetailsRowChanging;
+            public event InvoiceViewRowChangeEventHandler InvoiceViewRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event tbl_InvoiceProductDetailsRowChangeEventHandler tbl_InvoiceProductDetailsRowChanged;
+            public event InvoiceViewRowChangeEventHandler InvoiceViewRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event tbl_InvoiceProductDetailsRowChangeEventHandler tbl_InvoiceProductDetailsRowDeleting;
+            public event InvoiceViewRowChangeEventHandler InvoiceViewRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event tbl_InvoiceProductDetailsRowChangeEventHandler tbl_InvoiceProductDetailsRowDeleted;
+            public event InvoiceViewRowChangeEventHandler InvoiceViewRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addtbl_InvoiceProductDetailsRow(tbl_InvoiceProductDetailsRow row) {
+            public void AddInvoiceViewRow(InvoiceViewRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsRow Addtbl_InvoiceProductDetailsRow(int fk_InvoiceNo_Id, int fk_SubCategory_Id, int fk_Company_Id, int quantity_Product, decimal length_Product, decimal width_Product, string side_Service, decimal molding_Amount, decimal total_Amount) {
-                tbl_InvoiceProductDetailsRow rowtbl_InvoiceProductDetailsRow = ((tbl_InvoiceProductDetailsRow)(this.NewRow()));
+            public InvoiceViewRow AddInvoiceViewRow(int invoiceNo_Id, System.DateTime invoiceDate, string customer_Name, string site_Address, string subCategory_Name, int quantity_Product, decimal pricePer_Unit) {
+                InvoiceViewRow rowInvoiceViewRow = ((InvoiceViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        fk_InvoiceNo_Id,
-                        fk_SubCategory_Id,
-                        fk_Company_Id,
+                        invoiceNo_Id,
+                        invoiceDate,
+                        customer_Name,
+                        site_Address,
+                        subCategory_Name,
                         quantity_Product,
-                        length_Product,
-                        width_Product,
-                        side_Service,
-                        molding_Amount,
-                        total_Amount};
-                rowtbl_InvoiceProductDetailsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtbl_InvoiceProductDetailsRow);
-                return rowtbl_InvoiceProductDetailsRow;
+                        pricePer_Unit};
+                rowInvoiceViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowInvoiceViewRow);
+                return rowInvoiceViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InvoiceViewRow FindByinvoiceNo_Id(int invoiceNo_Id) {
+                return ((InvoiceViewRow)(this.Rows.Find(new object[] {
+                            invoiceNo_Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tbl_InvoiceProductDetailsDataTable cln = ((tbl_InvoiceProductDetailsDataTable)(base.Clone()));
+                InvoiceViewDataTable cln = ((InvoiceViewDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,80 +452,77 @@ namespace BillingApp {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tbl_InvoiceProductDetailsDataTable();
+                return new InvoiceViewDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnfk_InvoiceNo_Id = base.Columns["fk_InvoiceNo_Id"];
-                this.columnfk_SubCategory_Id = base.Columns["fk_SubCategory_Id"];
-                this.columnfk_Company_Id = base.Columns["fk_Company_Id"];
+                this.columninvoiceNo_Id = base.Columns["invoiceNo_Id"];
+                this.columninvoiceDate = base.Columns["invoiceDate"];
+                this.columncustomer_Name = base.Columns["customer_Name"];
+                this.columnsite_Address = base.Columns["site_Address"];
+                this.columnsubCategory_Name = base.Columns["subCategory_Name"];
                 this.columnquantity_Product = base.Columns["quantity_Product"];
-                this.columnlength_Product = base.Columns["length_Product"];
-                this.columnwidth_Product = base.Columns["width_Product"];
-                this.columnside_Service = base.Columns["side_Service"];
-                this.columnmolding_Amount = base.Columns["molding_Amount"];
-                this.columntotal_Amount = base.Columns["total_Amount"];
+                this.columnpricePer_Unit = base.Columns["pricePer_Unit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnfk_InvoiceNo_Id = new global::System.Data.DataColumn("fk_InvoiceNo_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_InvoiceNo_Id);
-                this.columnfk_SubCategory_Id = new global::System.Data.DataColumn("fk_SubCategory_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_SubCategory_Id);
-                this.columnfk_Company_Id = new global::System.Data.DataColumn("fk_Company_Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfk_Company_Id);
+                this.columninvoiceNo_Id = new global::System.Data.DataColumn("invoiceNo_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoiceNo_Id);
+                this.columninvoiceDate = new global::System.Data.DataColumn("invoiceDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columninvoiceDate);
+                this.columncustomer_Name = new global::System.Data.DataColumn("customer_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncustomer_Name);
+                this.columnsite_Address = new global::System.Data.DataColumn("site_Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsite_Address);
+                this.columnsubCategory_Name = new global::System.Data.DataColumn("subCategory_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubCategory_Name);
                 this.columnquantity_Product = new global::System.Data.DataColumn("quantity_Product", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity_Product);
-                this.columnlength_Product = new global::System.Data.DataColumn("length_Product", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlength_Product);
-                this.columnwidth_Product = new global::System.Data.DataColumn("width_Product", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnwidth_Product);
-                this.columnside_Service = new global::System.Data.DataColumn("side_Service", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnside_Service);
-                this.columnmolding_Amount = new global::System.Data.DataColumn("molding_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmolding_Amount);
-                this.columntotal_Amount = new global::System.Data.DataColumn("total_Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotal_Amount);
-                this.columnfk_InvoiceNo_Id.AllowDBNull = false;
-                this.columnfk_SubCategory_Id.AllowDBNull = false;
-                this.columnfk_Company_Id.AllowDBNull = false;
+                this.columnpricePer_Unit = new global::System.Data.DataColumn("pricePer_Unit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpricePer_Unit);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columninvoiceNo_Id}, true));
+                this.columninvoiceNo_Id.AllowDBNull = false;
+                this.columninvoiceNo_Id.Unique = true;
+                this.columninvoiceDate.AllowDBNull = false;
+                this.columncustomer_Name.AllowDBNull = false;
+                this.columncustomer_Name.MaxLength = 2147483647;
+                this.columnsite_Address.AllowDBNull = false;
+                this.columnsite_Address.MaxLength = 2147483647;
+                this.columnsubCategory_Name.AllowDBNull = false;
+                this.columnsubCategory_Name.MaxLength = 2147483647;
                 this.columnquantity_Product.AllowDBNull = false;
-                this.columnlength_Product.AllowDBNull = false;
-                this.columnwidth_Product.AllowDBNull = false;
-                this.columnside_Service.AllowDBNull = false;
-                this.columnside_Service.MaxLength = 2147483647;
-                this.columnmolding_Amount.AllowDBNull = false;
-                this.columntotal_Amount.AllowDBNull = false;
+                this.columnpricePer_Unit.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsRow Newtbl_InvoiceProductDetailsRow() {
-                return ((tbl_InvoiceProductDetailsRow)(this.NewRow()));
+            public InvoiceViewRow NewInvoiceViewRow() {
+                return ((InvoiceViewRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tbl_InvoiceProductDetailsRow(builder);
+                return new InvoiceViewRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tbl_InvoiceProductDetailsRow);
+                return typeof(InvoiceViewRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tbl_InvoiceProductDetailsRowChanged != null)) {
-                    this.tbl_InvoiceProductDetailsRowChanged(this, new tbl_InvoiceProductDetailsRowChangeEvent(((tbl_InvoiceProductDetailsRow)(e.Row)), e.Action));
+                if ((this.InvoiceViewRowChanged != null)) {
+                    this.InvoiceViewRowChanged(this, new InvoiceViewRowChangeEvent(((InvoiceViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -548,8 +530,8 @@ namespace BillingApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tbl_InvoiceProductDetailsRowChanging != null)) {
-                    this.tbl_InvoiceProductDetailsRowChanging(this, new tbl_InvoiceProductDetailsRowChangeEvent(((tbl_InvoiceProductDetailsRow)(e.Row)), e.Action));
+                if ((this.InvoiceViewRowChanging != null)) {
+                    this.InvoiceViewRowChanging(this, new InvoiceViewRowChangeEvent(((InvoiceViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -557,8 +539,8 @@ namespace BillingApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tbl_InvoiceProductDetailsRowDeleted != null)) {
-                    this.tbl_InvoiceProductDetailsRowDeleted(this, new tbl_InvoiceProductDetailsRowChangeEvent(((tbl_InvoiceProductDetailsRow)(e.Row)), e.Action));
+                if ((this.InvoiceViewRowDeleted != null)) {
+                    this.InvoiceViewRowDeleted(this, new InvoiceViewRowChangeEvent(((InvoiceViewRow)(e.Row)), e.Action));
                 }
             }
             
@@ -566,14 +548,14 @@ namespace BillingApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tbl_InvoiceProductDetailsRowDeleting != null)) {
-                    this.tbl_InvoiceProductDetailsRowDeleting(this, new tbl_InvoiceProductDetailsRowChangeEvent(((tbl_InvoiceProductDetailsRow)(e.Row)), e.Action));
+                if ((this.InvoiceViewRowDeleting != null)) {
+                    this.InvoiceViewRowDeleting(this, new InvoiceViewRowChangeEvent(((InvoiceViewRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removetbl_InvoiceProductDetailsRow(tbl_InvoiceProductDetailsRow row) {
+            public void RemoveInvoiceViewRow(InvoiceViewRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -582,7 +564,7 @@ namespace BillingApp {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                BillingAppDataSet1 ds = new BillingAppDataSet1();
+                selectProductListDataSet ds = new selectProductListDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -600,7 +582,7 @@ namespace BillingApp {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tbl_InvoiceProductDetailsDataTable";
+                attribute2.FixedValue = "InvoiceViewDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -644,47 +626,69 @@ namespace BillingApp {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tbl_InvoiceProductDetailsRow : global::System.Data.DataRow {
+        public partial class InvoiceViewRow : global::System.Data.DataRow {
             
-            private tbl_InvoiceProductDetailsDataTable tabletbl_InvoiceProductDetails;
+            private InvoiceViewDataTable tableInvoiceView;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal tbl_InvoiceProductDetailsRow(global::System.Data.DataRowBuilder rb) : 
+            internal InvoiceViewRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletbl_InvoiceProductDetails = ((tbl_InvoiceProductDetailsDataTable)(this.Table));
+                this.tableInvoiceView = ((InvoiceViewDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int fk_InvoiceNo_Id {
+            public int invoiceNo_Id {
                 get {
-                    return ((int)(this[this.tabletbl_InvoiceProductDetails.fk_InvoiceNo_IdColumn]));
+                    return ((int)(this[this.tableInvoiceView.invoiceNo_IdColumn]));
                 }
                 set {
-                    this[this.tabletbl_InvoiceProductDetails.fk_InvoiceNo_IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int fk_SubCategory_Id {
-                get {
-                    return ((int)(this[this.tabletbl_InvoiceProductDetails.fk_SubCategory_IdColumn]));
-                }
-                set {
-                    this[this.tabletbl_InvoiceProductDetails.fk_SubCategory_IdColumn] = value;
+                    this[this.tableInvoiceView.invoiceNo_IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int fk_Company_Id {
+            public System.DateTime invoiceDate {
                 get {
-                    return ((int)(this[this.tabletbl_InvoiceProductDetails.fk_Company_IdColumn]));
+                    return ((global::System.DateTime)(this[this.tableInvoiceView.invoiceDateColumn]));
                 }
                 set {
-                    this[this.tabletbl_InvoiceProductDetails.fk_Company_IdColumn] = value;
+                    this[this.tableInvoiceView.invoiceDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string customer_Name {
+                get {
+                    return ((string)(this[this.tableInvoiceView.customer_NameColumn]));
+                }
+                set {
+                    this[this.tableInvoiceView.customer_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string site_Address {
+                get {
+                    return ((string)(this[this.tableInvoiceView.site_AddressColumn]));
+                }
+                set {
+                    this[this.tableInvoiceView.site_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string subCategory_Name {
+                get {
+                    return ((string)(this[this.tableInvoiceView.subCategory_NameColumn]));
+                }
+                set {
+                    this[this.tableInvoiceView.subCategory_NameColumn] = value;
                 }
             }
             
@@ -692,65 +696,21 @@ namespace BillingApp {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int quantity_Product {
                 get {
-                    return ((int)(this[this.tabletbl_InvoiceProductDetails.quantity_ProductColumn]));
+                    return ((int)(this[this.tableInvoiceView.quantity_ProductColumn]));
                 }
                 set {
-                    this[this.tabletbl_InvoiceProductDetails.quantity_ProductColumn] = value;
+                    this[this.tableInvoiceView.quantity_ProductColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal length_Product {
+            public decimal pricePer_Unit {
                 get {
-                    return ((decimal)(this[this.tabletbl_InvoiceProductDetails.length_ProductColumn]));
+                    return ((decimal)(this[this.tableInvoiceView.pricePer_UnitColumn]));
                 }
                 set {
-                    this[this.tabletbl_InvoiceProductDetails.length_ProductColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal width_Product {
-                get {
-                    return ((decimal)(this[this.tabletbl_InvoiceProductDetails.width_ProductColumn]));
-                }
-                set {
-                    this[this.tabletbl_InvoiceProductDetails.width_ProductColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string side_Service {
-                get {
-                    return ((string)(this[this.tabletbl_InvoiceProductDetails.side_ServiceColumn]));
-                }
-                set {
-                    this[this.tabletbl_InvoiceProductDetails.side_ServiceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal molding_Amount {
-                get {
-                    return ((decimal)(this[this.tabletbl_InvoiceProductDetails.molding_AmountColumn]));
-                }
-                set {
-                    this[this.tabletbl_InvoiceProductDetails.molding_AmountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal total_Amount {
-                get {
-                    return ((decimal)(this[this.tabletbl_InvoiceProductDetails.total_AmountColumn]));
-                }
-                set {
-                    this[this.tabletbl_InvoiceProductDetails.total_AmountColumn] = value;
+                    this[this.tableInvoiceView.pricePer_UnitColumn] = value;
                 }
             }
         }
@@ -759,22 +719,22 @@ namespace BillingApp {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class tbl_InvoiceProductDetailsRowChangeEvent : global::System.EventArgs {
+        public class InvoiceViewRowChangeEvent : global::System.EventArgs {
             
-            private tbl_InvoiceProductDetailsRow eventRow;
+            private InvoiceViewRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsRowChangeEvent(tbl_InvoiceProductDetailsRow row, global::System.Data.DataRowAction action) {
+            public InvoiceViewRowChangeEvent(InvoiceViewRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public tbl_InvoiceProductDetailsRow Row {
+            public InvoiceViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -790,7 +750,7 @@ namespace BillingApp {
         }
     }
 }
-namespace BillingApp.BillingAppDataSet1TableAdapters {
+namespace BillingApp.selectProductListDataSetTableAdapters {
     
     
     /// <summary>
@@ -802,7 +762,7 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tbl_InvoiceProductDetailsTableAdapter : global::System.ComponentModel.Component {
+    public partial class InvoiceViewTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -816,7 +776,7 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public tbl_InvoiceProductDetailsTableAdapter() {
+        public InvoiceViewTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -913,30 +873,15 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tbl_InvoiceProductDetails";
-            tableMapping.ColumnMappings.Add("fk_InvoiceNo_Id", "fk_InvoiceNo_Id");
-            tableMapping.ColumnMappings.Add("fk_SubCategory_Id", "fk_SubCategory_Id");
-            tableMapping.ColumnMappings.Add("fk_Company_Id", "fk_Company_Id");
+            tableMapping.DataSetTable = "InvoiceView";
+            tableMapping.ColumnMappings.Add("invoiceNo_Id", "invoiceNo_Id");
+            tableMapping.ColumnMappings.Add("invoiceDate", "invoiceDate");
+            tableMapping.ColumnMappings.Add("customer_Name", "customer_Name");
+            tableMapping.ColumnMappings.Add("site_Address", "site_Address");
+            tableMapping.ColumnMappings.Add("subCategory_Name", "subCategory_Name");
             tableMapping.ColumnMappings.Add("quantity_Product", "quantity_Product");
-            tableMapping.ColumnMappings.Add("length_Product", "length_Product");
-            tableMapping.ColumnMappings.Add("width_Product", "width_Product");
-            tableMapping.ColumnMappings.Add("side_Service", "side_Service");
-            tableMapping.ColumnMappings.Add("molding_Amount", "molding_Amount");
-            tableMapping.ColumnMappings.Add("total_Amount", "total_Amount");
+            tableMapping.ColumnMappings.Add("pricePer_Unit", "pricePer_Unit");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbl_InvoiceProductDetails] ([fk_InvoiceNo_Id], [fk_SubCategory_Id], [fk_Company_Id], [quantity_Product], [length_Product], [width_Product], [side_Service], [molding_Amount], [total_Amount]) VALUES (@fk_InvoiceNo_Id, @fk_SubCategory_Id, @fk_Company_Id, @quantity_Product, @length_Product, @width_Product, @side_Service, @molding_Amount, @total_Amount)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fk_InvoiceNo_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fk_InvoiceNo_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fk_SubCategory_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fk_SubCategory_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fk_Company_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fk_Company_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity_Product", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@length_Product", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "length_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@width_Product", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "width_Product", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@side_Service", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "side_Service", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@molding_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "molding_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@total_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "total_Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -952,9 +897,8 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT fk_InvoiceNo_Id, fk_SubCategory_Id, fk_Company_Id, quantity_Product, lengt" +
-                "h_Product, width_Product, side_Service, molding_Amount, total_Amount FROM dbo.tb" +
-                "l_InvoiceProductDetails";
+            this._commandCollection[0].CommandText = "SELECT invoiceNo_Id, invoiceDate, customer_Name, site_Address, subCategory_Name, " +
+                "quantity_Product, pricePer_Unit FROM dbo.InvoiceView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -962,7 +906,7 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(BillingAppDataSet1.tbl_InvoiceProductDetailsDataTable dataTable) {
+        public virtual int Fill(selectProductListDataSet.InvoiceViewDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -975,75 +919,11 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual BillingAppDataSet1.tbl_InvoiceProductDetailsDataTable GetData() {
+        public virtual selectProductListDataSet.InvoiceViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            BillingAppDataSet1.tbl_InvoiceProductDetailsDataTable dataTable = new BillingAppDataSet1.tbl_InvoiceProductDetailsDataTable();
+            selectProductListDataSet.InvoiceViewDataTable dataTable = new selectProductListDataSet.InvoiceViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BillingAppDataSet1.tbl_InvoiceProductDetailsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(BillingAppDataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "tbl_InvoiceProductDetails");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int fk_InvoiceNo_Id, int fk_SubCategory_Id, int fk_Company_Id, int quantity_Product, decimal length_Product, decimal width_Product, string side_Service, decimal molding_Amount, decimal total_Amount) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(fk_InvoiceNo_Id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(fk_SubCategory_Id));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(fk_Company_Id));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(quantity_Product));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(length_Product));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(width_Product));
-            if ((side_Service == null)) {
-                throw new global::System.ArgumentNullException("side_Service");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(side_Service));
-            }
-            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(molding_Amount));
-            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(total_Amount));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -1059,8 +939,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private tbl_InvoiceProductDetailsTableAdapter _tbl_InvoiceProductDetailsTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -1073,20 +951,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public tbl_InvoiceProductDetailsTableAdapter tbl_InvoiceProductDetailsTableAdapter {
-            get {
-                return this._tbl_InvoiceProductDetailsTableAdapter;
-            }
-            set {
-                this._tbl_InvoiceProductDetailsTableAdapter = value;
             }
         }
         
@@ -1109,10 +973,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tbl_InvoiceProductDetailsTableAdapter != null) 
-                            && (this._tbl_InvoiceProductDetailsTableAdapter.Connection != null))) {
-                    return this._tbl_InvoiceProductDetailsTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -1126,9 +986,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -1138,17 +995,8 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(BillingAppDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(selectProductListDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_InvoiceProductDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_InvoiceProductDetailsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -1157,16 +1005,8 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(BillingAppDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(selectProductListDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_InvoiceProductDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_InvoiceProductDetailsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1175,16 +1015,8 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(BillingAppDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(selectProductListDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_InvoiceProductDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_InvoiceProductDetailsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1217,17 +1049,12 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(BillingAppDataSet1 dataSet) {
+        public virtual int UpdateAll(selectProductListDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._tbl_InvoiceProductDetailsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_InvoiceProductDetailsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1261,15 +1088,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_InvoiceProductDetailsTableAdapter, this._tbl_InvoiceProductDetailsTableAdapter.Connection);
-                    this._tbl_InvoiceProductDetailsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tbl_InvoiceProductDetailsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tbl_InvoiceProductDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_InvoiceProductDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_InvoiceProductDetailsTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1327,10 +1145,6 @@ namespace BillingApp.BillingAppDataSet1TableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._tbl_InvoiceProductDetailsTableAdapter != null)) {
-                    this._tbl_InvoiceProductDetailsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_InvoiceProductDetailsTableAdapter]));
-                    this._tbl_InvoiceProductDetailsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -59,7 +59,7 @@
             this.selectCustomerTitle_lbl = new System.Windows.Forms.Label();
             this.searchCustomerName_lbl = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.PrintQuotation_btn = new System.Windows.Forms.Button();
             this.quotation_Pnl = new System.Windows.Forms.Panel();
             this.customerAddress_DetailsPnl = new System.Windows.Forms.Panel();
             this.siteName_tB = new System.Windows.Forms.TextBox();
@@ -118,7 +118,6 @@
             this.Contact_lbl = new System.Windows.Forms.Label();
             this.Address_lbl = new System.Windows.Forms.Label();
             this.AppStore_lbl = new System.Windows.Forms.Label();
-            this.PrintQuotation_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.nav_menu_list = new System.Windows.Forms.MenuStrip();
             this.addProduct_TSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectCompany_dGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomer_pB_btn)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.quotation_Pnl.SuspendLayout();
             this.customerAddress_DetailsPnl.SuspendLayout();
             this.product_DetailsPnl.SuspendLayout();
@@ -153,10 +151,9 @@
             this.DeleteProduct_btn.BackColor = System.Drawing.Color.Red;
             this.DeleteProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.DeleteProduct_btn.Location = new System.Drawing.Point(169, 1000);
-            this.DeleteProduct_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.DeleteProduct_btn.Location = new System.Drawing.Point(254, 1538);
             this.DeleteProduct_btn.Name = "DeleteProduct_btn";
-            this.DeleteProduct_btn.Size = new System.Drawing.Size(122, 64);
+            this.DeleteProduct_btn.Size = new System.Drawing.Size(183, 98);
             this.DeleteProduct_btn.TabIndex = 14;
             this.DeleteProduct_btn.Text = "Delete";
             this.DeleteProduct_btn.UseVisualStyleBackColor = false;
@@ -167,10 +164,9 @@
             this.EditProduct_btn.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.EditProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.EditProduct_btn.Location = new System.Drawing.Point(18, 1000);
-            this.EditProduct_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.EditProduct_btn.Location = new System.Drawing.Point(27, 1538);
             this.EditProduct_btn.Name = "EditProduct_btn";
-            this.EditProduct_btn.Size = new System.Drawing.Size(122, 64);
+            this.EditProduct_btn.Size = new System.Drawing.Size(183, 98);
             this.EditProduct_btn.TabIndex = 13;
             this.EditProduct_btn.Text = "Edit Details";
             this.EditProduct_btn.UseVisualStyleBackColor = false;
@@ -180,10 +176,9 @@
             this.ClearProduct_btn.BackColor = System.Drawing.Color.CadetBlue;
             this.ClearProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.ClearProduct_btn.Location = new System.Drawing.Point(169, 924);
-            this.ClearProduct_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.ClearProduct_btn.Location = new System.Drawing.Point(254, 1422);
             this.ClearProduct_btn.Name = "ClearProduct_btn";
-            this.ClearProduct_btn.Size = new System.Drawing.Size(122, 64);
+            this.ClearProduct_btn.Size = new System.Drawing.Size(183, 98);
             this.ClearProduct_btn.TabIndex = 51;
             this.ClearProduct_btn.Text = "Clear Product";
             this.ClearProduct_btn.UseVisualStyleBackColor = false;
@@ -193,10 +188,9 @@
             this.selectProduct_btn.BackColor = System.Drawing.Color.SteelBlue;
             this.selectProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectProduct_btn.ForeColor = System.Drawing.Color.White;
-            this.selectProduct_btn.Location = new System.Drawing.Point(18, 924);
-            this.selectProduct_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.selectProduct_btn.Location = new System.Drawing.Point(27, 1422);
             this.selectProduct_btn.Name = "selectProduct_btn";
-            this.selectProduct_btn.Size = new System.Drawing.Size(122, 64);
+            this.selectProduct_btn.Size = new System.Drawing.Size(183, 98);
             this.selectProduct_btn.TabIndex = 50;
             this.selectProduct_btn.Text = "Select Product";
             this.selectProduct_btn.UseVisualStyleBackColor = false;
@@ -205,22 +199,20 @@
             // catogeryProduct_tB
             // 
             this.catogeryProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.catogeryProduct_tB.Location = new System.Drawing.Point(18, 702);
-            this.catogeryProduct_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.catogeryProduct_tB.Location = new System.Drawing.Point(27, 1080);
             this.catogeryProduct_tB.Multiline = true;
             this.catogeryProduct_tB.Name = "catogeryProduct_tB";
             this.catogeryProduct_tB.ReadOnly = true;
-            this.catogeryProduct_tB.Size = new System.Drawing.Size(273, 30);
+            this.catogeryProduct_tB.Size = new System.Drawing.Size(408, 44);
             this.catogeryProduct_tB.TabIndex = 52;
             // 
             // searchProductName_tB
             // 
             this.searchProductName_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchProductName_tB.Location = new System.Drawing.Point(18, 474);
-            this.searchProductName_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.searchProductName_tB.Location = new System.Drawing.Point(27, 729);
             this.searchProductName_tB.Multiline = true;
             this.searchProductName_tB.Name = "searchProductName_tB";
-            this.searchProductName_tB.Size = new System.Drawing.Size(238, 31);
+            this.searchProductName_tB.Size = new System.Drawing.Size(355, 46);
             this.searchProductName_tB.TabIndex = 42;
             // 
             // panel3
@@ -230,9 +222,10 @@
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 24);
+            this.panel3.Location = new System.Drawing.Point(0, 37);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 530);
+            this.panel3.Size = new System.Drawing.Size(484, 814);
             this.panel3.TabIndex = 7;
             // 
             // panel4
@@ -266,50 +259,47 @@
             this.panel4.Controls.Add(this.clearCustomer_btn);
             this.panel4.Controls.Add(this.selectCustomerTitle_lbl);
             this.panel4.Controls.Add(this.searchCustomerName_lbl);
-            this.panel4.Location = new System.Drawing.Point(3, 2);
+            this.panel4.Location = new System.Drawing.Point(4, 3);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(300, 1074);
+            this.panel4.Size = new System.Drawing.Size(449, 1651);
             this.panel4.TabIndex = 0;
             // 
             // hsnNo_tB
             // 
             this.hsnNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsnNo_tB.Location = new System.Drawing.Point(127, 805);
-            this.hsnNo_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.hsnNo_tB.Location = new System.Drawing.Point(191, 1239);
             this.hsnNo_tB.Multiline = true;
             this.hsnNo_tB.Name = "hsnNo_tB";
-            this.hsnNo_tB.Size = new System.Drawing.Size(165, 30);
+            this.hsnNo_tB.Size = new System.Drawing.Size(246, 44);
             this.hsnNo_tB.TabIndex = 55;
             // 
             // hsnNo_lbl
             // 
             this.hsnNo_lbl.AutoSize = true;
             this.hsnNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsnNo_lbl.Location = new System.Drawing.Point(23, 811);
-            this.hsnNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.hsnNo_lbl.Location = new System.Drawing.Point(34, 1247);
             this.hsnNo_lbl.Name = "hsnNo_lbl";
-            this.hsnNo_lbl.Size = new System.Drawing.Size(62, 20);
+            this.hsnNo_lbl.Size = new System.Drawing.Size(93, 29);
             this.hsnNo_lbl.TabIndex = 56;
             this.hsnNo_lbl.Text = "Hsn No";
             // 
             // rateProduct_tB
             // 
             this.rateProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateProduct_tB.Location = new System.Drawing.Point(127, 852);
-            this.rateProduct_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.rateProduct_tB.Location = new System.Drawing.Point(191, 1311);
             this.rateProduct_tB.Multiline = true;
             this.rateProduct_tB.Name = "rateProduct_tB";
-            this.rateProduct_tB.Size = new System.Drawing.Size(165, 30);
+            this.rateProduct_tB.Size = new System.Drawing.Size(246, 44);
             this.rateProduct_tB.TabIndex = 53;
             // 
             // rateProduct_lbl
             // 
             this.rateProduct_lbl.AutoSize = true;
             this.rateProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateProduct_lbl.Location = new System.Drawing.Point(23, 857);
-            this.rateProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.rateProduct_lbl.Location = new System.Drawing.Point(34, 1319);
             this.rateProduct_lbl.Name = "rateProduct_lbl";
-            this.rateProduct_lbl.Size = new System.Drawing.Size(105, 20);
+            this.rateProduct_lbl.Size = new System.Drawing.Size(155, 29);
             this.rateProduct_lbl.TabIndex = 54;
             this.rateProduct_lbl.Text = "Rate Per Unit";
             // 
@@ -317,10 +307,9 @@
             // 
             this.subCategory_lbl.AutoSize = true;
             this.subCategory_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subCategory_lbl.Location = new System.Drawing.Point(18, 748);
-            this.subCategory_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.subCategory_lbl.Location = new System.Drawing.Point(27, 1151);
             this.subCategory_lbl.Name = "subCategory_lbl";
-            this.subCategory_lbl.Size = new System.Drawing.Size(102, 20);
+            this.subCategory_lbl.Size = new System.Drawing.Size(153, 29);
             this.subCategory_lbl.TabIndex = 51;
             this.subCategory_lbl.Text = "SubCategory";
             // 
@@ -328,11 +317,11 @@
             // 
             this.selectProduct_dGV.BackgroundColor = System.Drawing.Color.White;
             this.selectProduct_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectProduct_dGV.Location = new System.Drawing.Point(18, 522);
+            this.selectProduct_dGV.Location = new System.Drawing.Point(27, 803);
+            this.selectProduct_dGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.selectProduct_dGV.Name = "selectProduct_dGV";
             this.selectProduct_dGV.RowHeadersWidth = 62;
-            this.selectProduct_dGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.selectProduct_dGV.Size = new System.Drawing.Size(273, 122);
+            this.selectProduct_dGV.Size = new System.Drawing.Size(410, 188);
             this.selectProduct_dGV.TabIndex = 44;
             this.selectProduct_dGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectProduct_dGV_CellContentClick);
             // 
@@ -340,7 +329,8 @@
             // 
             this.searchProduct_pB_btn.Image = global::BillingApp.Properties.Resources.search;
             this.searchProduct_pB_btn.InitialImage = global::BillingApp.Properties.Resources.search;
-            this.searchProduct_pB_btn.Location = new System.Drawing.Point(267, 477);
+            this.searchProduct_pB_btn.Location = new System.Drawing.Point(400, 734);
+            this.searchProduct_pB_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchProduct_pB_btn.Name = "searchProduct_pB_btn";
             this.searchProduct_pB_btn.Size = new System.Drawing.Size(24, 24);
             this.searchProduct_pB_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -351,10 +341,9 @@
             // 
             this.selectProductTitle_lbl.AutoSize = true;
             this.selectProductTitle_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectProductTitle_lbl.Location = new System.Drawing.Point(8, 402);
-            this.selectProductTitle_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.selectProductTitle_lbl.Location = new System.Drawing.Point(12, 618);
             this.selectProductTitle_lbl.Name = "selectProductTitle_lbl";
-            this.selectProductTitle_lbl.Size = new System.Drawing.Size(166, 25);
+            this.selectProductTitle_lbl.Size = new System.Drawing.Size(238, 37);
             this.selectProductTitle_lbl.TabIndex = 41;
             this.selectProductTitle_lbl.Text = "Select Product";
             // 
@@ -362,65 +351,61 @@
             // 
             this.searchProductName_lbl.AutoSize = true;
             this.searchProductName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchProductName_lbl.Location = new System.Drawing.Point(21, 435);
-            this.searchProductName_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.searchProductName_lbl.Location = new System.Drawing.Point(32, 669);
             this.searchProductName_lbl.Name = "searchProductName_lbl";
-            this.searchProductName_lbl.Size = new System.Drawing.Size(145, 20);
+            this.searchProductName_lbl.Size = new System.Drawing.Size(221, 29);
             this.searchProductName_lbl.TabIndex = 40;
             this.searchProductName_lbl.Text = "Find Product Name";
             // 
             // resultCustomer_tB
             // 
             this.resultCustomer_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultCustomer_tB.Location = new System.Drawing.Point(15, 280);
-            this.resultCustomer_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.resultCustomer_tB.Location = new System.Drawing.Point(22, 431);
             this.resultCustomer_tB.Multiline = true;
             this.resultCustomer_tB.Name = "resultCustomer_tB";
             this.resultCustomer_tB.ReadOnly = true;
-            this.resultCustomer_tB.Size = new System.Drawing.Size(280, 31);
+            this.resultCustomer_tB.Size = new System.Drawing.Size(418, 46);
             this.resultCustomer_tB.TabIndex = 39;
             // 
             // resultCustomerId_tB
             // 
             this.resultCustomerId_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultCustomerId_tB.Location = new System.Drawing.Point(175, 246);
-            this.resultCustomerId_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.resultCustomerId_tB.Location = new System.Drawing.Point(262, 378);
             this.resultCustomerId_tB.Multiline = true;
             this.resultCustomerId_tB.Name = "resultCustomerId_tB";
             this.resultCustomerId_tB.ReadOnly = true;
-            this.resultCustomerId_tB.Size = new System.Drawing.Size(120, 30);
+            this.resultCustomerId_tB.Size = new System.Drawing.Size(178, 44);
             this.resultCustomerId_tB.TabIndex = 38;
             // 
             // resultCustomer_lbl
             // 
             this.resultCustomer_lbl.AutoSize = true;
             this.resultCustomer_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultCustomer_lbl.Location = new System.Drawing.Point(18, 249);
-            this.resultCustomer_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.resultCustomer_lbl.Location = new System.Drawing.Point(27, 383);
             this.resultCustomer_lbl.Name = "resultCustomer_lbl";
-            this.resultCustomer_lbl.Size = new System.Drawing.Size(124, 20);
+            this.resultCustomer_lbl.Size = new System.Drawing.Size(188, 29);
             this.resultCustomer_lbl.TabIndex = 37;
             this.resultCustomer_lbl.Text = "Customer Name";
             // 
             // resultProduct_tB
             // 
             this.resultProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProduct_tB.Location = new System.Drawing.Point(127, 746);
-            this.resultProduct_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.resultProduct_tB.Location = new System.Drawing.Point(190, 1148);
             this.resultProduct_tB.Multiline = true;
             this.resultProduct_tB.Name = "resultProduct_tB";
             this.resultProduct_tB.ReadOnly = true;
-            this.resultProduct_tB.Size = new System.Drawing.Size(164, 31);
+            this.resultProduct_tB.Size = new System.Drawing.Size(244, 46);
             this.resultProduct_tB.TabIndex = 43;
             // 
             // selectCompany_dGV
             // 
             this.selectCompany_dGV.BackgroundColor = System.Drawing.Color.White;
             this.selectCompany_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.selectCompany_dGV.Location = new System.Drawing.Point(15, 98);
+            this.selectCompany_dGV.Location = new System.Drawing.Point(22, 151);
+            this.selectCompany_dGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.selectCompany_dGV.Name = "selectCompany_dGV";
             this.selectCompany_dGV.RowHeadersWidth = 62;
-            this.selectCompany_dGV.Size = new System.Drawing.Size(280, 143);
+            this.selectCompany_dGV.Size = new System.Drawing.Size(420, 220);
             this.selectCompany_dGV.TabIndex = 36;
             this.selectCompany_dGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectCompany_dGV_CellContentClick);
             // 
@@ -429,7 +414,8 @@
             this.searchCustomer_pB_btn.ErrorImage = global::BillingApp.Properties.Resources.search;
             this.searchCustomer_pB_btn.Image = global::BillingApp.Properties.Resources.search;
             this.searchCustomer_pB_btn.InitialImage = global::BillingApp.Properties.Resources.search;
-            this.searchCustomer_pB_btn.Location = new System.Drawing.Point(260, 64);
+            this.searchCustomer_pB_btn.Location = new System.Drawing.Point(390, 98);
+            this.searchCustomer_pB_btn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchCustomer_pB_btn.Name = "searchCustomer_pB_btn";
             this.searchCustomer_pB_btn.Size = new System.Drawing.Size(24, 24);
             this.searchCustomer_pB_btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -440,22 +426,20 @@
             // searchCustomer_tB
             // 
             this.searchCustomer_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchCustomer_tB.Location = new System.Drawing.Point(15, 61);
-            this.searchCustomer_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.searchCustomer_tB.Location = new System.Drawing.Point(22, 94);
             this.searchCustomer_tB.Multiline = true;
             this.searchCustomer_tB.Name = "searchCustomer_tB";
-            this.searchCustomer_tB.Size = new System.Drawing.Size(221, 31);
+            this.searchCustomer_tB.Size = new System.Drawing.Size(330, 46);
             this.searchCustomer_tB.TabIndex = 34;
             // 
             // resultProductId_tB
             // 
             this.resultProductId_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProductId_tB.Location = new System.Drawing.Point(171, 659);
-            this.resultProductId_tB.Margin = new System.Windows.Forms.Padding(2);
+            this.resultProductId_tB.Location = new System.Drawing.Point(256, 1014);
             this.resultProductId_tB.Multiline = true;
             this.resultProductId_tB.Name = "resultProductId_tB";
             this.resultProductId_tB.ReadOnly = true;
-            this.resultProductId_tB.Size = new System.Drawing.Size(120, 30);
+            this.resultProductId_tB.Size = new System.Drawing.Size(178, 44);
             this.resultProductId_tB.TabIndex = 41;
             // 
             // SelectCustomer_btn
@@ -463,10 +447,9 @@
             this.SelectCustomer_btn.BackColor = System.Drawing.Color.SteelBlue;
             this.SelectCustomer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectCustomer_btn.ForeColor = System.Drawing.Color.White;
-            this.SelectCustomer_btn.Location = new System.Drawing.Point(15, 315);
-            this.SelectCustomer_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.SelectCustomer_btn.Location = new System.Drawing.Point(22, 485);
             this.SelectCustomer_btn.Name = "SelectCustomer_btn";
-            this.SelectCustomer_btn.Size = new System.Drawing.Size(280, 36);
+            this.SelectCustomer_btn.Size = new System.Drawing.Size(420, 55);
             this.SelectCustomer_btn.TabIndex = 31;
             this.SelectCustomer_btn.Text = "Select Customer";
             this.SelectCustomer_btn.UseVisualStyleBackColor = false;
@@ -476,10 +459,9 @@
             // 
             this.resultProduct_lbl.AutoSize = true;
             this.resultProduct_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultProduct_lbl.Location = new System.Drawing.Point(18, 664);
-            this.resultProduct_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.resultProduct_lbl.Location = new System.Drawing.Point(27, 1022);
             this.resultProduct_lbl.Name = "resultProduct_lbl";
-            this.resultProduct_lbl.Size = new System.Drawing.Size(110, 20);
+            this.resultProduct_lbl.Size = new System.Drawing.Size(167, 29);
             this.resultProduct_lbl.TabIndex = 42;
             this.resultProduct_lbl.Text = "Product Name";
             // 
@@ -488,10 +470,9 @@
             this.clearCustomer_btn.BackColor = System.Drawing.Color.CadetBlue;
             this.clearCustomer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearCustomer_btn.ForeColor = System.Drawing.Color.White;
-            this.clearCustomer_btn.Location = new System.Drawing.Point(15, 355);
-            this.clearCustomer_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.clearCustomer_btn.Location = new System.Drawing.Point(22, 546);
             this.clearCustomer_btn.Name = "clearCustomer_btn";
-            this.clearCustomer_btn.Size = new System.Drawing.Size(280, 36);
+            this.clearCustomer_btn.Size = new System.Drawing.Size(420, 55);
             this.clearCustomer_btn.TabIndex = 33;
             this.clearCustomer_btn.Text = "Clear";
             this.clearCustomer_btn.UseVisualStyleBackColor = false;
@@ -501,10 +482,9 @@
             // 
             this.selectCustomerTitle_lbl.AutoSize = true;
             this.selectCustomerTitle_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectCustomerTitle_lbl.Location = new System.Drawing.Point(5, 7);
-            this.selectCustomerTitle_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.selectCustomerTitle_lbl.Location = new System.Drawing.Point(8, 11);
             this.selectCustomerTitle_lbl.Name = "selectCustomerTitle_lbl";
-            this.selectCustomerTitle_lbl.Size = new System.Drawing.Size(185, 25);
+            this.selectCustomerTitle_lbl.Size = new System.Drawing.Size(267, 37);
             this.selectCustomerTitle_lbl.TabIndex = 32;
             this.selectCustomerTitle_lbl.Text = "Select Customer";
             // 
@@ -512,10 +492,9 @@
             // 
             this.searchCustomerName_lbl.AutoSize = true;
             this.searchCustomerName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchCustomerName_lbl.Location = new System.Drawing.Point(18, 36);
-            this.searchCustomerName_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.searchCustomerName_lbl.Location = new System.Drawing.Point(27, 55);
             this.searchCustomerName_lbl.Name = "searchCustomerName_lbl";
-            this.searchCustomerName_lbl.Size = new System.Drawing.Size(159, 20);
+            this.searchCustomerName_lbl.Size = new System.Drawing.Size(242, 29);
             this.searchCustomerName_lbl.TabIndex = 30;
             this.searchCustomerName_lbl.Text = "Find Customer Name";
             // 
@@ -523,27 +502,31 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.PrintQuotation_btn);
+            this.panel2.Controls.Add(this.quotation_Pnl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(322, 24);
+            this.panel2.Location = new System.Drawing.Point(484, 37);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(758, 530);
+            this.panel2.Size = new System.Drawing.Size(1136, 815);
             this.panel2.TabIndex = 6;
             // 
-            // panel7
+            // PrintQuotation_btn
             // 
-            this.panel7.AutoScroll = true;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.quotation_Pnl);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(756, 479);
-            this.panel7.TabIndex = 142;
+            this.PrintQuotation_btn.BackColor = System.Drawing.Color.SteelBlue;
+            this.PrintQuotation_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrintQuotation_btn.ForeColor = System.Drawing.Color.White;
+            this.PrintQuotation_btn.Location = new System.Drawing.Point(23, 744);
+            this.PrintQuotation_btn.Name = "PrintQuotation_btn";
+            this.PrintQuotation_btn.Size = new System.Drawing.Size(142, 69);
+            this.PrintQuotation_btn.TabIndex = 0;
+            this.PrintQuotation_btn.Text = "Print Quotation";
+            this.PrintQuotation_btn.UseVisualStyleBackColor = false;
+            this.PrintQuotation_btn.Click += new System.EventHandler(this.PrintQuotation_btn_Click);
             // 
             // quotation_Pnl
             // 
+            this.quotation_Pnl.AutoScroll = true;
             this.quotation_Pnl.BackColor = System.Drawing.Color.White;
             this.quotation_Pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.quotation_Pnl.Controls.Add(this.customerAddress_DetailsPnl);
@@ -551,9 +534,10 @@
             this.quotation_Pnl.Controls.Add(this.customer_DetailsPnl);
             this.quotation_Pnl.Controls.Add(this.invoiceIssue_TitlePnl);
             this.quotation_Pnl.Controls.Add(this.companyDetaills_HeaderPnl);
-            this.quotation_Pnl.Location = new System.Drawing.Point(3, 5);
+            this.quotation_Pnl.Location = new System.Drawing.Point(6, 2);
+            this.quotation_Pnl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.quotation_Pnl.Name = "quotation_Pnl";
-            this.quotation_Pnl.Size = new System.Drawing.Size(730, 884);
+            this.quotation_Pnl.Size = new System.Drawing.Size(1111, 737);
             this.quotation_Pnl.TabIndex = 141;
             // 
             // customerAddress_DetailsPnl
@@ -563,57 +547,54 @@
             this.customerAddress_DetailsPnl.Controls.Add(this.siteAddress_tb);
             this.customerAddress_DetailsPnl.Controls.Add(this.siteName_lbl);
             this.customerAddress_DetailsPnl.Controls.Add(this.siteAddress_lbl);
-            this.customerAddress_DetailsPnl.Location = new System.Drawing.Point(382, 141);
-            this.customerAddress_DetailsPnl.Margin = new System.Windows.Forms.Padding(2);
+            this.customerAddress_DetailsPnl.Location = new System.Drawing.Point(573, 217);
             this.customerAddress_DetailsPnl.Name = "customerAddress_DetailsPnl";
-            this.customerAddress_DetailsPnl.Size = new System.Drawing.Size(340, 150);
+            this.customerAddress_DetailsPnl.Size = new System.Drawing.Size(509, 230);
             this.customerAddress_DetailsPnl.TabIndex = 142;
             // 
             // siteName_tB
             // 
             this.siteName_tB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.siteName_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siteName_tB.Location = new System.Drawing.Point(91, 8);
-            this.siteName_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.siteName_tB.Location = new System.Drawing.Point(153, 12);
+            this.siteName_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siteName_tB.Multiline = true;
             this.siteName_tB.Name = "siteName_tB";
             this.siteName_tB.ReadOnly = true;
-            this.siteName_tB.Size = new System.Drawing.Size(238, 54);
+            this.siteName_tB.Size = new System.Drawing.Size(340, 83);
             this.siteName_tB.TabIndex = 208;
             // 
             // siteAddress_tb
             // 
             this.siteAddress_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.siteAddress_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siteAddress_tb.Location = new System.Drawing.Point(91, 72);
-            this.siteAddress_tb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.siteAddress_tb.Location = new System.Drawing.Point(153, 111);
+            this.siteAddress_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.siteAddress_tb.Multiline = true;
             this.siteAddress_tb.Name = "siteAddress_tb";
             this.siteAddress_tb.ReadOnly = true;
-            this.siteAddress_tb.Size = new System.Drawing.Size(238, 64);
+            this.siteAddress_tb.Size = new System.Drawing.Size(340, 98);
             this.siteAddress_tb.TabIndex = 206;
             // 
             // siteName_lbl
             // 
-            this.siteName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siteName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siteName_lbl.ForeColor = System.Drawing.Color.Black;
-            this.siteName_lbl.Location = new System.Drawing.Point(5, 7);
-            this.siteName_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.siteName_lbl.Location = new System.Drawing.Point(8, 11);
             this.siteName_lbl.Name = "siteName_lbl";
-            this.siteName_lbl.Size = new System.Drawing.Size(82, 32);
+            this.siteName_lbl.Size = new System.Drawing.Size(123, 32);
             this.siteName_lbl.TabIndex = 148;
-            this.siteName_lbl.Text = "Site Name:";
+            this.siteName_lbl.Text = "Site Name";
             // 
             // siteAddress_lbl
             // 
-            this.siteAddress_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.siteAddress_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.siteAddress_lbl.ForeColor = System.Drawing.Color.Black;
-            this.siteAddress_lbl.Location = new System.Drawing.Point(5, 75);
-            this.siteAddress_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.siteAddress_lbl.Location = new System.Drawing.Point(8, 115);
             this.siteAddress_lbl.Name = "siteAddress_lbl";
-            this.siteAddress_lbl.Size = new System.Drawing.Size(93, 42);
+            this.siteAddress_lbl.Size = new System.Drawing.Size(140, 23);
             this.siteAddress_lbl.TabIndex = 150;
-            this.siteAddress_lbl.Text = "Site Address:";
+            this.siteAddress_lbl.Text = "Site Address";
             // 
             // product_DetailsPnl
             // 
@@ -624,19 +605,19 @@
             this.product_DetailsPnl.Controls.Add(this.panel5);
             this.product_DetailsPnl.Controls.Add(this.selectedProductList_dGV);
             this.product_DetailsPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.product_DetailsPnl.Location = new System.Drawing.Point(8, 294);
-            this.product_DetailsPnl.Margin = new System.Windows.Forms.Padding(2);
+            this.product_DetailsPnl.Location = new System.Drawing.Point(12, 452);
             this.product_DetailsPnl.Name = "product_DetailsPnl";
-            this.product_DetailsPnl.Size = new System.Drawing.Size(714, 656);
+            this.product_DetailsPnl.Size = new System.Drawing.Size(1070, 897);
             this.product_DetailsPnl.TabIndex = 141;
             // 
             // TermCondi_Pnl
             // 
             this.TermCondi_Pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TermCondi_Pnl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TermCondi_Pnl.Location = new System.Drawing.Point(0, 588);
+            this.TermCondi_Pnl.Location = new System.Drawing.Point(0, 707);
+            this.TermCondi_Pnl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TermCondi_Pnl.Name = "TermCondi_Pnl";
-            this.TermCondi_Pnl.Size = new System.Drawing.Size(712, 66);
+            this.TermCondi_Pnl.Size = new System.Drawing.Size(1068, 153);
             this.TermCondi_Pnl.TabIndex = 445;
             // 
             // panel6
@@ -663,198 +644,179 @@
             this.panel6.Controls.Add(this.label23);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 525);
+            this.panel6.Location = new System.Drawing.Point(0, 611);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(712, 63);
+            this.panel6.Size = new System.Drawing.Size(1068, 96);
             this.panel6.TabIndex = 444;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 12);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(16, 18);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 17);
+            this.label12.Size = new System.Drawing.Size(37, 25);
             this.label12.TabIndex = 419;
             this.label12.Text = "FR";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(137, 33);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Location = new System.Drawing.Point(206, 51);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 17);
+            this.label21.Size = new System.Drawing.Size(49, 25);
             this.label21.TabIndex = 429;
             this.label21.Text = "2EP";
             // 
             // txt_ep
             // 
-            this.txt_ep.Location = new System.Drawing.Point(182, 9);
-            this.txt_ep.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_ep.Location = new System.Drawing.Point(273, 14);
             this.txt_ep.Name = "txt_ep";
-            this.txt_ep.Size = new System.Drawing.Size(76, 23);
+            this.txt_ep.Size = new System.Drawing.Size(112, 30);
             this.txt_ep.TabIndex = 428;
             this.txt_ep.Text = "10";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(556, 12);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Location = new System.Drawing.Point(834, 18);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 17);
+            this.label19.Size = new System.Drawing.Size(95, 25);
             this.label19.TabIndex = 433;
             this.label19.Text = "HALF DP";
             // 
             // txt_hr
             // 
-            this.txt_hr.Location = new System.Drawing.Point(48, 30);
-            this.txt_hr.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_hr.Location = new System.Drawing.Point(72, 46);
             this.txt_hr.Name = "txt_hr";
-            this.txt_hr.Size = new System.Drawing.Size(76, 23);
+            this.txt_hr.Size = new System.Drawing.Size(112, 30);
             this.txt_hr.TabIndex = 422;
             this.txt_hr.Text = "25";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(442, 12);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(663, 18);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 17);
+            this.label14.Size = new System.Drawing.Size(41, 25);
             this.label14.TabIndex = 423;
             this.label14.Text = "CH";
             // 
             // txt_halfdp
             // 
-            this.txt_halfdp.Location = new System.Drawing.Point(627, 9);
-            this.txt_halfdp.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_halfdp.Location = new System.Drawing.Point(940, 14);
             this.txt_halfdp.Name = "txt_halfdp";
-            this.txt_halfdp.Size = new System.Drawing.Size(76, 23);
+            this.txt_halfdp.Size = new System.Drawing.Size(112, 30);
             this.txt_halfdp.TabIndex = 434;
             this.txt_halfdp.Text = "300";
             // 
             // txt_2ep
             // 
-            this.txt_2ep.Location = new System.Drawing.Point(182, 30);
-            this.txt_2ep.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_2ep.Location = new System.Drawing.Point(273, 46);
             this.txt_2ep.Name = "txt_2ep";
-            this.txt_2ep.Size = new System.Drawing.Size(76, 23);
+            this.txt_2ep.Size = new System.Drawing.Size(112, 30);
             this.txt_2ep.TabIndex = 430;
             this.txt_2ep.Text = "20";
             // 
             // txt_fr
             // 
-            this.txt_fr.Location = new System.Drawing.Point(48, 9);
-            this.txt_fr.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_fr.Location = new System.Drawing.Point(72, 14);
             this.txt_fr.Name = "txt_fr";
-            this.txt_fr.Size = new System.Drawing.Size(76, 23);
+            this.txt_fr.Size = new System.Drawing.Size(112, 30);
             this.txt_fr.TabIndex = 420;
             this.txt_fr.Text = "30";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(145, 12);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Location = new System.Drawing.Point(218, 18);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(26, 17);
+            this.label16.Size = new System.Drawing.Size(38, 25);
             this.label16.TabIndex = 427;
             this.label16.Text = "EP";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(434, 33);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Location = new System.Drawing.Point(651, 51);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(35, 17);
+            this.label15.Size = new System.Drawing.Size(52, 25);
             this.label15.TabIndex = 425;
             this.label15.Text = "2CH";
             // 
             // txt_fulldp
             // 
-            this.txt_fulldp.Location = new System.Drawing.Point(627, 30);
-            this.txt_fulldp.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_fulldp.Location = new System.Drawing.Point(940, 46);
             this.txt_fulldp.Name = "txt_fulldp";
-            this.txt_fulldp.Size = new System.Drawing.Size(76, 23);
+            this.txt_fulldp.Size = new System.Drawing.Size(112, 30);
             this.txt_fulldp.TabIndex = 436;
             this.txt_fulldp.Text = "600";
             // 
             // txt_km
             // 
-            this.txt_km.Location = new System.Drawing.Point(346, 9);
-            this.txt_km.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_km.Location = new System.Drawing.Point(519, 14);
             this.txt_km.Name = "txt_km";
-            this.txt_km.Size = new System.Drawing.Size(76, 23);
+            this.txt_km.Size = new System.Drawing.Size(112, 30);
             this.txt_km.TabIndex = 432;
             this.txt_km.Text = "80";
             // 
             // txt_ch
             // 
-            this.txt_ch.Location = new System.Drawing.Point(479, 9);
-            this.txt_ch.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_ch.Location = new System.Drawing.Point(718, 14);
             this.txt_ch.Name = "txt_ch";
-            this.txt_ch.Size = new System.Drawing.Size(76, 23);
+            this.txt_ch.Size = new System.Drawing.Size(112, 30);
             this.txt_ch.TabIndex = 424;
             this.txt_ch.Text = "15";
             // 
             // txt_groove
             // 
-            this.txt_groove.Location = new System.Drawing.Point(346, 30);
-            this.txt_groove.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_groove.Location = new System.Drawing.Point(519, 46);
             this.txt_groove.Name = "txt_groove";
-            this.txt_groove.Size = new System.Drawing.Size(76, 23);
+            this.txt_groove.Size = new System.Drawing.Size(112, 30);
             this.txt_groove.TabIndex = 442;
             this.txt_groove.Text = "10";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(309, 12);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Location = new System.Drawing.Point(464, 18);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(28, 17);
+            this.label20.Size = new System.Drawing.Size(43, 25);
             this.label20.TabIndex = 431;
             this.label20.Text = "KM";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 33);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Location = new System.Drawing.Point(16, 51);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 17);
+            this.label13.Size = new System.Drawing.Size(39, 25);
             this.label13.TabIndex = 421;
             this.label13.Text = "HR";
             // 
             // txt_2ch
             // 
-            this.txt_2ch.Location = new System.Drawing.Point(479, 30);
-            this.txt_2ch.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_2ch.Location = new System.Drawing.Point(718, 46);
             this.txt_2ch.Name = "txt_2ch";
-            this.txt_2ch.Size = new System.Drawing.Size(76, 23);
+            this.txt_2ch.Size = new System.Drawing.Size(112, 30);
             this.txt_2ch.TabIndex = 426;
             this.txt_2ch.Text = "30";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(275, 33);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label23.Location = new System.Drawing.Point(412, 51);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(69, 17);
+            this.label23.Size = new System.Drawing.Size(99, 25);
             this.label23.TabIndex = 441;
             this.label23.Text = "GROOVE";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(556, 33);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Location = new System.Drawing.Point(834, 51);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 17);
+            this.label18.Size = new System.Drawing.Size(92, 25);
             this.label18.TabIndex = 435;
             this.label18.Text = "FULL DP";
             // 
@@ -862,17 +824,17 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 424);
+            this.panel5.Location = new System.Drawing.Point(0, 415);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(712, 101);
+            this.panel5.Size = new System.Drawing.Size(1068, 196);
             this.panel5.TabIndex = 443;
             // 
             // selectedProductList_dGV
             // 
             this.selectedProductList_dGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.selectedProductList_dGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.selectedProductList_dGV.BackgroundColor = System.Drawing.Color.White;
-            this.selectedProductList_dGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectedProductList_dGV.ColumnHeadersHeight = 32;
             this.selectedProductList_dGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.categoryName,
             this.productName,
@@ -880,10 +842,10 @@
             this.rateUnit});
             this.selectedProductList_dGV.Dock = System.Windows.Forms.DockStyle.Top;
             this.selectedProductList_dGV.Location = new System.Drawing.Point(0, 0);
+            this.selectedProductList_dGV.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.selectedProductList_dGV.Name = "selectedProductList_dGV";
             this.selectedProductList_dGV.RowHeadersWidth = 62;
-            this.selectedProductList_dGV.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.selectedProductList_dGV.Size = new System.Drawing.Size(712, 424);
+            this.selectedProductList_dGV.Size = new System.Drawing.Size(1068, 415);
             this.selectedProductList_dGV.TabIndex = 30;
             // 
             // categoryName
@@ -923,126 +885,120 @@
             this.customer_DetailsPnl.Controls.Add(this.panNo_lbl);
             this.customer_DetailsPnl.Controls.Add(this.companyName_lbl);
             this.customer_DetailsPnl.Controls.Add(this.gstNo_lbl);
-            this.customer_DetailsPnl.Location = new System.Drawing.Point(8, 141);
-            this.customer_DetailsPnl.Margin = new System.Windows.Forms.Padding(2);
+            this.customer_DetailsPnl.Location = new System.Drawing.Point(12, 217);
             this.customer_DetailsPnl.Name = "customer_DetailsPnl";
-            this.customer_DetailsPnl.Size = new System.Drawing.Size(371, 151);
+            this.customer_DetailsPnl.Size = new System.Drawing.Size(556, 231);
             this.customer_DetailsPnl.TabIndex = 138;
             // 
             // contactNo_tb
             // 
             this.contactNo_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.contactNo_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNo_tb.Location = new System.Drawing.Point(179, 119);
-            this.contactNo_tb.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.contactNo_tb.Location = new System.Drawing.Point(268, 183);
+            this.contactNo_tb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contactNo_tb.Multiline = true;
             this.contactNo_tb.Name = "contactNo_tb";
             this.contactNo_tb.ReadOnly = true;
-            this.contactNo_tb.Size = new System.Drawing.Size(179, 18);
+            this.contactNo_tb.Size = new System.Drawing.Size(268, 28);
             this.contactNo_tb.TabIndex = 209;
             // 
             // contactPerson_tB
             // 
             this.contactPerson_tB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.contactPerson_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactPerson_tB.Location = new System.Drawing.Point(7, 119);
-            this.contactPerson_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.contactPerson_tB.Location = new System.Drawing.Point(10, 182);
+            this.contactPerson_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contactPerson_tB.Multiline = true;
             this.contactPerson_tB.Name = "contactPerson_tB";
             this.contactPerson_tB.ReadOnly = true;
-            this.contactPerson_tB.Size = new System.Drawing.Size(161, 18);
+            this.contactPerson_tB.Size = new System.Drawing.Size(242, 28);
             this.contactPerson_tB.TabIndex = 208;
             // 
             // contactPerson_lbl
             // 
-            this.contactPerson_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactPerson_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactPerson_lbl.ForeColor = System.Drawing.Color.Black;
-            this.contactPerson_lbl.Location = new System.Drawing.Point(3, 100);
-            this.contactPerson_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.contactPerson_lbl.Location = new System.Drawing.Point(4, 154);
             this.contactPerson_lbl.Name = "contactPerson_lbl";
-            this.contactPerson_lbl.Size = new System.Drawing.Size(122, 17);
+            this.contactPerson_lbl.Size = new System.Drawing.Size(166, 26);
             this.contactPerson_lbl.TabIndex = 203;
-            this.contactPerson_lbl.Text = "Contact Person:";
+            this.contactPerson_lbl.Text = "Contact Person";
             // 
             // panNo_tB
             // 
             this.panNo_tB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.panNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panNo_tB.Location = new System.Drawing.Point(179, 81);
-            this.panNo_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.panNo_tB.Location = new System.Drawing.Point(268, 125);
+            this.panNo_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panNo_tB.Multiline = true;
             this.panNo_tB.Name = "panNo_tB";
             this.panNo_tB.ReadOnly = true;
-            this.panNo_tB.Size = new System.Drawing.Size(179, 18);
+            this.panNo_tB.Size = new System.Drawing.Size(268, 28);
             this.panNo_tB.TabIndex = 207;
             // 
             // gstNo_tB
             // 
             this.gstNo_tB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gstNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gstNo_tB.Location = new System.Drawing.Point(7, 81);
-            this.gstNo_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.gstNo_tB.Location = new System.Drawing.Point(10, 125);
+            this.gstNo_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gstNo_tB.Multiline = true;
             this.gstNo_tB.Name = "gstNo_tB";
             this.gstNo_tB.ReadOnly = true;
-            this.gstNo_tB.Size = new System.Drawing.Size(161, 18);
+            this.gstNo_tB.Size = new System.Drawing.Size(242, 28);
             this.gstNo_tB.TabIndex = 206;
             // 
             // companyName_tB
             // 
             this.companyName_tB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.companyName_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyName_tB.Location = new System.Drawing.Point(129, 8);
-            this.companyName_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.companyName_tB.Location = new System.Drawing.Point(194, 11);
+            this.companyName_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.companyName_tB.Multiline = true;
             this.companyName_tB.Name = "companyName_tB";
             this.companyName_tB.ReadOnly = true;
-            this.companyName_tB.Size = new System.Drawing.Size(230, 54);
+            this.companyName_tB.Size = new System.Drawing.Size(345, 85);
             this.companyName_tB.TabIndex = 205;
             // 
             // contactNo_lbl
             // 
-            this.contactNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNo_lbl.ForeColor = System.Drawing.Color.Black;
-            this.contactNo_lbl.Location = new System.Drawing.Point(179, 100);
-            this.contactNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.contactNo_lbl.Location = new System.Drawing.Point(268, 154);
             this.contactNo_lbl.Name = "contactNo_lbl";
-            this.contactNo_lbl.Size = new System.Drawing.Size(99, 18);
+            this.contactNo_lbl.Size = new System.Drawing.Size(117, 28);
             this.contactNo_lbl.TabIndex = 200;
-            this.contactNo_lbl.Text = "Contact No:";
+            this.contactNo_lbl.Text = "Contact No";
             // 
             // panNo_lbl
             // 
-            this.panNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panNo_lbl.ForeColor = System.Drawing.Color.Black;
-            this.panNo_lbl.Location = new System.Drawing.Point(179, 63);
-            this.panNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.panNo_lbl.Location = new System.Drawing.Point(268, 97);
             this.panNo_lbl.Name = "panNo_lbl";
-            this.panNo_lbl.Size = new System.Drawing.Size(80, 18);
+            this.panNo_lbl.Size = new System.Drawing.Size(94, 28);
             this.panNo_lbl.TabIndex = 204;
-            this.panNo_lbl.Text = "PAN No:";
+            this.panNo_lbl.Text = "PAN No";
             // 
             // companyName_lbl
             // 
-            this.companyName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.companyName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyName_lbl.ForeColor = System.Drawing.Color.Black;
-            this.companyName_lbl.Location = new System.Drawing.Point(7, 7);
-            this.companyName_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.companyName_lbl.Location = new System.Drawing.Point(10, 3);
             this.companyName_lbl.Name = "companyName_lbl";
-            this.companyName_lbl.Size = new System.Drawing.Size(136, 20);
+            this.companyName_lbl.Size = new System.Drawing.Size(177, 26);
             this.companyName_lbl.TabIndex = 199;
-            this.companyName_lbl.Text = "Company Name:";
+            this.companyName_lbl.Text = "Company Name";
             // 
             // gstNo_lbl
             // 
-            this.gstNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gstNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gstNo_lbl.ForeColor = System.Drawing.Color.Black;
-            this.gstNo_lbl.Location = new System.Drawing.Point(3, 63);
-            this.gstNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gstNo_lbl.Location = new System.Drawing.Point(4, 97);
             this.gstNo_lbl.Name = "gstNo_lbl";
-            this.gstNo_lbl.Size = new System.Drawing.Size(70, 18);
+            this.gstNo_lbl.Size = new System.Drawing.Size(105, 28);
             this.gstNo_lbl.TabIndex = 202;
-            this.gstNo_lbl.Text = "GST No:";
+            this.gstNo_lbl.Text = "GST No";
             // 
             // invoiceIssue_TitlePnl
             // 
@@ -1052,62 +1008,57 @@
             this.invoiceIssue_TitlePnl.Controls.Add(this.invoiceNo_lbl);
             this.invoiceIssue_TitlePnl.Controls.Add(this.invoiceDate_dtP);
             this.invoiceIssue_TitlePnl.Controls.Add(this.invoiceDate_lbl);
-            this.invoiceIssue_TitlePnl.Location = new System.Drawing.Point(8, 96);
-            this.invoiceIssue_TitlePnl.Margin = new System.Windows.Forms.Padding(2);
+            this.invoiceIssue_TitlePnl.Location = new System.Drawing.Point(12, 148);
             this.invoiceIssue_TitlePnl.Name = "invoiceIssue_TitlePnl";
-            this.invoiceIssue_TitlePnl.Size = new System.Drawing.Size(714, 41);
+            this.invoiceIssue_TitlePnl.Size = new System.Drawing.Size(1070, 62);
             this.invoiceIssue_TitlePnl.TabIndex = 137;
             // 
             // issueInvoice_lbl
             // 
             this.issueInvoice_lbl.AutoSize = true;
             this.issueInvoice_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.issueInvoice_lbl.Location = new System.Drawing.Point(1, 9);
-            this.issueInvoice_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.issueInvoice_lbl.Location = new System.Drawing.Point(2, 14);
             this.issueInvoice_lbl.Name = "issueInvoice_lbl";
-            this.issueInvoice_lbl.Size = new System.Drawing.Size(167, 20);
+            this.issueInvoice_lbl.Size = new System.Drawing.Size(241, 29);
             this.issueInvoice_lbl.TabIndex = 80;
             this.issueInvoice_lbl.Text = "Issue Quotation To:";
             // 
             // invoiceNo_tB
             // 
             this.invoiceNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceNo_tB.Location = new System.Drawing.Point(368, 6);
-            this.invoiceNo_tB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.invoiceNo_tB.Location = new System.Drawing.Point(380, 8);
+            this.invoiceNo_tB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.invoiceNo_tB.Multiline = true;
             this.invoiceNo_tB.Name = "invoiceNo_tB";
-            this.invoiceNo_tB.Size = new System.Drawing.Size(102, 29);
+            this.invoiceNo_tB.Size = new System.Drawing.Size(168, 42);
             this.invoiceNo_tB.TabIndex = 2;
             // 
             // invoiceNo_lbl
             // 
             this.invoiceNo_lbl.AutoSize = true;
-            this.invoiceNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.invoiceNo_lbl.Location = new System.Drawing.Point(250, 12);
-            this.invoiceNo_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.invoiceNo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invoiceNo_lbl.Location = new System.Drawing.Point(253, 20);
             this.invoiceNo_lbl.Name = "invoiceNo_lbl";
-            this.invoiceNo_lbl.Size = new System.Drawing.Size(114, 17);
+            this.invoiceNo_lbl.Size = new System.Drawing.Size(120, 20);
             this.invoiceNo_lbl.TabIndex = 75;
-            this.invoiceNo_lbl.Text = "Quotation No.:";
+            this.invoiceNo_lbl.Text = "Quotation No.";
             // 
             // invoiceDate_dtP
             // 
             this.invoiceDate_dtP.Checked = false;
             this.invoiceDate_dtP.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.invoiceDate_dtP.Location = new System.Drawing.Point(602, 9);
-            this.invoiceDate_dtP.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.invoiceDate_dtP.Location = new System.Drawing.Point(903, 12);
+            this.invoiceDate_dtP.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.invoiceDate_dtP.Name = "invoiceDate_dtP";
-            this.invoiceDate_dtP.Size = new System.Drawing.Size(101, 20);
+            this.invoiceDate_dtP.Size = new System.Drawing.Size(150, 26);
             this.invoiceDate_dtP.TabIndex = 3;
             // 
             // invoiceDate_lbl
             // 
             this.invoiceDate_lbl.AutoSize = true;
-            this.invoiceDate_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceDate_lbl.Location = new System.Drawing.Point(485, 11);
-            this.invoiceDate_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.invoiceDate_lbl.Location = new System.Drawing.Point(760, 18);
             this.invoiceDate_lbl.Name = "invoiceDate_lbl";
-            this.invoiceDate_lbl.Size = new System.Drawing.Size(113, 16);
+            this.invoiceDate_lbl.Size = new System.Drawing.Size(122, 20);
             this.invoiceDate_lbl.TabIndex = 76;
             this.invoiceDate_lbl.Text = "INVOICE DATE";
             // 
@@ -1119,19 +1070,17 @@
             this.companyDetaills_HeaderPnl.Controls.Add(this.Contact_lbl);
             this.companyDetaills_HeaderPnl.Controls.Add(this.Address_lbl);
             this.companyDetaills_HeaderPnl.Controls.Add(this.AppStore_lbl);
-            this.companyDetaills_HeaderPnl.Location = new System.Drawing.Point(8, 8);
-            this.companyDetaills_HeaderPnl.Margin = new System.Windows.Forms.Padding(2);
+            this.companyDetaills_HeaderPnl.Location = new System.Drawing.Point(12, 12);
             this.companyDetaills_HeaderPnl.Name = "companyDetaills_HeaderPnl";
-            this.companyDetaills_HeaderPnl.Size = new System.Drawing.Size(714, 84);
+            this.companyDetaills_HeaderPnl.Size = new System.Drawing.Size(1070, 128);
             this.companyDetaills_HeaderPnl.TabIndex = 136;
             // 
             // logosmall_pB
             // 
             this.logosmall_pB.Image = global::BillingApp.Properties.Resources.krishna;
-            this.logosmall_pB.Location = new System.Drawing.Point(2, 2);
-            this.logosmall_pB.Margin = new System.Windows.Forms.Padding(2);
+            this.logosmall_pB.Location = new System.Drawing.Point(3, 3);
             this.logosmall_pB.Name = "logosmall_pB";
-            this.logosmall_pB.Size = new System.Drawing.Size(141, 77);
+            this.logosmall_pB.Size = new System.Drawing.Size(212, 118);
             this.logosmall_pB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logosmall_pB.TabIndex = 56;
             this.logosmall_pB.TabStop = false;
@@ -1141,9 +1090,10 @@
             this.GST_lbl.AutoSize = true;
             this.GST_lbl.BackColor = System.Drawing.SystemColors.Window;
             this.GST_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GST_lbl.Location = new System.Drawing.Point(520, 3);
+            this.GST_lbl.Location = new System.Drawing.Point(780, 5);
+            this.GST_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GST_lbl.Name = "GST_lbl";
-            this.GST_lbl.Size = new System.Drawing.Size(190, 15);
+            this.GST_lbl.Size = new System.Drawing.Size(274, 22);
             this.GST_lbl.TabIndex = 55;
             this.GST_lbl.Text = "GST NO :27BJKPP0202P1ZZ";
             // 
@@ -1152,9 +1102,10 @@
             this.Contact_lbl.AutoSize = true;
             this.Contact_lbl.BackColor = System.Drawing.SystemColors.Window;
             this.Contact_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Contact_lbl.Location = new System.Drawing.Point(186, 63);
+            this.Contact_lbl.Location = new System.Drawing.Point(279, 97);
+            this.Contact_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Contact_lbl.Name = "Contact_lbl";
-            this.Contact_lbl.Size = new System.Drawing.Size(395, 16);
+            this.Contact_lbl.Size = new System.Drawing.Size(583, 25);
             this.Contact_lbl.TabIndex = 54;
             this.Contact_lbl.Text = "Mob.9890259665 EMAIL: krishnamarbleandceramics@gmail.com";
             this.Contact_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1164,9 +1115,10 @@
             this.Address_lbl.AutoSize = true;
             this.Address_lbl.BackColor = System.Drawing.SystemColors.Window;
             this.Address_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address_lbl.Location = new System.Drawing.Point(232, 32);
+            this.Address_lbl.Location = new System.Drawing.Point(352, 49);
+            this.Address_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Address_lbl.Name = "Address_lbl";
-            this.Address_lbl.Size = new System.Drawing.Size(303, 32);
+            this.Address_lbl.Size = new System.Drawing.Size(455, 50);
             this.Address_lbl.TabIndex = 52;
             this.Address_lbl.Text = "SR NO 223, SUS NANDE ROAD, BHOTE WASTI,\r\nNEAR SUNNY\'S WORLD,SUS PUNE 411021";
             this.Address_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1176,25 +1128,12 @@
             this.AppStore_lbl.AutoSize = true;
             this.AppStore_lbl.BackColor = System.Drawing.SystemColors.Window;
             this.AppStore_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppStore_lbl.Location = new System.Drawing.Point(289, 8);
+            this.AppStore_lbl.Location = new System.Drawing.Point(444, 12);
+            this.AppStore_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AppStore_lbl.Name = "AppStore_lbl";
-            this.AppStore_lbl.Size = new System.Drawing.Size(188, 24);
+            this.AppStore_lbl.Size = new System.Drawing.Size(275, 32);
             this.AppStore_lbl.TabIndex = 53;
             this.AppStore_lbl.Text = "KRISHNA MARBLE";
-            // 
-            // PrintQuotation_btn
-            // 
-            this.PrintQuotation_btn.BackColor = System.Drawing.Color.SteelBlue;
-            this.PrintQuotation_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintQuotation_btn.ForeColor = System.Drawing.Color.White;
-            this.PrintQuotation_btn.Location = new System.Drawing.Point(15, 484);
-            this.PrintQuotation_btn.Margin = new System.Windows.Forms.Padding(2);
-            this.PrintQuotation_btn.Name = "PrintQuotation_btn";
-            this.PrintQuotation_btn.Size = new System.Drawing.Size(95, 45);
-            this.PrintQuotation_btn.TabIndex = 0;
-            this.PrintQuotation_btn.Text = "Print Quotation";
-            this.PrintQuotation_btn.UseVisualStyleBackColor = false;
-            this.PrintQuotation_btn.Click += new System.EventHandler(this.PrintQuotation_btn_Click);
             // 
             // panel1
             // 
@@ -1202,12 +1141,14 @@
             this.panel1.Controls.Add(this.nav_menu_list);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 24);
+            this.panel1.Size = new System.Drawing.Size(1620, 37);
             this.panel1.TabIndex = 5;
             // 
             // nav_menu_list
             // 
+            this.nav_menu_list.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.nav_menu_list.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.nav_menu_list.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addProduct_TSMI,
@@ -1217,8 +1158,7 @@
             this.homePage_TSMI});
             this.nav_menu_list.Location = new System.Drawing.Point(0, 0);
             this.nav_menu_list.Name = "nav_menu_list";
-            this.nav_menu_list.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.nav_menu_list.Size = new System.Drawing.Size(1080, 24);
+            this.nav_menu_list.Size = new System.Drawing.Size(1620, 33);
             this.nav_menu_list.TabIndex = 2;
             this.nav_menu_list.Text = "menuStrip";
             // 
@@ -1226,7 +1166,7 @@
             // 
             this.addProduct_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addProduct_TSMI.Name = "addProduct_TSMI";
-            this.addProduct_TSMI.Size = new System.Drawing.Size(86, 22);
+            this.addProduct_TSMI.Size = new System.Drawing.Size(133, 29);
             this.addProduct_TSMI.Text = "Add Product";
             this.addProduct_TSMI.Click += new System.EventHandler(this.AddProduct_TSMI_Click);
             // 
@@ -1234,7 +1174,7 @@
             // 
             this.addCompany_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCompany_TSMI.Name = "addCompany_TSMI";
-            this.addCompany_TSMI.Size = new System.Drawing.Size(95, 22);
+            this.addCompany_TSMI.Size = new System.Drawing.Size(145, 29);
             this.addCompany_TSMI.Text = "Add Company";
             this.addCompany_TSMI.Click += new System.EventHandler(this.AddCompany_TSMI_Click);
             // 
@@ -1242,7 +1182,7 @@
             // 
             this.addInvoice_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addInvoice_TSMI.Name = "addInvoice_TSMI";
-            this.addInvoice_TSMI.Size = new System.Drawing.Size(83, 22);
+            this.addInvoice_TSMI.Size = new System.Drawing.Size(126, 29);
             this.addInvoice_TSMI.Text = "Add Invoice";
             this.addInvoice_TSMI.Click += new System.EventHandler(this.AddInvoice_TSMI_Click);
             // 
@@ -1250,28 +1190,27 @@
             // 
             this.salesList_TSMI.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesList_TSMI.Name = "salesList_TSMI";
-            this.salesList_TSMI.Size = new System.Drawing.Size(67, 22);
+            this.salesList_TSMI.Size = new System.Drawing.Size(104, 29);
             this.salesList_TSMI.Text = "Sales List";
             this.salesList_TSMI.Click += new System.EventHandler(this.SalesList_TSMI_Click);
             // 
             // homePage_TSMI
             // 
             this.homePage_TSMI.Name = "homePage_TSMI";
-            this.homePage_TSMI.Size = new System.Drawing.Size(52, 22);
+            this.homePage_TSMI.Size = new System.Drawing.Size(77, 29);
             this.homePage_TSMI.Text = "Home";
             this.homePage_TSMI.Click += new System.EventHandler(this.HomePage_TSMI_Click);
             // 
             // addQuotation_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 554);
+            this.ClientSize = new System.Drawing.Size(1620, 852);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "addQuotation_form";
-            this.Text = "Add Quotation";
+            this.Text = "AddQuotation";
             this.Load += new System.EventHandler(this.addQuotation_form_Load);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1281,7 +1220,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.selectCompany_dGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomer_pB_btn)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.quotation_Pnl.ResumeLayout(false);
             this.quotation_Pnl.PerformLayout();
             this.customerAddress_DetailsPnl.ResumeLayout(false);
@@ -1405,6 +1343,5 @@
         private System.Windows.Forms.TextBox hsnNo_tB;
         private System.Windows.Forms.Label hsnNo_lbl;
         private System.Windows.Forms.Button PrintQuotation_btn;
-        private System.Windows.Forms.Panel panel7;
     }
 }
