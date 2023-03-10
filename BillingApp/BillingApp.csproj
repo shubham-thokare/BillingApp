@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BillingApp.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.Runtime.WinForms.12.0.2402.15\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -84,15 +87,10 @@
     <Compile Include="AddSalesList.Designer.cs">
       <DependentUpon>AddSalesList.cs</DependentUpon>
     </Compile>
-    <Compile Include="BillingAppDataSet.Designer.cs">
+    <Compile Include="customerNameDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BillingAppDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BillingAppDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BillingAppDataSet1.xsd</DependentUpon>
+      <DependentUpon>customerNameDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -100,15 +98,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InvoiceView.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InvoiceView.xsd</DependentUpon>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Invoice_Ledger_DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Invoice_Ledger_DataSet.xsd</DependentUpon>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
@@ -149,6 +143,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,7 +159,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Reports\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,49 +169,16 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="BillingAppDataSet.xsc">
-      <DependentUpon>BillingAppDataSet.xsd</DependentUpon>
+    <None Include="customerNameDataSet.xsc">
+      <DependentUpon>customerNameDataSet.xsd</DependentUpon>
     </None>
-    <None Include="BillingAppDataSet.xsd">
+    <None Include="customerNameDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BillingAppDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>customerNameDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BillingAppDataSet.xss">
-      <DependentUpon>BillingAppDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BillingAppDataSet1.xsc">
-      <DependentUpon>BillingAppDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="BillingAppDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BillingAppDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BillingAppDataSet1.xss">
-      <DependentUpon>BillingAppDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="InvoiceView.xsc">
-      <DependentUpon>InvoiceView.xsd</DependentUpon>
-    </None>
-    <None Include="InvoiceView.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InvoiceView.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="InvoiceView.xss">
-      <DependentUpon>InvoiceView.xsd</DependentUpon>
-    </None>
-    <None Include="Invoice_Ledger_DataSet.xsc">
-      <DependentUpon>Invoice_Ledger_DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Invoice_Ledger_DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Invoice_Ledger_DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Invoice_Ledger_DataSet.xss">
-      <DependentUpon>Invoice_Ledger_DataSet.xsd</DependentUpon>
+    <None Include="customerNameDataSet.xss">
+      <DependentUpon>customerNameDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\addInvoice_form.datasource" />
