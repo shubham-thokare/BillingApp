@@ -205,7 +205,7 @@ namespace BillingApp.Reports
             this.DeleteProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteProduct_btn.ForeColor = System.Drawing.Color.White;
             this.DeleteProduct_btn.Location = new System.Drawing.Point(169, 1300);
-            this.DeleteProduct_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteProduct_btn.Name = "DeleteProduct_btn";
             this.DeleteProduct_btn.Size = new System.Drawing.Size(122, 64);
             this.DeleteProduct_btn.TabIndex = 14;
@@ -219,7 +219,7 @@ namespace BillingApp.Reports
             this.EditProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditProduct_btn.ForeColor = System.Drawing.Color.White;
             this.EditProduct_btn.Location = new System.Drawing.Point(18, 1299);
-            this.EditProduct_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.EditProduct_btn.Name = "EditProduct_btn";
             this.EditProduct_btn.Size = new System.Drawing.Size(122, 64);
             this.EditProduct_btn.TabIndex = 13;
@@ -232,7 +232,7 @@ namespace BillingApp.Reports
             this.ClearProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearProduct_btn.ForeColor = System.Drawing.Color.White;
             this.ClearProduct_btn.Location = new System.Drawing.Point(169, 1224);
-            this.ClearProduct_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClearProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.ClearProduct_btn.Name = "ClearProduct_btn";
             this.ClearProduct_btn.Size = new System.Drawing.Size(122, 64);
             this.ClearProduct_btn.TabIndex = 51;
@@ -245,7 +245,7 @@ namespace BillingApp.Reports
             this.selectProduct_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectProduct_btn.ForeColor = System.Drawing.Color.White;
             this.selectProduct_btn.Location = new System.Drawing.Point(18, 1223);
-            this.selectProduct_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.selectProduct_btn.Margin = new System.Windows.Forms.Padding(2);
             this.selectProduct_btn.Name = "selectProduct_btn";
             this.selectProduct_btn.Size = new System.Drawing.Size(122, 64);
             this.selectProduct_btn.TabIndex = 50;
@@ -256,7 +256,7 @@ namespace BillingApp.Reports
             // 
             this.totalServiceCharges_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalServiceCharges_tB.Location = new System.Drawing.Point(171, 1153);
-            this.totalServiceCharges_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.totalServiceCharges_tB.Margin = new System.Windows.Forms.Padding(2);
             this.totalServiceCharges_tB.Multiline = true;
             this.totalServiceCharges_tB.Name = "totalServiceCharges_tB";
             this.totalServiceCharges_tB.Size = new System.Drawing.Size(120, 30);
@@ -277,7 +277,7 @@ namespace BillingApp.Reports
             // 
             this.quantity_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantity_tB.Location = new System.Drawing.Point(171, 1052);
-            this.quantity_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.quantity_tB.Margin = new System.Windows.Forms.Padding(2);
             this.quantity_tB.Multiline = true;
             this.quantity_tB.Name = "quantity_tB";
             this.quantity_tB.Size = new System.Drawing.Size(120, 30);
@@ -309,7 +309,7 @@ namespace BillingApp.Reports
             // 
             this.rateProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rateProduct_tB.Location = new System.Drawing.Point(171, 840);
-            this.rateProduct_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rateProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.rateProduct_tB.Multiline = true;
             this.rateProduct_tB.Name = "rateProduct_tB";
             this.rateProduct_tB.Size = new System.Drawing.Size(120, 30);
@@ -319,7 +319,7 @@ namespace BillingApp.Reports
             // 
             this.totalServiceSidesCharges_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalServiceSidesCharges_tB.Location = new System.Drawing.Point(171, 1101);
-            this.totalServiceSidesCharges_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.totalServiceSidesCharges_tB.Margin = new System.Windows.Forms.Padding(2);
             this.totalServiceSidesCharges_tB.Multiline = true;
             this.totalServiceSidesCharges_tB.Name = "totalServiceSidesCharges_tB";
             this.totalServiceSidesCharges_tB.ReadOnly = true;
@@ -330,7 +330,7 @@ namespace BillingApp.Reports
             // 
             this.hsnNo_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hsnNo_tB.Location = new System.Drawing.Point(95, 796);
-            this.hsnNo_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hsnNo_tB.Margin = new System.Windows.Forms.Padding(2);
             this.hsnNo_tB.Multiline = true;
             this.hsnNo_tB.Name = "hsnNo_tB";
             this.hsnNo_tB.ReadOnly = true;
@@ -363,7 +363,7 @@ namespace BillingApp.Reports
             // 
             this.catogeryProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.catogeryProduct_tB.Location = new System.Drawing.Point(18, 702);
-            this.catogeryProduct_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.catogeryProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.catogeryProduct_tB.Multiline = true;
             this.catogeryProduct_tB.Name = "catogeryProduct_tB";
             this.catogeryProduct_tB.ReadOnly = true;
@@ -374,7 +374,7 @@ namespace BillingApp.Reports
             // 
             this.searchProductName_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchProductName_tB.Location = new System.Drawing.Point(18, 474);
-            this.searchProductName_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchProductName_tB.Margin = new System.Windows.Forms.Padding(2);
             this.searchProductName_tB.Multiline = true;
             this.searchProductName_tB.Name = "searchProductName_tB";
             this.searchProductName_tB.Size = new System.Drawing.Size(238, 31);
@@ -384,7 +384,7 @@ namespace BillingApp.Reports
             // 
             this.sideServiceSides_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sideServiceSides_tB.Location = new System.Drawing.Point(18, 1007);
-            this.sideServiceSides_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sideServiceSides_tB.Margin = new System.Windows.Forms.Padding(2);
             this.sideServiceSides_tB.Multiline = true;
             this.sideServiceSides_tB.Name = "sideServiceSides_tB";
             this.sideServiceSides_tB.ReadOnly = true;
@@ -397,7 +397,7 @@ namespace BillingApp.Reports
             this.selectService_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectService_btn.ForeColor = System.Drawing.Color.White;
             this.selectService_btn.Location = new System.Drawing.Point(181, 948);
-            this.selectService_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.selectService_btn.Margin = new System.Windows.Forms.Padding(2);
             this.selectService_btn.Name = "selectService_btn";
             this.selectService_btn.Size = new System.Drawing.Size(103, 55);
             this.selectService_btn.TabIndex = 54;
@@ -451,7 +451,7 @@ namespace BillingApp.Reports
             // 
             this.widthProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.widthProduct_tB.Location = new System.Drawing.Point(171, 915);
-            this.widthProduct_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.widthProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.widthProduct_tB.Multiline = true;
             this.widthProduct_tB.Name = "widthProduct_tB";
             this.widthProduct_tB.Size = new System.Drawing.Size(120, 30);
@@ -482,7 +482,7 @@ namespace BillingApp.Reports
             // 
             this.lengthProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lengthProduct_tB.Location = new System.Drawing.Point(18, 915);
-            this.lengthProduct_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lengthProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.lengthProduct_tB.Multiline = true;
             this.lengthProduct_tB.Name = "lengthProduct_tB";
             this.lengthProduct_tB.Size = new System.Drawing.Size(120, 30);
@@ -514,7 +514,7 @@ namespace BillingApp.Reports
             // 
             this.resultCustomer_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultCustomer_tB.Location = new System.Drawing.Point(15, 280);
-            this.resultCustomer_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultCustomer_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultCustomer_tB.Multiline = true;
             this.resultCustomer_tB.Name = "resultCustomer_tB";
             this.resultCustomer_tB.ReadOnly = true;
@@ -525,7 +525,7 @@ namespace BillingApp.Reports
             // 
             this.resultCustomerId_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultCustomerId_tB.Location = new System.Drawing.Point(175, 246);
-            this.resultCustomerId_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultCustomerId_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultCustomerId_tB.Multiline = true;
             this.resultCustomerId_tB.Name = "resultCustomerId_tB";
             this.resultCustomerId_tB.ReadOnly = true;
@@ -547,7 +547,7 @@ namespace BillingApp.Reports
             // 
             this.resultProduct_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultProduct_tB.Location = new System.Drawing.Point(127, 746);
-            this.resultProduct_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultProduct_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultProduct_tB.Multiline = true;
             this.resultProduct_tB.Name = "resultProduct_tB";
             this.resultProduct_tB.ReadOnly = true;
@@ -578,7 +578,7 @@ namespace BillingApp.Reports
             // 
             this.searchCustomer_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCustomer_tB.Location = new System.Drawing.Point(15, 61);
-            this.searchCustomer_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchCustomer_tB.Margin = new System.Windows.Forms.Padding(2);
             this.searchCustomer_tB.Multiline = true;
             this.searchCustomer_tB.Name = "searchCustomer_tB";
             this.searchCustomer_tB.Size = new System.Drawing.Size(221, 31);
@@ -588,7 +588,7 @@ namespace BillingApp.Reports
             // 
             this.resultProductId_tB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultProductId_tB.Location = new System.Drawing.Point(171, 659);
-            this.resultProductId_tB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.resultProductId_tB.Margin = new System.Windows.Forms.Padding(2);
             this.resultProductId_tB.Multiline = true;
             this.resultProductId_tB.Name = "resultProductId_tB";
             this.resultProductId_tB.ReadOnly = true;
@@ -601,7 +601,7 @@ namespace BillingApp.Reports
             this.SelectCustomer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectCustomer_btn.ForeColor = System.Drawing.Color.White;
             this.SelectCustomer_btn.Location = new System.Drawing.Point(15, 315);
-            this.SelectCustomer_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SelectCustomer_btn.Margin = new System.Windows.Forms.Padding(2);
             this.SelectCustomer_btn.Name = "SelectCustomer_btn";
             this.SelectCustomer_btn.Size = new System.Drawing.Size(280, 36);
             this.SelectCustomer_btn.TabIndex = 31;
@@ -625,7 +625,7 @@ namespace BillingApp.Reports
             this.clearCustomer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearCustomer_btn.ForeColor = System.Drawing.Color.White;
             this.clearCustomer_btn.Location = new System.Drawing.Point(15, 355);
-            this.clearCustomer_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clearCustomer_btn.Margin = new System.Windows.Forms.Padding(2);
             this.clearCustomer_btn.Name = "clearCustomer_btn";
             this.clearCustomer_btn.Size = new System.Drawing.Size(280, 36);
             this.clearCustomer_btn.TabIndex = 33;
@@ -659,10 +659,10 @@ namespace BillingApp.Reports
             this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 530);
+            this.panel3.Size = new System.Drawing.Size(322, 644);
             this.panel3.TabIndex = 4;
             // 
             // panel2
@@ -671,14 +671,14 @@ namespace BillingApp.Reports
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(322, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(826, 463);
+            this.panel2.Size = new System.Drawing.Size(826, 644);
             this.panel2.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 487);
+            this.ClientSize = new System.Drawing.Size(1148, 668);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -699,7 +699,6 @@ namespace BillingApp.Reports
             this.ResumeLayout(false);
 
         }
-
         #endregion
         private System.Windows.Forms.MenuStrip nav_menu_list;
         private System.Windows.Forms.ToolStripMenuItem addProduct_TSMI;
@@ -751,7 +750,6 @@ namespace BillingApp.Reports
         private System.Windows.Forms.Label selectCustomerTitle_lbl;
         private System.Windows.Forms.Label searchCustomerName_lbl;
         private System.Windows.Forms.Panel panel3;
-     //   private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Panel panel2;
     }
 }

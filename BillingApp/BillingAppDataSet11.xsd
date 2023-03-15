@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BillingAppDataSet1" targetNamespace="http://tempuri.org/BillingAppDataSet11.xsd" xmlns:mstns="http://tempuri.org/BillingAppDataSet11.xsd" xmlns="http://tempuri.org/BillingAppDataSet11.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BillingAppConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BillingAppConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BillingApp.Properties.Settings.GlobalReference.Default.BillingAppConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvoiceViewTableAdapter" GeneratorDataComponentClassName="InvoiceViewTableAdapter" Name="InvoiceView" UserDataComponentName="InvoiceViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BillingAppConnectionString (Settings)" DbObjectName="BillingApp.dbo.InvoiceView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT invoiceNo_Id, invoiceDate, customer_Name, site_Address, subCategory_Name, quantity_Product, pricePer_Unit FROM dbo.InvoiceView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="invoiceNo_Id" DataSetColumn="invoiceNo_Id" />
+              <Mapping SourceColumn="invoiceDate" DataSetColumn="invoiceDate" />
+              <Mapping SourceColumn="customer_Name" DataSetColumn="customer_Name" />
+              <Mapping SourceColumn="site_Address" DataSetColumn="site_Address" />
+              <Mapping SourceColumn="subCategory_Name" DataSetColumn="subCategory_Name" />
+              <Mapping SourceColumn="quantity_Product" DataSetColumn="quantity_Product" />
+              <Mapping SourceColumn="pricePer_Unit" DataSetColumn="pricePer_Unit" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductListTableAdapter" GeneratorDataComponentClassName="ProductListTableAdapter" Name="ProductList" UserDataComponentName="ProductListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BillingAppConnectionString (Settings)" DbObjectName="BillingApp.dbo.ProductList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT fk_InvoiceNo_Id, subCategory_Name, product_Name, quantity_Product, length_Product, width_Product, total_SqFt, side_Service, molding_Amount, total_Amount FROM dbo.ProductList</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fk_InvoiceNo_Id" DataSetColumn="fk_InvoiceNo_Id" />
+              <Mapping SourceColumn="subCategory_Name" DataSetColumn="subCategory_Name" />
+              <Mapping SourceColumn="product_Name" DataSetColumn="product_Name" />
+              <Mapping SourceColumn="quantity_Product" DataSetColumn="quantity_Product" />
+              <Mapping SourceColumn="length_Product" DataSetColumn="length_Product" />
+              <Mapping SourceColumn="width_Product" DataSetColumn="width_Product" />
+              <Mapping SourceColumn="total_SqFt" DataSetColumn="total_SqFt" />
+              <Mapping SourceColumn="side_Service" DataSetColumn="side_Service" />
+              <Mapping SourceColumn="molding_Amount" DataSetColumn="molding_Amount" />
+              <Mapping SourceColumn="total_Amount" DataSetColumn="total_Amount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BillingAppDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BillingAppDataSet1" msprop:Generator_UserDSName="BillingAppDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="InvoiceView" msprop:Generator_TableClassName="InvoiceViewDataTable" msprop:Generator_TableVarName="tableInvoiceView" msprop:Generator_TablePropName="InvoiceView" msprop:Generator_RowDeletingName="InvoiceViewRowDeleting" msprop:Generator_RowChangingName="InvoiceViewRowChanging" msprop:Generator_RowEvHandlerName="InvoiceViewRowChangeEventHandler" msprop:Generator_RowDeletedName="InvoiceViewRowDeleted" msprop:Generator_UserTableName="InvoiceView" msprop:Generator_RowChangedName="InvoiceViewRowChanged" msprop:Generator_RowEvArgName="InvoiceViewRowChangeEvent" msprop:Generator_RowClassName="InvoiceViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="invoiceNo_Id" msprop:Generator_ColumnVarNameInTable="columninvoiceNo_Id" msprop:Generator_ColumnPropNameInRow="invoiceNo_Id" msprop:Generator_ColumnPropNameInTable="invoiceNo_IdColumn" msprop:Generator_UserColumnName="invoiceNo_Id" type="xs:int" />
+              <xs:element name="invoiceDate" msprop:Generator_ColumnVarNameInTable="columninvoiceDate" msprop:Generator_ColumnPropNameInRow="invoiceDate" msprop:Generator_ColumnPropNameInTable="invoiceDateColumn" msprop:Generator_UserColumnName="invoiceDate" type="xs:dateTime" />
+              <xs:element name="customer_Name" msprop:Generator_ColumnVarNameInTable="columncustomer_Name" msprop:Generator_ColumnPropNameInRow="customer_Name" msprop:Generator_ColumnPropNameInTable="customer_NameColumn" msprop:Generator_UserColumnName="customer_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="site_Address" msprop:Generator_ColumnVarNameInTable="columnsite_Address" msprop:Generator_ColumnPropNameInRow="site_Address" msprop:Generator_ColumnPropNameInTable="site_AddressColumn" msprop:Generator_UserColumnName="site_Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subCategory_Name" msprop:Generator_ColumnVarNameInTable="columnsubCategory_Name" msprop:Generator_ColumnPropNameInRow="subCategory_Name" msprop:Generator_ColumnPropNameInTable="subCategory_NameColumn" msprop:Generator_UserColumnName="subCategory_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantity_Product" msprop:Generator_ColumnVarNameInTable="columnquantity_Product" msprop:Generator_ColumnPropNameInRow="quantity_Product" msprop:Generator_ColumnPropNameInTable="quantity_ProductColumn" msprop:Generator_UserColumnName="quantity_Product" type="xs:int" />
+              <xs:element name="pricePer_Unit" msprop:Generator_ColumnVarNameInTable="columnpricePer_Unit" msprop:Generator_ColumnPropNameInRow="pricePer_Unit" msprop:Generator_ColumnPropNameInTable="pricePer_UnitColumn" msprop:Generator_UserColumnName="pricePer_Unit" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProductList" msprop:Generator_TableClassName="ProductListDataTable" msprop:Generator_TableVarName="tableProductList" msprop:Generator_TablePropName="ProductList" msprop:Generator_RowDeletingName="ProductListRowDeleting" msprop:Generator_RowChangingName="ProductListRowChanging" msprop:Generator_RowEvHandlerName="ProductListRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductListRowDeleted" msprop:Generator_UserTableName="ProductList" msprop:Generator_RowChangedName="ProductListRowChanged" msprop:Generator_RowEvArgName="ProductListRowChangeEvent" msprop:Generator_RowClassName="ProductListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fk_InvoiceNo_Id" msprop:Generator_ColumnVarNameInTable="columnfk_InvoiceNo_Id" msprop:Generator_ColumnPropNameInRow="fk_InvoiceNo_Id" msprop:Generator_ColumnPropNameInTable="fk_InvoiceNo_IdColumn" msprop:Generator_UserColumnName="fk_InvoiceNo_Id" type="xs:int" />
+              <xs:element name="subCategory_Name" msprop:Generator_ColumnVarNameInTable="columnsubCategory_Name" msprop:Generator_ColumnPropNameInRow="subCategory_Name" msprop:Generator_ColumnPropNameInTable="subCategory_NameColumn" msprop:Generator_UserColumnName="subCategory_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_Name" msprop:Generator_ColumnVarNameInTable="columnproduct_Name" msprop:Generator_ColumnPropNameInRow="product_Name" msprop:Generator_ColumnPropNameInTable="product_NameColumn" msprop:Generator_UserColumnName="product_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantity_Product" msprop:Generator_ColumnVarNameInTable="columnquantity_Product" msprop:Generator_ColumnPropNameInRow="quantity_Product" msprop:Generator_ColumnPropNameInTable="quantity_ProductColumn" msprop:Generator_UserColumnName="quantity_Product" type="xs:int" />
+              <xs:element name="length_Product" msprop:Generator_ColumnVarNameInTable="columnlength_Product" msprop:Generator_ColumnPropNameInRow="length_Product" msprop:Generator_ColumnPropNameInTable="length_ProductColumn" msprop:Generator_UserColumnName="length_Product" type="xs:decimal" minOccurs="0" />
+              <xs:element name="width_Product" msprop:Generator_ColumnVarNameInTable="columnwidth_Product" msprop:Generator_ColumnPropNameInRow="width_Product" msprop:Generator_ColumnPropNameInTable="width_ProductColumn" msprop:Generator_UserColumnName="width_Product" type="xs:decimal" minOccurs="0" />
+              <xs:element name="total_SqFt" msprop:Generator_ColumnVarNameInTable="columntotal_SqFt" msprop:Generator_ColumnPropNameInRow="total_SqFt" msprop:Generator_ColumnPropNameInTable="total_SqFtColumn" msprop:Generator_UserColumnName="total_SqFt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="side_Service" msprop:Generator_ColumnVarNameInTable="columnside_Service" msprop:Generator_ColumnPropNameInRow="side_Service" msprop:Generator_ColumnPropNameInTable="side_ServiceColumn" msprop:Generator_UserColumnName="side_Service" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="molding_Amount" msprop:Generator_ColumnVarNameInTable="columnmolding_Amount" msprop:Generator_ColumnPropNameInRow="molding_Amount" msprop:Generator_ColumnPropNameInTable="molding_AmountColumn" msprop:Generator_UserColumnName="molding_Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="total_Amount" msprop:Generator_ColumnVarNameInTable="columntotal_Amount" msprop:Generator_ColumnPropNameInRow="total_Amount" msprop:Generator_ColumnPropNameInTable="total_AmountColumn" msprop:Generator_UserColumnName="total_Amount" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InvoiceView" />
+      <xs:field xpath="mstns:invoiceNo_Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

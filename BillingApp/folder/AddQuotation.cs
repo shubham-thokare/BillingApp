@@ -245,36 +245,17 @@ namespace BillingApp
                     }
                     SqlDataReader sdr = cmd.ExecuteReader();
                     while (sdr.Read())
-                    {
-                        customer_name = sdr.GetString(0);
-                        site_name = sdr.GetString(1);
-                        contact_person = sdr.GetString(2);
-                        contact_no = sdr.GetString(3);
-                        gst_no = sdr.GetString(4);
-                        pan_no = sdr.GetString(5);
-                        site_address = sdr.GetString(6);
+                    { 
+
                     }
                     conn.Close();
                 }
 
-                companyName_tB.Text = @customer_name;
-                siteName_tB.Text = @site_name;
-                contactPerson_tB.Text = @contact_person;
-                contactNo_tb.Text = @contact_no;
-                gstNo_tB.Text = @gst_no;
-                panNo_tB.Text = @pan_no;
-                siteAddress_tb.Text = @site_address;
-
+              
             }
             else
             {
-                companyName_tB.Text = "";
-                siteName_tB.Text = "";
-                contactPerson_tB.Text = "";
-                contactNo_tb.Text = "";
-                gstNo_tB.Text = "";
-                panNo_tB.Text = "";
-                siteAddress_tb.Text = "";
+               
             }
 
         }
@@ -294,7 +275,6 @@ namespace BillingApp
             Bitmap Quotation_bmp = new Bitmap(quotation_Pnl.Width, quotation_Pnl.Height);
             quotation_Pnl.DrawToBitmap(Quotation_bmp, new  Rectangle(0,0, Quotation_bmp.Width, Quotation_bmp.Height));
 
-            e.Graphics.DrawImage(Quotation_bmp, 0, 0);
 
             e.HasMorePages = false;
         }
@@ -324,12 +304,11 @@ namespace BillingApp
             newRow.Cells[3].Value = p_rate;           
 
             selectedProductList_dGV.Rows.Add(newRow);
-
-           // resultCustomerId_tB.Clear();
-           // catogeryProduct_tB.Clear();
-           // resultProduct_tB.Clear();
-           // rateProduct_tB.Clear();
-           // hsnNo_tB.Clear();
+            resultCustomerId_tB.Clear();
+            catogeryProduct_tB.Clear();
+            resultProduct_tB.Clear();
+            rateProduct_tB.Clear();
+            hsnNo_tB.Clear();
         }
 
         private void SelectProduct_dGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -364,13 +343,11 @@ namespace BillingApp
                     }
                     conn.Close();
                 }
-
                 catogeryProduct_tB.Text = @product_name;
                 MessageBox.Show("Product Selected Successfully.");
             }
             else
             {
-                // handle the error here, e.g. display an error message
                 MessageBox.Show(" handle the error here line:506 ");
             }
         }
