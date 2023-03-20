@@ -381,11 +381,12 @@ namespace BillingApp
             side_service = sideService_tB.Text;
             //decimal productTotal;
 
-            if (!decimal.TryParse(rateProduct_tB.Text, out p_rate)
+            if ( Submit==false && (
+                !decimal.TryParse(rateProduct_tB.Text, out p_rate)
                 || !decimal.TryParse(lengthProduct_tB.Text, out pLength)
                 || !decimal.TryParse(widthProduct_tB.Text, out pWidth)
                 || !int.TryParse(quantity_tB.Text, out p_quantity)
-                )
+                ))
             {
                 MessageBox.Show("Invalid input in one or more fields.");
                 return;
@@ -455,7 +456,6 @@ namespace BillingApp
                     selectProduct_dGV.DataSource = ProductCategorydataTable;
                     searchProductName_tB.Text = "";
                 }
-
                 else
                 {
                     conn.Open();
@@ -520,7 +520,7 @@ namespace BillingApp
                         }
                     }
                     pLength = (decimal)length;
-                    MessageBox.Show("Length = " + pLength);
+                 //   MessageBox.Show("Length = " + pLength);
                 }
             }
 
@@ -530,7 +530,7 @@ namespace BillingApp
                 {
                     decimal result = LengthRoundToMultipleOf6(lenghtValue);
                     pLength = result;
-                    MessageBox.Show("Length= " + pLength);
+                    //essageBox.Show("Length= " + pLength);
                 }
                 else
                 {
@@ -660,11 +660,11 @@ namespace BillingApp
 
         private void Quantity_tB_TextChanged(object sender, EventArgs e)
         {
-            if (!decimal.TryParse(rateProduct_tB.Text, out p_rate) ||
+            if(Submit==false && (!decimal.TryParse(rateProduct_tB.Text, out p_rate) ||
                 !decimal.TryParse(lengthProduct_tB.Text, out pLength) ||
                 !decimal.TryParse(widthProduct_tB.Text, out pWidth) ||
                 !int.TryParse(quantity_tB.Text, out p_quantity)
-                )
+              )  )
             {
                 MessageBox.Show("Invalid input in one or more fields.");
                 return;
@@ -688,7 +688,6 @@ namespace BillingApp
                 if (!string.IsNullOrEmpty(totalServiceSidesCharges_tB.Text))
                 {
                     servicePrice = Convert.ToDecimal(totalServiceSidesCharges_tB.Text);
-
                 }
                 else
                 {
@@ -707,7 +706,7 @@ namespace BillingApp
 
         private void RateProduct_tB_TextChanged(object sender, EventArgs e)
         {
-//            decimal.TryParse(rateProduct_tB.Text, out p_rate);
+
         }
 
         private void WidthProduct_tB_TextChanged(object sender, EventArgs e)
